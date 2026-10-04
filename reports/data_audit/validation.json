@@ -1,0 +1,20 @@
+{
+  "subject_split_disjoint": true,
+  "every_visit_retained": true,
+  "no_missing_value_imputation": true,
+  "original_sha256": "e7665c1905467703cec7674e08d2b42874650821c0a52d66be111d7cfdeca72b",
+  "all_primary_paths_exist": true,
+  "no_actual_scan_dates_fabricated": true,
+  "events_unique": true,
+  "forecast_targets_strictly_future": true,
+  "normalization_fit_split": "train",
+  "split_seed": 2026,
+  "input_visits": 15453,
+  "input_subjects": 4316,
+  "matched_visits": 9436,
+  "primary_scans_in_cognitive_cohort": 10230,
+  "invalid_observations": 20206,
+  "nearest_month_all_visits_retained": true,
+  "nearest_month_window": 6,
+  "nearest_month_eligible_visits": 9666
+}

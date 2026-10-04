@@ -1,0 +1,6 @@
+window_months,matched_visits,matched_subjects,unique_mri_scans,match_basis
+0,9436,1981,9436,nominal_session_month
+3,9509,1981,9509,nominal_session_month
+6,9666,1981,9514,nominal_session_month
+12,10498,1981,9516,nominal_session_month
+no_limit,12102,1981,9518,nominal_session_month

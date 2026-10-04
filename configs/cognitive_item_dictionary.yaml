@@ -1,0 +1,4579 @@
+schema_version: 1
+status: provisional_requires_dictionary_verification
+items:
+  adas_q1score:
+    instrument: ADAS
+    domain: Memory
+    construct: WordRecall
+    task_description: ADAS Score Component Q1 Word Recall
+    value_type: continuous
+    range:
+    - 0
+    - 10
+    valid_values: null
+    direction: higher=worse
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q1SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q1SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q1 Word Recall
+  adas_q2score:
+    instrument: ADAS
+    domain: Language
+    construct: Commands
+    task_description: ADAS Score Component Q2 Commands
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q2SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q2SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q2 Commands
+  adas_q3score:
+    instrument: ADAS
+    domain: Executive
+    construct: ConstructionalPraxis
+    task_description: ADAS Score Component Q3 Constructional Praxis
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q3SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q3SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q3 Constructional Praxis
+  adas_q4score:
+    instrument: ADAS
+    domain: Memory
+    construct: DelayedRecall
+    task_description: ADAS Score Component Q4 Delayed Word Recall
+    value_type: continuous
+    range:
+    - 0
+    - 10
+    valid_values: null
+    direction: higher=worse
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q4SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q4SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q4 Delayed Word Recall
+  adas_q5score:
+    instrument: ADAS
+    domain: Language
+    construct: Naming
+    task_description: ADAS Score Component Q5 Naming Objects and Fingers (without
+      cue)
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q5SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q5SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q5 Naming Objects and Fingers (without
+      cue)
+  adas_q5score_cue:
+    instrument: ADAS
+    domain: Language
+    construct: NamingWithCue
+    task_description: ADAS Score Component Q5 Naming Objects and Fingers (with cue
+      when necessary)
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q5SCORE_CUE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q5SCORE_CUE
+    official_table: ADAS
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: ADAS Score Component Q5 Naming Objects and Fingers (with
+      cue when necessary)
+  adas_q6score:
+    instrument: ADAS
+    domain: Executive
+    construct: IdeationalPraxis
+    task_description: ADAS Score Component Q6 Ideational Praxis
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q6SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q6SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q6 Ideational Praxis
+  adas_q7score:
+    instrument: ADAS
+    domain: Orientation
+    construct: Orientation
+    task_description: ADAS Score Component Q7 Orientation
+    value_type: continuous
+    range:
+    - 0
+    - 8
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q7SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q7SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q7 Orientation
+  adas_q8score:
+    instrument: ADAS
+    domain: Memory
+    construct: WordRecognition
+    task_description: ADAS Score Component Q8 Word Recognition
+    value_type: continuous
+    range:
+    - 0
+    - 12
+    valid_values: null
+    direction: higher=worse
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q8SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q8SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q8 Word Recognition
+  adas_q9score:
+    instrument: ADAS
+    domain: Memory
+    construct: RememberingInstructions
+    task_description: ADAS Score Component Q9 Remembering Test Instructions
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q9SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q9SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q9 Remembering Test Instructions
+  adas_q10score:
+    instrument: ADAS
+    domain: Language
+    construct: SpokenLanguageComprehension
+    task_description: ADAS Score Component Q10 Comprehension of Spoken Language
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q10SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q10SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q10 Comprehension of Spoken Language
+  adas_q11score:
+    instrument: ADAS
+    domain: Language
+    construct: WordFindingDifficulty
+    task_description: ADAS Score Component Q11 Word-finding Difficulty
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q11SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q11SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q11 Word-finding Difficulty
+  adas_q12score:
+    instrument: ADAS
+    domain: Language
+    construct: LanguageAbility
+    task_description: ADAS Score Component Q12 Language
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q12SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q12SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q12 Language
+  adas_q13score:
+    instrument: ADAS
+    domain: Attention
+    construct: NumberCancellation
+    task_description: ADAS Score Component Q13 Number Cancellation
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q13SCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: Q13SCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1, ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: ADAS Score Component Q13 Number Cancellation
+  adas_totscore:
+    instrument: ADAS
+    domain: GlobalOutcome
+    construct: GlobalScore
+    task_description: Classic 70 point total. Excludes Q4 (Delayed Word Recall) and
+      Q14 (Number Cancellation).
+    value_type: continuous
+    range:
+    - 0
+    - 70
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=TOTSCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: TOTSCORE
+    official_table: ADAS
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNIGO, ADNI2, ADNI4
+    official_description: Classic 70 point total. Excludes Q4 (Delayed Word Recall)
+      and Q14 (Number Cancellation).
+  adas_total13:
+    instrument: ADAS
+    domain: GlobalOutcome
+    construct: GlobalScore
+    task_description: 85 point total includingQ4 (Delayed Word Recall) and Q14 (Number
+      Cancellation).
+    value_type: continuous
+    range:
+    - 0
+    - 85
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=TOTAL13
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: TOTAL13
+    official_table: ADAS
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNIGO, ADNI2, ADNI4
+    official_description: 85 point total includingQ4 (Delayed Word Recall) and Q14
+      (Number Cancellation).
+  cdr_cdmemory:
+    instrument: CDR
+    domain: Memory
+    construct: InformantMemoryRating
+    task_description: Memory Score
+    value_type: ordinal
+    range: null
+    valid_values:
+    - 0
+    - 0.5
+    - 1
+    - 2
+    - 3
+    direction: higher=worse
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDMEMORY
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDMEMORY
+    official_table: CDR
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNI4, TEAM
+    - ADNIGO, ADNI2
+    official_description: Memory Score
+    response_labels:
+      '0': '0.0'
+      '0.5': '0.5'
+      '1': '1.0'
+      '2': '2.0'
+      '3': '3.0'
+  cdr_cdorient:
+    instrument: CDR
+    domain: Orientation
+    construct: InformantRating
+    task_description: Orientation Score
+    value_type: ordinal
+    range: null
+    valid_values:
+    - 0
+    - 0.5
+    - 1
+    - 2
+    - 3
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDORIENT
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDORIENT
+    official_table: CDR
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNI4, TEAM
+    - ADNIGO, ADNI2
+    official_description: Orientation Score
+    response_labels:
+      '0': '0.0'
+      '0.5': '0.5'
+      '1': '1.0'
+      '2': '2.0'
+      '3': '3.0'
+  cdr_cdjudge:
+    instrument: CDR
+    domain: Executive
+    construct: InformantRating
+    task_description: Judgment and Problem Solving Score
+    value_type: ordinal
+    range: null
+    valid_values:
+    - 0
+    - 0.5
+    - 1
+    - 2
+    - 3
+    direction: higher=worse
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDJUDGE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDJUDGE
+    official_table: CDR
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNI4, TEAM
+    - ADNIGO, ADNI2
+    official_description: Judgment and Problem Solving Score
+    response_labels:
+      '0': '0.0'
+      '0.5': '0.5'
+      '1': '1.0'
+      '2': '2.0'
+      '3': '3.0'
+  cdr_cdcommun:
+    instrument: CDR
+    domain: Function
+    construct: DailyFunction
+    task_description: Community Affairs Score
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 0.5
+    - 1
+    - 2
+    - 3
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDCOMMUN
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDCOMMUN
+    official_table: CDR
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNI4, TEAM
+    - ADNIGO, ADNI2
+    official_description: Community Affairs Score
+    response_labels:
+      '0': '0.0'
+      '0.5': '0.5'
+      '1': '1.0'
+      '2': '2.0'
+      '3': '3.0'
+  cdr_cdhome:
+    instrument: CDR
+    domain: Function
+    construct: DailyFunction
+    task_description: Home and Hobbies Score
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 0.5
+    - 1
+    - 2
+    - 3
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDHOME
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDHOME
+    official_table: CDR
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNI4, TEAM
+    - ADNIGO, ADNI2
+    official_description: Home and Hobbies Score
+    response_labels:
+      '0': '0.0'
+      '0.5': '0.5'
+      '1': '1.0'
+      '2': '2.0'
+      '3': '3.0'
+  cdr_cdcare:
+    instrument: CDR
+    domain: Function
+    construct: DailyFunction
+    task_description: Personal Care Score
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDCARE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDCARE
+    official_table: CDR
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNI4, TEAM
+    - ADNIGO, ADNI2
+    official_description: Personal Care Score
+    response_labels:
+      '0': '0.0'
+      '1': '1.0'
+      '2': '2.0'
+      '3': '3.0'
+  cdr_cdglobal:
+    instrument: CDR
+    domain: GlobalOutcome
+    construct: GlobalScore
+    task_description: Global CDR
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 0.5
+    - 1
+    - 2
+    - 3
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDGLOBAL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDGLOBAL
+    official_table: CDR
+    official_phases:
+    - ADNI1
+    - ADNI3
+    - ADNI4, TEAM
+    - ADNIGO, ADNI2
+    official_description: Global CDR
+    response_labels:
+      '0': '0.0'
+      '0.5': '0.5'
+      '1': '1.0'
+      '2': '2.0'
+      '3': '3.0'
+  cdr_cdrsb:
+    instrument: CDR
+    domain: GlobalOutcome
+    construct: GlobalScore
+    task_description: CDR Sum of Boxes
+    value_type: continuous
+    range:
+    - 0
+    - 18
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDRSB
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CDRSB
+    official_table: CDR
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: CDR Sum of Boxes
+  faq_faqfinan:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 1. Writing checks, paying bills, or balancing checkbook.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQFINAN
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQFINAN
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 1. Writing checks, paying bills, or balancing checkbook.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqform:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 2. Assembling tax records, business affairs, or other papers.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQFORM
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQFORM
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 2. Assembling tax records, business affairs, or other papers.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqshop:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 3. Shopping alone for clothes, household necessities, or groceries.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQSHOP
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQSHOP
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 3. Shopping alone for clothes, household necessities, or
+      groceries.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqgame:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 4. Playing a game of skill such as bridge or chess, working
+      on a hobby.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQGAME
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQGAME
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 4. Playing a game of skill such as bridge or chess, working
+      on a hobby.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqbevg:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 5. Heating water, making a cup of coffee, turning off the stove.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQBEVG
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQBEVG
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO
+    - ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 5. Heating water, making a cup of coffee, turning off the
+      stove.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqmeal:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 6. Preparing a balanced meal.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQMEAL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQMEAL
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 6. Preparing a balanced meal.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqevent:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 7. Keeping track of current events.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQEVENT
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQEVENT
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 7. Keeping track of current events.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqtv:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 8. Paying attention to and understanding a TV program, book,
+      or magazine.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQTV
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQTV
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 8. Paying attention to and understanding a TV program, book,
+      or magazine.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqrem:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 9. Remembering appointments, family occasions, holidays, medications.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQREM
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQREM
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 9. Remembering appointments, family occasions, holidays,
+      medications.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqtravl:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: 10. Traveling out of the neighborhood, driving, or arranging
+      to take public transportation.
+    value_type: ordinal
+    range:
+    - 0
+    - 3
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQTRAVL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQTRAVL
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2, ADNI3
+    - ADNI4, TEAM
+    official_description: 10. Traveling out of the neighborhood, driving, or arranging
+      to take public transportation.
+    response_labels:
+      '0': Normal (0)
+      '1': Never did, but could do now (0)
+      '2': Never did, would have difficulty now (1)
+      '3': Has difficulty, but does by self (1)
+      '4': Requires assistance (2)
+      '5': Dependent (3)
+  faq_faqtotal:
+    instrument: FAQ
+    domain: Function
+    construct: DailyFunction
+    task_description: FAQ Total Score
+    value_type: continuous
+    range:
+    - 0
+    - 30
+    valid_values: null
+    direction: higher=worse
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FAQTOTAL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FAQTOTAL
+    official_table: FAQ
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: FAQ Total Score
+  mmse_mmyear:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 2. What is the year?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMYEAR
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMYEAR
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 2. What is the year?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmmonth:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 3. What is the month?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMMONTH
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMMONTH
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 3. What is the month?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmday:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 4. What day of the week is today?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMDAY
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMDAY
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 4. What day of the week is today?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmseason:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 5. What season is it?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMSEASON
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMSEASON
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 5. What season is it?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmhospit:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 6. What is the name of this hospital (clinic, place)?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMHOSPIT
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMHOSPIT
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 6. What is the name of this hospital (clinic, place)?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmfloor:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 7. What floor are we on?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMFLOOR
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMFLOOR
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 7. What floor are we on?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmcity:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 8. What town or city are we in?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMCITY
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMCITY
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 8. What town or city are we in?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmarea:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 9. What county (district, borough, area) are we in?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMAREA
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMAREA
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 9. What county (district, borough, area) are we in?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmstate:
+    instrument: MMSE
+    domain: Orientation
+    construct: Orientation
+    task_description: 10. What state are we in?
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMSTATE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMSTATE
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 10. What state are we in?
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_word1:
+    instrument: MMSE
+    domain: Memory
+    construct: Registration
+    task_description: 'Ball (alt: Apple)'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD1
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: WORD1
+    official_table: MMSE
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: 'Ball (alt: Apple)'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_word2:
+    instrument: MMSE
+    domain: Memory
+    construct: Registration
+    task_description: 'Flag (alt: Penny)'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD2
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: WORD2
+    official_table: MMSE
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: 'Flag (alt: Penny)'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_word3:
+    instrument: MMSE
+    domain: Memory
+    construct: Registration
+    task_description: 'Tree (alt: Table)'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD3
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: WORD3
+    official_table: MMSE
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: 'Tree (alt: Table)'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmtrials:
+    instrument: MMSE
+    domain: Memory
+    construct: LearningTrials
+    task_description: 13a. Enter number of trials
+    value_type: continuous
+    range:
+    - 1
+    - 6
+    valid_values: null
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMTRIALS
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMTRIALS
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    official_description: 13a. Enter number of trials
+  mmse_mmd:
+    instrument: MMSE
+    domain: Attention
+    construct: SpellingBackward
+    task_description: 14. D
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMD
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMD
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    official_description: 14. D
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mml:
+    instrument: MMSE
+    domain: Attention
+    construct: SpellingBackward
+    task_description: 15. L
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MML
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MML
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    official_description: 15. L
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmr:
+    instrument: MMSE
+    domain: Attention
+    construct: SpellingBackward
+    task_description: 16. R
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMR
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMR
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    official_description: 16. R
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmo:
+    instrument: MMSE
+    domain: Attention
+    construct: SpellingBackward
+    task_description: 17. O
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMO
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMO
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    official_description: 17. O
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmw:
+    instrument: MMSE
+    domain: Attention
+    construct: SpellingBackward
+    task_description: 18. W
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMW
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMW
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    official_description: 18. W
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmltr1:
+    instrument: MMSE
+    domain: Unverified
+    construct: Unverified
+    task_description: Indicate 1st letter
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMLTR1
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: MMLTR1
+    official_table: MMSE
+    official_phases:
+    - ADNI3, ADNI4
+    official_description: Indicate 1st letter
+  mmse_mmltr2:
+    instrument: MMSE
+    domain: Unverified
+    construct: Unverified
+    task_description: Indicate 2nd letter
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMLTR2
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: MMLTR2
+    official_table: MMSE
+    official_phases:
+    - ADNI3, ADNI4
+    official_description: Indicate 2nd letter
+  mmse_mmltr3:
+    instrument: MMSE
+    domain: Unverified
+    construct: Unverified
+    task_description: Indicate 3rd letter
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMLTR3
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: MMLTR3
+    official_table: MMSE
+    official_phases:
+    - ADNI3, ADNI4
+    official_description: Indicate 3rd letter
+  mmse_mmltr4:
+    instrument: MMSE
+    domain: Unverified
+    construct: Unverified
+    task_description: Indicate 4th letter
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMLTR4
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: MMLTR4
+    official_table: MMSE
+    official_phases:
+    - ADNI3, ADNI4
+    official_description: Indicate 4th letter
+  mmse_mmltr5:
+    instrument: MMSE
+    domain: Unverified
+    construct: Unverified
+    task_description: Indicate 5th letter
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMLTR5
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: MMLTR5
+    official_table: MMSE
+    official_phases:
+    - ADNI3, ADNI4
+    official_description: Indicate 5th letter
+  mmse_mmltr6:
+    instrument: MMSE
+    domain: Unverified
+    construct: Unverified
+    task_description: Indicate 6th letter (if given)
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMLTR6
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: MMLTR6
+    official_table: MMSE
+    official_phases:
+    - ADNI3, ADNI4
+    official_description: Indicate 6th letter (if given)
+  mmse_mmltr7:
+    instrument: MMSE
+    domain: Unverified
+    construct: Unverified
+    task_description: Indicate 7th letter (if given)
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMLTR7
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: MMLTR7
+    official_table: MMSE
+    official_phases:
+    - ADNI3, ADNI4
+    official_description: Indicate 7th letter (if given)
+  mmse_worldscore:
+    instrument: MMSE
+    domain: Attention
+    construct: SpellingBackward
+    task_description: 'Score: World Backwards'
+    value_type: continuous
+    range:
+    - 0
+    - 5
+    valid_values: null
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORLDSCORE
+    verification_note: Official field/table matched, but coding could not be verified
+      from returned codes or observed values.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: WORLDSCORE
+    official_table: MMSE
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: 'Score: World Backwards'
+  mmse_word1dl:
+    instrument: MMSE
+    domain: Memory
+    construct: DelayedRecall
+    task_description: 'Ball (alt: Apple)'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD1DL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: WORD1DL
+    official_table: MMSE
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: 'Ball (alt: Apple)'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_word2dl:
+    instrument: MMSE
+    domain: Memory
+    construct: DelayedRecall
+    task_description: 'Flag (alt: Penny)'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD2DL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: WORD2DL
+    official_table: MMSE
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: 'Flag (alt: Penny)'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_word3dl:
+    instrument: MMSE
+    domain: Memory
+    construct: DelayedRecall
+    task_description: 'Tree (alt: Table)'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD3DL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: WORD3DL
+    official_table: MMSE
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: 'Tree (alt: Table)'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmwatch:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: 22. Show the participant a wrist watch and ask "What is this?"
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMWATCH
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMWATCH
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO
+    - ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 22. Show the participant a wrist watch and ask "What is
+      this?"
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmpencil:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: What is this? [Point to a pencil or pen]
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMPENCIL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMPENCIL
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: What is this? [Point to a pencil or pen]
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmrepeat:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: '24. Say, "Repeat after me: no ifs, ands, or buts."'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMREPEAT
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMREPEAT
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO
+    - ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: '24. Say, "Repeat after me: no ifs, ands, or buts."'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmhand:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: 25. Takes paper in right hand.
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMHAND
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMHAND
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 25. Takes paper in right hand.
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmfold:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: 26. Folds paper in half.
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMFOLD
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMFOLD
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 26. Folds paper in half.
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmonflr:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: 27. Puts paper on floor.
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMONFLR
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMONFLR
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO, ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 27. Puts paper on floor.
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmread:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: '28. Present the piece of paper which reads, "CLOSE YOUR EYES,"
+      and say: "Read this and do what it says."'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMREAD
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMREAD
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO
+    - ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: '28. Present the piece of paper which reads, "CLOSE YOUR
+      EYES," and say: "Read this and do what it says."'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmwrite:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: '29. Give the participant a blank piece of paper and say: "Write
+      a sentence."'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMWRITE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMWRITE
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO
+    - ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: '29. Give the participant a blank piece of paper and say:
+      "Write a sentence."'
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmdraw:
+    instrument: MMSE
+    domain: Language
+    construct: LanguagePraxis
+    task_description: 30. Present the participant with the Construction Stimulus page.
+      Say, "Copy this design."
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMDRAW
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMDRAW
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNIGO
+    - ADNI2
+    - ADNI3
+    - ADNI4
+    official_description: 30. Present the participant with the Construction Stimulus
+      page. Say, "Copy this design."
+    response_labels:
+      '0': 0 - Incorrect
+      '1': 1 - Correct
+  mmse_mmscore:
+    instrument: MMSE
+    domain: GlobalOutcome
+    construct: GlobalScore
+    task_description: MMSE TOTAL SCORE
+    value_type: continuous
+    range:
+    - 0
+    - 30
+    valid_values: null
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMSCORE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MMSCORE
+    official_table: MMSE
+    official_phases:
+    - ADNI1, ADNI2
+    - ADNI3
+    - ADNI4
+    - ADNIGO
+    official_description: MMSE TOTAL SCORE
+  moca_trails:
+    instrument: MOCA
+    domain: Executive
+    construct: ExecutiveVisuospatial
+    task_description: Trails
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=TRAILS
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: TRAILS
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Trails
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_cube:
+    instrument: MOCA
+    domain: Executive
+    construct: ExecutiveVisuospatial
+    task_description: Copy Cube
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CUBE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CUBE
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Copy Cube
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_clockcon:
+    instrument: MOCA
+    domain: Executive
+    construct: ExecutiveVisuospatial
+    task_description: Draw Clock - Contour
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CLOCKCON
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CLOCKCON
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Draw Clock - Contour
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_clockno:
+    instrument: MOCA
+    domain: Executive
+    construct: ExecutiveVisuospatial
+    task_description: Draw Clock - Number
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CLOCKNO
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CLOCKNO
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Draw Clock - Number
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_clockhan:
+    instrument: MOCA
+    domain: Executive
+    construct: ExecutiveVisuospatial
+    task_description: Draw Clock - Hands
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CLOCKHAN
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CLOCKHAN
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Draw Clock - Hands
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_lion:
+    instrument: MOCA
+    domain: Language
+    construct: Language
+    task_description: Lion
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=LION
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: LION
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Lion
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_rhino:
+    instrument: MOCA
+    domain: Language
+    construct: Language
+    task_description: Rhinoceros
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=RHINO
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: RHINO
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Rhinoceros
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_camel:
+    instrument: MOCA
+    domain: Language
+    construct: Language
+    task_description: Camel
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CAMEL
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CAMEL
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Camel
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_digfor:
+    instrument: MOCA
+    domain: Attention
+    construct: AttentionWorkingMemory
+    task_description: Digits Forward
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DIGFOR
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DIGFOR
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Digits Forward
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_digback:
+    instrument: MOCA
+    domain: Attention
+    construct: AttentionWorkingMemory
+    task_description: Digits Backward
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DIGBACK
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DIGBACK
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Digits Backward
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_letters:
+    instrument: MOCA
+    domain: Attention
+    construct: LetterVigilanceRawResponse
+    task_description: 'List of Letters/Tapping: # Errors'
+    value_type: continuous
+    range:
+    - 0
+    - 29
+    valid_values: null
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=LETTERS
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions. Raw response retained
+      in source data and excluded from scored-state inputs.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: LETTERS
+    official_table: MOCA
+    official_phases:
+    - ADNI3, ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'List of Letters/Tapping: # Errors'
+  moca_serial1:
+    instrument: MOCA
+    domain: Attention
+    construct: SerialSubtractionRawResponse
+    task_description: 'Serial 7: 1st Subtraction'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=SERIAL1
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions. Raw response retained
+      in source data and excluded from scored-state inputs.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: SERIAL1
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Serial 7: 1st Subtraction'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_serial2:
+    instrument: MOCA
+    domain: Attention
+    construct: SerialSubtractionRawResponse
+    task_description: 'Serial 7: 2nd Subtraction'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=SERIAL2
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions. Raw response retained
+      in source data and excluded from scored-state inputs.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: SERIAL2
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Serial 7: 2nd Subtraction'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_serial3:
+    instrument: MOCA
+    domain: Attention
+    construct: SerialSubtractionRawResponse
+    task_description: 'Serial 7: 3rd Subtraction'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=SERIAL3
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions. Raw response retained
+      in source data and excluded from scored-state inputs.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: SERIAL3
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Serial 7: 3rd Subtraction'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_serial4:
+    instrument: MOCA
+    domain: Attention
+    construct: SerialSubtractionRawResponse
+    task_description: 'Serial 7: 4th Subtraction'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=SERIAL4
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions. Raw response retained
+      in source data and excluded from scored-state inputs.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: SERIAL4
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Serial 7: 4th Subtraction'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_serial5:
+    instrument: MOCA
+    domain: Attention
+    construct: SerialSubtractionRawResponse
+    task_description: 'Serial 7: 5th Subtraction'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=SERIAL5
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions. Raw response retained
+      in source data and excluded from scored-state inputs.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+    official_field: SERIAL5
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Serial 7: 5th Subtraction'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_repeat1:
+    instrument: MOCA
+    domain: Language
+    construct: Language
+    task_description: 'Repeat Sentence: I only know that John is the one to help today.'
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=REPEAT1
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: REPEAT1
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Repeat Sentence: I only know that John is the one to help
+      today.'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_repeat2:
+    instrument: MOCA
+    domain: Language
+    construct: Language
+    task_description: 'Repeat Sentence: The cat always hid under the couch when dogs
+      were in the room.'
+    value_type: binary
+    range:
+    - 0
+    - 1
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=REPEAT2
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: REPEAT2
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Repeat Sentence: The cat always hid under the couch when
+      dogs were in the room.'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_ffluency:
+    instrument: MOCA
+    domain: Language
+    construct: Language
+    task_description: 'Letter Fluency - F: Total number of correct words'
+    value_type: continuous
+    range:
+    - 0
+    - 99
+    valid_values: null
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FFLUENCY
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: FFLUENCY
+    official_table: MOCA
+    official_phases:
+    - ADNI3, ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Letter Fluency - F: Total number of correct words'
+  moca_abstran:
+    instrument: MOCA
+    domain: Executive
+    construct: ExecutiveVisuospatial
+    task_description: 'Abstraction: train-bicycle'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=ABSTRAN
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: ABSTRAN
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Abstraction: train-bicycle'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_absmeas:
+    instrument: MOCA
+    domain: Executive
+    construct: ExecutiveVisuospatial
+    task_description: 'Abstraction: watch-ruler'
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=ABSMEAS
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: ABSMEAS
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Abstraction: watch-ruler'
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_delw1:
+    instrument: MOCA
+    domain: Memory
+    construct: DelayedRecallCueLevel
+    task_description: 'Delayed: Face'
+    value_type: categorical
+    range: null
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    direction: nonmonotonic_cue_category
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DELW1
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DELW1
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Delayed: Face'
+    response_labels:
+      '0': Incorrect
+      '1': Correct with No Cue
+      '2': Correct with Category Cue
+      '3': Correct with Mult. Choice Cue
+  moca_delw2:
+    instrument: MOCA
+    domain: Memory
+    construct: DelayedRecallCueLevel
+    task_description: 'Delayed: Velvet'
+    value_type: categorical
+    range: null
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    direction: nonmonotonic_cue_category
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DELW2
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DELW2
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Delayed: Velvet'
+    response_labels:
+      '0': Incorrect
+      '1': Correct with No Cue
+      '2': Correct with Category Cue
+      '3': Correct with Mult. Choice Cue
+  moca_delw3:
+    instrument: MOCA
+    domain: Memory
+    construct: DelayedRecallCueLevel
+    task_description: 'Delayed: Church'
+    value_type: categorical
+    range: null
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    direction: nonmonotonic_cue_category
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DELW3
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DELW3
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Delayed: Church'
+    response_labels:
+      '0': Incorrect
+      '1': Correct with No Cue
+      '2': Correct with Category Cue
+      '3': Correct with Mult. Choice Cue
+  moca_delw4:
+    instrument: MOCA
+    domain: Memory
+    construct: DelayedRecallCueLevel
+    task_description: 'Delayed: Daisy'
+    value_type: categorical
+    range: null
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    direction: nonmonotonic_cue_category
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DELW4
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DELW4
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Delayed: Daisy'
+    response_labels:
+      '0': Incorrect
+      '1': Correct with No Cue
+      '2': Correct with Category Cue
+      '3': Correct with Mult. Choice Cue
+  moca_delw5:
+    instrument: MOCA
+    domain: Memory
+    construct: DelayedRecallCueLevel
+    task_description: 'Delayed: Red'
+    value_type: categorical
+    range: null
+    valid_values:
+    - 0
+    - 1
+    - 2
+    - 3
+    direction: nonmonotonic_cue_category
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DELW5
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DELW5
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: 'Delayed: Red'
+    response_labels:
+      '0': Incorrect
+      '1': Correct with No Cue
+      '2': Correct with Category Cue
+      '3': Correct with Mult. Choice Cue
+  moca_date:
+    instrument: MOCA
+    domain: Orientation
+    construct: Orientation
+    task_description: Date
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DATE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DATE
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Date
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_month:
+    instrument: MOCA
+    domain: Orientation
+    construct: Orientation
+    task_description: Month
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MONTH
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MONTH
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Month
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_year:
+    instrument: MOCA
+    domain: Orientation
+    construct: Orientation
+    task_description: Year
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=YEAR
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: YEAR
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Year
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_day:
+    instrument: MOCA
+    domain: Orientation
+    construct: Orientation
+    task_description: Day
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DAY
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: DAY
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Day
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_place:
+    instrument: MOCA
+    domain: Orientation
+    construct: Orientation
+    task_description: Place
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=PLACE
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: PLACE
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: Place
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_city:
+    instrument: MOCA
+    domain: Orientation
+    construct: Orientation
+    task_description: City
+    value_type: binary
+    range: null
+    valid_values:
+    - 0
+    - 1
+    direction: higher=better
+    core_memory: false
+    use_for_state: true
+    use_for_aux: true
+    use_for_outcome: false
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CITY
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: CITY
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    - ADNIGO, ADNI2
+    official_description: City
+    response_labels:
+      '0': Incorrect
+      '1': Correct
+  moca_moca:
+    instrument: MOCA
+    domain: GlobalOutcome
+    construct: GlobalScore
+    task_description: MOCA Total Score
+    value_type: continuous
+    range:
+    - 0
+    - 30
+    valid_values: null
+    direction: higher=better
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: true
+    source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MOCA
+    verification_note: Exact field and ADNI source-table match; observed non-missing
+      codes checked against all returned phase definitions.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+    official_field: MOCA
+    official_table: MOCA
+    official_phases:
+    - ADNI3
+    - ADNI4
+    official_description: MOCA Total Score
+  dxsum_diagnosis:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_diagnosis; do not infer task
+      or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxnorm:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxnorm; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxnodep:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxnodep; do not infer task
+      or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxmci:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxmci; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxmdes:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxmdes; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxmdue:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxmdue; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxdsev:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxdsev; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxddue:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxddue; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxad:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxad; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxapp:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxapp; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxaprob:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxaprob; do not infer task
+      or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxaposs:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxaposs; do not infer task
+      or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxpark:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxpark; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxpcog:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxpcog; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxpatyp:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxpatyp; do not infer task
+      or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxdep:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxdep; do not infer task or
+      coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxothdem:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxothdem; do not infer task
+      or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_dxconfid:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_dxconfid; do not infer task
+      or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  dxsum_diagnosis_label:
+    instrument: DXSUM
+    domain: ClinicalOutcome
+    construct: ClinicalOutcome
+    task_description: Unverified source variable dxsum_diagnosis_label; do not infer
+      task or coding.
+    value_type: categorical
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: true
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  AVLT_Trial1Int:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Trial1Int; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Trial2Int:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Trial2Int; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Trial3Int:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Trial3Int; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Trial4Int:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Trial4Int; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Trial5Int:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Trial5Int; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Trial6Int:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Trial6Int; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Trial7Int:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Trial7Int; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Delay_Rec:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Delay_Rec; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  AVLT_Delay_TotInt:
+    instrument: AVLT
+    domain: Memory
+    construct: UnverifiedAVLT
+    task_description: Unverified source variable AVLT_Delay_TotInt; do not infer task
+      or coding.
+    value_type: continuous
+    range:
+    - 0
+    - 100
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Int may encode intrusions, not correct recall. Source ITEM
+      dictionary needed.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+  LogMemIA_ImmediateScore:
+    instrument: LOGMEM
+    domain: Memory
+    construct: ImmediateRecall
+    task_description: 'Candidate task: ImmediateRecall (LOGMEM); raw code for LogMemIA_ImmediateScore.
+      Pending dictionary verification.'
+    value_type: continuous
+    range:
+    - 0
+    - 25
+    valid_values: null
+    direction: verify
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  LogMemIIA_DelayedScore:
+    instrument: LOGMEM
+    domain: Memory
+    construct: DelayedRecall
+    task_description: 'Candidate task: DelayedRecall (LOGMEM); raw code for LogMemIIA_DelayedScore.
+      Pending dictionary verification.'
+    value_type: continuous
+    range:
+    - 0
+    - 25
+    valid_values: null
+    direction: verify
+    core_memory: true
+    use_for_state: true
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: false
+  LogMemIIA_ReminderGiven:
+    instrument: LOGMEM
+    domain: Protocol
+    construct: ReminderMetadata
+    task_description: Unverified source variable LogMemIIA_ReminderGiven; do not infer
+      task or coding.
+    value_type: continuous
+    range: null
+    valid_values: null
+    direction: verify
+    core_memory: false
+    use_for_state: false
+    use_for_aux: false
+    use_for_outcome: false
+    verified_from_dictionary: false
+    source: null
+    verification_note: Requires source dictionary and phase harmonization.
+    missing_codes:
+    - -4
+    - -1
+    - 999
+    - 9999
+    default_drop: true
+verification:
+  authority: ADNI official online Data Dictionary Search
+  audit_rows: reports/data_audit/adni_official_dictionary_rows.csv
+  validation: reports/data_audit/adni_official_dictionary_validation.csv
+  policy: Exact field+table match, official code specification, observed-code check,
+    and curated construct are all required.

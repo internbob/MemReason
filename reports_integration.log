@@ -1,0 +1,25 @@
+{
+  "engineering_smoke_only": true,
+  "forecast_forward_backward_finite": true,
+  "forecast_loss": 0.5971556305885315,
+  "state_items": 78,
+  "target_items": 98,
+  "faq_and_diagnosis_absent_from_state": true,
+  "real_mri_path": "/public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI/ADNI_Linear/sub-ADNI002S0295/ses-M000/t1/affine.nii.gz",
+  "preprocessed_mri_shape": [
+    1,
+    1,
+    96,
+    112,
+    96
+  ],
+  "mri_spatial_tokens": [
+    1,
+    252,
+    32
+  ],
+  "grounding_attention_finite": true,
+  "absent_mri_reward_skipped": true,
+  "clinical_qc": "not_evaluated",
+  "scientific_gate_passed": false
+}

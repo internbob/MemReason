@@ -1,0 +1,10 @@
+stage: stage4
+use_grpo: false
+group_size: 4
+kl_beta: 0.1
+clip: 0.2
+local_llm_path: null
+freeze_cognitive_encoder: true
+freeze_mri_encoder: true
+freeze_temporal_backbone: true
+gate_file: reports/experiments/stage4_entry_gate.json

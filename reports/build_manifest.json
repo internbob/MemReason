@@ -1,0 +1,156 @@
+{
+  "test_summary": "22 passed in 10.38s",
+  "input_source_sha256": "e7665c1905467703cec7674e08d2b42874650821c0a52d66be111d7cfdeca72b",
+  "code_sha256": {
+    "memreason_rl/__init__.py": "92524d07240cca3d006b38ee3ecd9eeb4f9635721c35d7c064bd1464bc5271f6",
+    "memreason_rl/data/__init__.py": "d6ca987f2a25a6f3a1c4e6a5bfb128c03507853fecbbd1f3091719570d1b9377",
+    "memreason_rl/data/align_nearest_mri_month.py": "f0e8e538f3acb8f9323555a2dd0c6f76df1b37a41c0d1b40f8026c60418435de",
+    "memreason_rl/data/build_cognitive_events.py": "f88aabb0cd1b1cc8d1e9944569094db59da51e31201ea23fe5f95261f15aaa36",
+    "memreason_rl/data/build_mri_metadata.py": "17d378691c9e813d216859430c64d4a16c89d27f303b845f46bb83a6575485ca",
+    "memreason_rl/data/collate.py": "db1a1a861e9c534b706d5150d906d4a6c1e6730b28a99b4dd2437f83f7627c83",
+    "memreason_rl/data/common.py": "8c9dbe89db079dc3ce82a9f06fffd237530bfaa30cc5708023af1e3417314940",
+    "memreason_rl/data/dataset.py": "3543524238ee39b9ba9ab3efc42055846c8194d9b845df2057d5e700998453ac",
+    "memreason_rl/data/dictionary.py": "6ff7a1acf25f26dcaa126b1b9a87727627c22140e17fdee6e3ac774bbbfa40ce",
+    "memreason_rl/data/match_mri_cognition.py": "5f5e6fe8530004af04dd4d259e82371c9c9ac8773420c035837fa62ca0469cea",
+    "memreason_rl/data/mri.py": "1097d1d6c5e3a2f6d994e4f81dc2cbedcbfb9e1b3548284791ad222d5c3b4a0f",
+    "memreason_rl/data/prepare.py": "96c08a894ed9009c50854849d1653a070e7238b50b90b8dc7e682307ec1b6324",
+    "memreason_rl/data/split_subjects.py": "13639951a60330b91ec0bb6acb4cf9a0e92cbce740dc167eebd4fb699e5ca015",
+    "memreason_rl/eval/__init__.py": "0ff751f646341320b45e83375ec6debaa02e77db8e135295b7d6dbc33c9ccf1b",
+    "memreason_rl/eval/baselines.py": "b13a2c53dff0189d19b58f9adc779895e7cbf99e1257bb184267e5bd68c1f3ad",
+    "memreason_rl/eval/calibration.py": "b8c69bcd09232b7454faff84d6bbc206bdff55e17011c54578ae7b036fd5791a",
+    "memreason_rl/eval/forecast.py": "8bf86682e13340dc112683bb01f6441582b8d8431ca3d222b0d8e58deab14df9",
+    "memreason_rl/eval/leakage.py": "1d5c0d57a9ad53e32dd7cfb38c147e6046e30f887cdd5873a8b02120e869bacc",
+    "memreason_rl/eval/report_eval.py": "d60e051f36d1f791d086e336cbcb0acdde757acc11ceec62652cc2dfcf8c64fa",
+    "memreason_rl/losses/__init__.py": "70f4fe1a9c3ed6b91bc7ffc44b6c80628b0efea8402179e400eb8ba7bd06fa9f",
+    "memreason_rl/losses/calibration.py": "a11d8c8623fac862bdc8d88968acecca5cd3e66d0c8e4ed3e7095b06490064f4",
+    "memreason_rl/losses/cross_scale.py": "8c064b64573665297d96b8c5e6a4809decb930abb4f85f5b7a4effdc3e3c7769",
+    "memreason_rl/losses/grounding.py": "d28afdacb5788075da13bb19bd6a2c90dd9c01943a389e839c6f62958b3213a1",
+    "memreason_rl/losses/masked_losses.py": "0f8fc7b6977088411e99e01d6bc6f5a204b2a4f2f741739f927e2d18f2403786",
+    "memreason_rl/models/__init__.py": "834b391286f0748d6dcfff09e8b1edf953bf85bb9d3b868ee37f67eb5f0d34ff",
+    "memreason_rl/models/belief_state.py": "08ce909a779775e1f2b8cb7ab014f910c3400eb9392eead12b0ebf01a6af551a",
+    "memreason_rl/models/cognitive_anatomy_grounder.py": "605b5b9ea48bc382e0e40414c3db5648448c0e5b69f612fe91cf42920bd3df7d",
+    "memreason_rl/models/cognitive_encoder.py": "66f1c67c0670532e1302b742877e99bdd773d6ea7f4b3806124ff157fdc148d0",
+    "memreason_rl/models/decoders.py": "28e32d9e772b9915d49d14b9079db01261544ac719a0e6eb6961a91676b2a546",
+    "memreason_rl/models/domain_aggregator.py": "acc0fa33750c7ba8fbf150a601496e82a99174689a3f53c89458689d0d8fb4d3",
+    "memreason_rl/models/memreason.py": "1d8a410d7723dbe22901f7f8b03a8ec5753e983f7cc6a4cc35347ed76059acb8",
+    "memreason_rl/models/mri_encoder.py": "8dba67cfb57286cc81eca6675546cc3919b43520323585782650f4eddfc9d82c",
+    "memreason_rl/models/reasoning_llm.py": "3f3278aca89898946605e32f5fcf82c7692cc813c1d5ac1ec8fb62d0f117d402",
+    "memreason_rl/models/temporal_dynamics.py": "fd3bd3c2dc7d28768d700581230eb785f6f28af5e6afb64df7510e73dcef83dc",
+    "memreason_rl/models/trajectory_generator.py": "f769ae70942af670dfe582140332621f4b2b2353dbf564fcc8bb4ed813521ea3",
+    "memreason_rl/rl/__init__.py": "b09ce0d10862af0a28598d83960e65a9d5aa56e102389be48a43dc3af0ce0fd1",
+    "memreason_rl/rl/crossmodal_critic.py": "467bcc3f7d6bc06b6cd0e4371982d16de9706ce61446f157289c7b1ac9409550",
+    "memreason_rl/rl/domain_verifier.py": "c56bfe274fcf2b7fdd551db27438e1d6fd0f4bd5dc0c0b91f7c19aaa2a4633d9",
+    "memreason_rl/rl/evidence_verifier.py": "dd35d1616f390595aecb0c2c91b7876de1da3661a4a2968e306d6bacfd42c06d",
+    "memreason_rl/rl/grpo_trainer.py": "9b9a52f9c2b558869828b06e99dc9b6d1c71333e5676704c55ab0571c7865ef5",
+    "memreason_rl/rl/rewards.py": "f82381866fa65a20138c8afbfefe818884c759b10f3d38280b2dc651b2a09acf",
+    "memreason_rl/rl/temporal_verifier.py": "3abe5503568f3bef3888e0453ec770c708d09cf7df63fa5f4682110571d23e5b",
+    "memreason_rl/train/__init__.py": "0cc0b7c8e1302b249d4c6b5296e63201f4325ba83cfab06e6157a5cb21f625e5",
+    "memreason_rl/train/gates.py": "2308f2eda8b2f4f7f519a0adcfd3c9cfe3454d60b0a7b1c788aef38fe30218ed",
+    "memreason_rl/train/runner.py": "f0e2ed12364981142111df141f81c52ddcc9f1456353de56abb61786c072ad67",
+    "memreason_rl/train/stage1_cognition.py": "b49d7286b951a53d557b5595c002fb97605d5d233ee8f95563f12551cbd0d2ec",
+    "memreason_rl/train/stage2_grounding.py": "3eeecb5b515da1909b8882e389e8f7384932da38eb4263d70bef8b41ec65ff50",
+    "memreason_rl/train/stage3_dynamics.py": "507569943e25410cd3d5cd6b92b5f34a154855eae7098d85fea27ca3f3c5d230",
+    "memreason_rl/train/stage4_grpo.py": "a81a09f28bde0e4b390292df48e456730fd0b69ba2f6daec2242d6d75602c389",
+    "configs/cognitive_item_dictionary.yaml": "f13f7b1171df34f3e4e40f76e698e8291efba0a1b820d3b1c5f9518ed9bcc317",
+    "configs/data.yaml": "5b686f623b530f1fcf6ff055074624ba53b127776bbe603a5bdcde344d8effea",
+    "configs/model.yaml": "af131c1ea95cacec4b9b65ebfbf6a75f7a21927dbb54e5b297af4a620c2004a3",
+    "configs/train_stage1.yaml": "8c3034818d3b417e0721e0f3ec359a6c496e8a43b8bdbf633dc7a18240a3af6f",
+    "configs/train_stage2.yaml": "b117e273d8db76200681383208b1f2083eab212aba0ebea1ba85fc72cd0aa96e",
+    "configs/train_stage3.yaml": "9c4af76aaff7e9ff00c3bca1189750af1dd24d970a8352a983b09e165d37b276",
+    "configs/train_stage4_grpo.yaml": "09dd31bb9b4fb3930192f5cdd5cb0b6d6454210431daa6eb9892e8df31ac65b1",
+    "tests/test_integrity.py": "ddba12486add04caa2d624d0aedd241a41705582513dfbf29bca3d7a8bfbf379",
+    "tests/test_model_contracts.py": "9f3a99235010cec6d4fd2c7b8144ace8a092f1289f9b9bf9c2774916f126a1b6"
+  },
+  "checks": {
+    "outputs/stage1_smoke/status.json": {
+      "stage": "stage1",
+      "engineering_smoke_only": true,
+      "exploratory": true,
+      "semantic_encoder": false,
+      "train_samples": 12,
+      "val_samples": 8,
+      "train_steps": 3,
+      "dictionary_verified": false,
+      "next_stage_gate_passed": false,
+      "interpretation": "Execution/gradient check only; not a trained scientific baseline"
+    },
+    "reports/experiments/integration_smoke.json": {
+      "engineering_smoke_only": true,
+      "forecast_forward_backward_finite": true,
+      "forecast_loss": 0.5971556305885315,
+      "state_items": 78,
+      "target_items": 98,
+      "faq_and_diagnosis_absent_from_state": true,
+      "real_mri_path": "/public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI/ADNI_Linear/sub-ADNI002S0295/ses-M000/t1/affine.nii.gz",
+      "preprocessed_mri_shape": [
+        1,
+        1,
+        96,
+        112,
+        96
+      ],
+      "mri_spatial_tokens": [
+        1,
+        252,
+        32
+      ],
+      "grounding_attention_finite": true,
+      "absent_mri_reward_skipped": true,
+      "clinical_qc": "not_evaluated",
+      "scientific_gate_passed": false
+    },
+    "reports/experiments/locf_val/status.json": {
+      "method": "LOCF",
+      "exploratory": true,
+      "split": "val",
+      "predicted_targets": 153376,
+      "available_targets": 158158,
+      "coverage": 0.9697644128023875,
+      "caveat": "Targets without an observed same-item history are skipped; report coverage with errors."
+    },
+    "reports/data_audit/protocol_leakage.json": {
+      "only_features": [
+        "adas_present",
+        "cdr_present",
+        "faq_present",
+        "mmse_present",
+        "moca_present",
+        "dxsum_present"
+      ],
+      "target": "dxsum_diagnosis_label",
+      "train_subjects": 2587,
+      "validation_subjects": 375,
+      "validation_accuracy": 0.4076204169662114,
+      "validation_balanced_accuracy": 0.4196486931976516,
+      "by_phase": {
+        "ADNI1": {
+          "n": 351,
+          "balanced_accuracy": 0.3333333333333333
+        },
+        "ADNI2": {
+          "n": 449,
+          "balanced_accuracy": 0.3372711890478388
+        },
+        "ADNI3": {
+          "n": 310,
+          "balanced_accuracy": 0.3264598649214034
+        },
+        "ADNI4": {
+          "n": 243,
+          "balanced_accuracy": 0.48721144119145715
+        },
+        "ADNIGO": {
+          "n": 33,
+          "balanced_accuracy": 0.3333333333333333
+        },
+        "nan": {
+          "n": 5,
+          "balanced_accuracy": 0.1111111111111111
+        }
+      },
+      "interpretation": "Screen for protocol confounding only. No causal claim; repeated visits cluster within subject. Not a representation clinical validity result."
+    }
+  },
+  "data_construction_complete": true,
+  "scientific_training_complete": false
+}

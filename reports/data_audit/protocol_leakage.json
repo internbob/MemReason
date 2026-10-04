@@ -1,0 +1,42 @@
+{
+  "only_features": [
+    "adas_present",
+    "cdr_present",
+    "faq_present",
+    "mmse_present",
+    "moca_present",
+    "dxsum_present"
+  ],
+  "target": "dxsum_diagnosis_label",
+  "train_subjects": 2587,
+  "validation_subjects": 375,
+  "validation_accuracy": 0.4076204169662114,
+  "validation_balanced_accuracy": 0.4196486931976516,
+  "by_phase": {
+    "ADNI1": {
+      "n": 351,
+      "balanced_accuracy": 0.3333333333333333
+    },
+    "ADNI2": {
+      "n": 449,
+      "balanced_accuracy": 0.3372711890478388
+    },
+    "ADNI3": {
+      "n": 310,
+      "balanced_accuracy": 0.3264598649214034
+    },
+    "ADNI4": {
+      "n": 243,
+      "balanced_accuracy": 0.48721144119145715
+    },
+    "ADNIGO": {
+      "n": 33,
+      "balanced_accuracy": 0.3333333333333333
+    },
+    "nan": {
+      "n": 5,
+      "balanced_accuracy": 0.1111111111111111
+    }
+  },
+  "interpretation": "Screen for protocol confounding only. No causal claim; repeated visits cluster within subject. Not a representation clinical validity result."
+}

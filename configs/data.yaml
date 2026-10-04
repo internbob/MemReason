@@ -1,0 +1,20 @@
+seed: 2026
+cognition_csv: adni_all_longitudinal_scales_visit_with_ravlt_logmem.csv
+split_fractions: [0.7, 0.1, 0.2]
+mri:
+  primary_root: /public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI/ADNI_Linear
+  session_metadata: /public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI.csv
+  alternate_roots:
+    surfgt: /public_bme/data/lianzf2024/UniSurf/surfGT/T1/ADNI/Step01_sMRI_data
+    unisurf_longitudinal: /public_bme/data/lianzf2024/UniSurf/Longitudinal/UniSurf/ADNI/Step01_sMRI_data
+  matching_window_days: 90
+  sensitivity_days: [30, 60, 90, 180]
+  tau_days: 90
+  nearest_month_window: 6
+  nearest_month_sensitivity: [0, 3, 6, 12]
+  qc_policy: unknown_is_not_pass
+clinical_source_dir: /public_bme/data/zhouwl2023/ADNI-longitudinal
+item_provenance_csv: /home_data/home/zhouwl2023/project/lifeflow-v2/metadata/adni_longitudinal_scale_items.csv
+forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}

@@ -1,0 +1,4 @@
+source,scans,subjects,scans_with_subject_session_mapping,true_scan_dates,subjects_overlapping_cognition
+adni_linear,10230,1981,10230,0,1981
+surfgt,1143,1143,638,0,1143
+unisurf_longitudinal,523,100,2,0,100

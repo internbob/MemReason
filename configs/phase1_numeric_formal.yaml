@@ -1,0 +1,41 @@
+experiment: phase1_numeric_formal
+run_id: phase1_numeric_formal_20261003
+seed: 2026
+neural_seeds: [2026, 2027, 2028]
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+features:
+  source: cognitive_item_dictionary
+  require_use_for_state: true
+  exclusions:
+    - '^moca_delw[1-5]$'
+    - '^moca_serial[1-5]$'
+    - '^moca_letters$'
+    - '^adas_q13score$'
+    - '^AVLT_'
+    - '^LogMem'
+  note: Numeric source values only; semantic labels and diagnosis are not inputs.
+training:
+  batch_size: 256
+  max_epochs: 40
+  patience: 7
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 128
+  layers: 2
+  dropout: 0.1
+  gradient_clip: 1.0
+statistics:
+  bootstrap_replicates: 1000
+  bootstrap_unit: subject
+  confidence_level: 0.95
+selection:
+  metric: validation_macro_normalized_mae
+  test_policy: evaluate_all_predeclared_methods_once_after_validation_training

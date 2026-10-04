@@ -1,0 +1,16 @@
+{
+  "inputs": {
+    "/home_data/home/zhouwl2023/project/MemReason/adni_all_longitudinal_scales_visit_with_ravlt_logmem.csv": "e7665c1905467703cec7674e08d2b42874650821c0a52d66be111d7cfdeca72b",
+    "/public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI.csv": "e75ff315b2f383f6835368513739eef4fdf5cc61b21f68f2204cbb24afd8cc9b",
+    "/home_data/home/zhouwl2023/project/lifeflow-v2/metadata/adni_longitudinal_scale_items.csv": "73bc562fdd7b7c0434ef6904e60e1170806145e3ff90f2caf32b55e699c717cf",
+    "/home_data/home/zhouwl2023/project/MemReason/configs/data.yaml": "5b686f623b530f1fcf6ff055074624ba53b127776bbe603a5bdcde344d8effea",
+    "/home_data/home/zhouwl2023/project/MemReason/configs/cognitive_item_dictionary.yaml": "f13f7b1171df34f3e4e40f76e698e8291efba0a1b820d3b1c5f9518ed9bcc317",
+    "/public_bme/data/zhouwl2023/ADNI-longitudinal/ADAS_02Sep2026.csv": "5b536b39072c423a8fdb6c6c93f6352992717b178457aa48429fac61a024cbd4",
+    "/public_bme/data/zhouwl2023/ADNI-longitudinal/CDR_02Sep2026.csv": "33d5fd6a24f65f364ad4df3b4ba64226f33393c67d7a42bace0b8057c7569717",
+    "/public_bme/data/zhouwl2023/ADNI-longitudinal/DXSUM_02Sep2026.csv": "a9cf39046c1a9e99cfb0d6d32fa3954d9394d0f352cc5779e63b7b79a8a7f28c",
+    "/public_bme/data/zhouwl2023/ADNI-longitudinal/FAQ_02Sep2026.csv": "8734d2961ecd2f68024ba4e7e3a18a83edfd8dbc1985f0d115c2918203729e9c",
+    "/public_bme/data/zhouwl2023/ADNI-longitudinal/MMSE_02Sep2026.csv": "41903c53a7a0cdb91efe10bc15ec482f7e7bd78663a8c6b105adeeedb1941e06",
+    "/public_bme/data/zhouwl2023/ADNI-longitudinal/MOCA_02Sep2026.csv": "969a3076a4819d5a8b0bcf727a6b48af95b859fa6f32e9b2082262578e292920"
+  },
+  "split_algorithm": "sorted subjects; numpy.default_rng(seed).shuffle; floor 70%,floor 10%,remainder 20%"
+}

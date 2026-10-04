@@ -1,0 +1,66 @@
+experiment: phase1c_joint_stage1
+run_id: phase1c_joint_stage1_20261004
+seed: 2026
+neural_seeds: [2026, 2027, 2028]
+arms: [numeric_only, task_semantics, response_aware]
+text_encoder:
+  path: /home_data/home/zhouwl2023/project/New-AD/TAB-AD/models/Bio_ClinicalBERT
+  frozen: true
+  pooling: masked_mean
+  max_length: 160
+  batch_size: 64
+inputs:
+  verified_from_dictionary: true
+  use_for_state: true
+  scalar_monotonic_only: true
+  exclude_prefixes: [dxsum_, faq_]
+  response_vocab_source: train_only
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+future_forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+cross_scale:
+  - name: adas_cdr_to_moca
+    source_prefixes: [adas_, cdr_]
+    target: moca_moca
+  - name: mmse_cdr_to_adas
+    source_prefixes: [mmse_, cdr_]
+    target: adas_total13
+reconstruction:
+  tasks: [masked_item, masked_instrument]
+  deterministic_mask_seed: 2026
+  one_sample_per_visit_per_task: true
+model:
+  descriptor_input_dim: 768
+  descriptor_dim: 32
+  domain_dim: 64
+  task_dim: 32
+  hidden_dim: 128
+  layers: 2
+  dropout: 0.1
+training:
+  batch_size: 256
+  max_epochs: 40
+  patience: 7
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  balanced_task_sampling: true
+  selection_metric: equal_task_macro_normalized_mae
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_unit: subject
+  confidence_level: 0.95
+  primary_contrast: response_aware ensemble minus numeric_only ensemble
+gate:
+  require_masked_item_ci_upper_below_zero: true
+  require_masked_instrument_ci_upper_below_zero: true
+  require_both_cross_scale_ci_upper_below_zero: true
+  missingness_only_balanced_accuracy_max: 0.5
+  future_noninferiority_margin_normalized_mae: 0.005
+test_policy: load_test_only_after_all_nine_validation_checkpoints

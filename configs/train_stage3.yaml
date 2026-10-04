@@ -1,0 +1,7 @@
+stage: stage3
+epochs: 30
+batch_size: 4
+learning_rate: 0.0001
+horizons_months: [6, 12, 24, 36]
+num_candidates: 4
+gate_file: reports/experiments/stage3_entry_gate.json

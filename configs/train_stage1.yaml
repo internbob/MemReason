@@ -1,0 +1,9 @@
+stage: stage1
+epochs: 30
+batch_size: 8
+learning_rate: 0.0003
+item_mask_prob: 0.15
+instrument_mask_prob: 0.20
+exploratory: false
+seed: 2026
+gate_file: reports/experiments/stage1_entry_gate.json

@@ -1,0 +1,9 @@
+{
+  "method": "LOCF",
+  "exploratory": true,
+  "split": "val",
+  "predicted_targets": 153376,
+  "available_targets": 158158,
+  "coverage": 0.9697644128023875,
+  "caveat": "Targets without an observed same-item history are skipped; report coverage with errors."
+}

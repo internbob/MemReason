@@ -1,0 +1,10 @@
+{
+  "run_id": "phase1b_semantic_fair_20261003",
+  "future_semantics_improved": false,
+  "future_semantics_difference": 0.0007402563040358466,
+  "cross_scale_two_pairs_improved": false,
+  "cross_scale_point_estimates_favorable": true,
+  "semantic_value_gate_passed": false,
+  "advance_semantic_claim": false,
+  "reason": "Future semantics was slightly worse; both cross-scale confidence intervals crossed zero."
+}

@@ -1,0 +1,10 @@
+cognitive_dim: 256
+mri_token_dim: 256
+memory_state_dim: 32
+num_domains: 5
+temporal_backbone: time_aware_transformer
+heads: 4
+layers: 2
+probabilistic_state: true
+text_model_path: null
+text_policy: explicit_local_pretrained_model_required_for_semantic_ablation

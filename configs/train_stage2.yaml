@@ -1,0 +1,8 @@
+stage: stage2
+epochs: 20
+batch_size: 4
+learning_rate: 0.0001
+matching_window_days: 90
+require_verified_scan_dates: true
+require_qc_pass: true
+gate_file: reports/experiments/stage2_entry_gate.json
