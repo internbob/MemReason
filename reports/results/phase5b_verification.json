@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "reports": 495,
+  "subjects": 495,
+  "decisions": 4950,
+  "current_state_mismatches": 36,
+  "trend_mismatches": 100,
+  "source_hashes_verified": true,
+  "reference_labels_recomputed": true,
+  "denominators_verified": true,
+  "phase4f_decision_unchanged": true,
+  "training_performed": false,
+  "generation_performed": false,
+  "further_test_tuning_permitted": false
+}

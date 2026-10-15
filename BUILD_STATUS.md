@@ -1,6 +1,6 @@
 # 项目构建状态
 
-当前交付范围：根据 Implementation Spec 建立真实数据管线和可运行的建模 v0，生成可复现 CSV split，并完成 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3F，以及 reasoning Phase 4A–4F。
+当前交付范围：根据 Implementation Spec 建立真实数据管线和可运行的建模 v0，生成可复现 CSV split，并完成 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3F、reasoning Phase 4A–4F，以及 Phase 5B frozen error decomposition。
 
 | 部分 | 当前状态 | 证据/限制 |
 |---|---|---|
@@ -34,6 +34,7 @@
 | Phase 4D constrained GRPO | 完成，internal-dev gate 未通过 | 64 rollout subjects、group=4、256 个真实 on-policy candidates、32 updates、4 个 checkpoints；best update 32 action composite 0.97246 vs SFT 0.97784；KL/reward variation/safety 通过，但改善门槛失败；test 未加载 |
 | Phase 4E trajectory-action GRPO | 完成，新 development gate 未通过 | 256/96/256 名互斥 action-SFT/rollout/development subjects；32 updates、256 candidates；best NMAE 0.39970，冻结 GRU-D 为 0.35108，差 +0.04862 [0.03620, 0.06064]；test 未加载 |
 | Phase 4F sealed-test confirmation | 完成，完整 gate 窄幅未通过 | 495 test subjects、4,951 samples、20,007 targets；GRU-D macro NMAE 0.37510，显著优于 LOCF；grammar JSON/evidence/anchors 全部通过，但 nested temporal consistency=0.98990，略低于 0.99000 |
+| Phase 5B frozen error decomposition | 完成，post-test descriptive | 495 reports、4,950 domain-field decisions；state/trend mismatch 36/100；Memory trend 8.08%，expected improve 30.0%；输入哈希、完整分母、reference labels 与 Phase 4F 决定均独立复核；不允许 test 后调参 |
 | RLVR / GRPO | 两项真实 cognitive-only 实验均完成，不支持增益声明 | Phase 4D 的 state/trend action 与 Phase 4E 的 forecast/uncertainty action 均未超过冻结基线；Phase 4C 仍为支持策略，multimodal GRPO 关闭 |
 | Leakage audit | 完成初筛 | 仅量表缺失模式预测 diagnosis，验证 balanced accuracy 0.420；应继续按 phase 控制协议混杂 |
 | 科研 gates | Phase 4A/4C 通过；Phase 4F 仅 temporal 差 1e-4 未通过；Phase 4B raw、Phase 4D/4E GRPO、MRI/dynamics 未通过 | test 后不得再调；论文可报告冻结 GRU-D 的确认结果与 Phase 4C 的结构完整性改善，但不能声称完整 confirmatory gate 通过 |
@@ -84,7 +85,9 @@
 - `outputs/phase4e_trajectory_action_grpo_20261015/`：action-SFT adapter、256 个真实 on-policy candidates、32-update curves、4 个 checkpoints、1,536 条 development action 记录、subject bootstrap、动作分布诊断、报告及独立 verification。development gate=false，原 test 未加载。
 - `reports/experiments/phase4f_frozen_grud_phase4c_test_protocol.md`：在 test 加载前冻结的 checkpoint hashes、reasoning cohort、raw/grammar controls、forecast/reasoning metrics 与一次性确认门槛。
 - `outputs/phase4f_frozen_grud_phase4c_test_20261015/`：三 seed test forecasts、495 份 subject-balanced raw/grammar/executable/teacher reports、forecast 与 reasoning bootstrap、robustness strata、pretest lock、报告和独立 verification。只有 temporal consistency 门槛失败，test 后不再调参。
+- `reports/experiments/phase5b_frozen_reasoning_error_decomposition_protocol.md`：冻结 Phase 4F 输出、decision-level 分母、阈值距离、分层因素、subject bootstrap 和 post-test interpretation 规则。
+- `outputs/phase5b_frozen_reasoning_error_decomposition_20261016/`：4,950 个重建 decisions、完整 confusion/rate/near-far 表、2,000 次 subject-cluster bootstrap、PDF/PNG 论文图、报告和独立 verification；无训练、无重新生成、Phase 4F 决定不变。
 
-后续必须按规范推进，不能仅填写 gate 的布尔值来替代 artifact。Phase 4F 已一次性打开官方 test，冻结 GRU-D 的数值预测获得确认：macro NMAE 0.37510，且相对 LOCF 的 subject-mean 差为 -0.02144，95% CI [-0.03913, -0.00423]。Phase 4C grammar 在 test 上得到 100% JSON/evidence/forecast/uncertainty preservation、零幻觉和零未来泄漏，并显著改善 raw SFT；但 nested temporal consistency 为 0.98990，低于预注册 0.99000，因此完整 Phase 4F gate=false。该指标对每份报告的五个认知域分别平均 label、start/end severity 和 timepoints；实际偏差为 2,475 个域级 trend labels 中 100 个（涉及 67/495 份报告），所有数值与时间锚点均保留。不得用 test 修复这些标签或更改阈值。论文应按“数值预测确认、结构完整性确认、完整推理门槛窄幅失败”报告；进一步确认需要外部队列。Phase 4D/4E 的 GRPO 负结果和 MRI longitudinal/multimodal gate 继续保持不变。
+后续必须按规范推进，不能仅填写 gate 的布尔值来替代 artifact。Phase 4F 已一次性打开官方 test，冻结 GRU-D 的数值预测获得确认：macro NMAE 0.37510，且相对 LOCF 的 subject-mean 差为 -0.02144，95% CI [-0.03913, -0.00423]。Phase 4C grammar 在 test 上得到 100% JSON/evidence/forecast/uncertainty preservation、零幻觉和零未来泄漏，并显著改善 raw SFT；但 nested temporal consistency 为 0.98990，低于预注册 0.99000，因此完整 Phase 4F gate=false。Phase 5B 将 100 个 trend label 偏差定位到 Memory、`improve` 和极少量近阈值 decisions，但这是 post-test descriptive evidence，不得据此修复标签或更改阈值。论文应按“数值预测确认、结构完整性确认、完整推理门槛窄幅失败”报告；下一项确认实验需要预先冻结的外部队列。Phase 4D/4E 的 GRPO 负结果和 MRI longitudinal/multimodal gate 继续保持不变。
 
 源 CSV 和外部 MRI 均未改动。本次仅在 MemReason 目录创建代码、派生表和报告；未创建 Git commit。

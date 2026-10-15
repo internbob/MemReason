@@ -53,6 +53,18 @@ EXPORTS = {
         "phase4f_reasoning_aggregate_metrics.csv",
     "outputs/phase4f_frozen_grud_phase4c_test_20261015/reasoning_subject_bootstrap.csv":
         "phase4f_reasoning_subject_bootstrap.csv",
+    "outputs/phase5b_frozen_reasoning_error_decomposition_20261016/report.md":
+        "phase5b_reasoning_error_decomposition_report.md",
+    "outputs/phase5b_frozen_reasoning_error_decomposition_20261016/mismatch_rate_summary.csv":
+        "phase5b_mismatch_rate_summary.csv",
+    "outputs/phase5b_frozen_reasoning_error_decomposition_20261016/confusion_matrix.csv":
+        "phase5b_confusion_matrix.csv",
+    "outputs/phase5b_frozen_reasoning_error_decomposition_20261016/near_far_boundary_contrast.csv":
+        "phase5b_near_far_boundary_contrast.csv",
+    "outputs/phase5b_frozen_reasoning_error_decomposition_20261016/analysis_decision.json":
+        "phase5b_analysis_decision.json",
+    "outputs/phase5b_frozen_reasoning_error_decomposition_20261016/verification.json":
+        "phase5b_verification.json",
 }
 
 

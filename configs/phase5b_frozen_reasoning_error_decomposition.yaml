@@ -1,0 +1,18 @@
+experiment: phase5b_frozen_reasoning_error_decomposition
+run_id: phase5b_frozen_reasoning_error_decomposition_20261016
+source_run_id: phase4f_frozen_grud_phase4c_test_20261015
+source_arm: grammar_model
+analysis_status: post_test_descriptive
+thresholds:
+  current_state_absolute_z: 0.5
+  trend_change_z: 0.25
+  near_boundary: 0.10
+  margin_bands: [0.05, 0.10, 0.25]
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261024
+  confidence_level: 0.95
+reporting:
+  domains: [Memory, Executive, Attention, Language, Orientation]
+  horizons_months: [6, 12, 24, 36]
+  figure_dpi: 300

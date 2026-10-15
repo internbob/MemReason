@@ -1,6 +1,6 @@
 # MemReason-RL
 
-本项目依据 `MemReason_RL_ADNI_Implementation_Spec.md` 构建。**已完成真实数据 Phase 0、subject-wise split、认知建模 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3F，以及 reasoning Phase 4A–4F。** Phase 4F 已对冻结 GRU-D + Phase 4C 进行一次性官方 test 确认：GRU-D macro normalized MAE 为 0.37510，并显著优于 LOCF；grammar decoder 获得 100% JSON/evidence/forecast/uncertainty preservation 和零未来泄漏。完整 gate 因 nested temporal consistency=0.98990 略低于预注册 0.99000 而失败，test 后不再调参。Phase 4D/4E GRPO 仍不支持增益，多模态 reasoning/GRPO 仍关闭。
+本项目依据 `MemReason_RL_ADNI_Implementation_Spec.md` 构建。**已完成真实数据 Phase 0、subject-wise split、认知建模 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3F、reasoning Phase 4A–4F，以及 Phase 5B 冻结推理错误分解。** Phase 4F 已对冻结 GRU-D + Phase 4C 进行一次性官方 test 确认：GRU-D macro normalized MAE 为 0.37510，并显著优于 LOCF；grammar decoder 获得 100% JSON/evidence/forecast/uncertainty preservation 和零未来泄漏。完整 gate 因 nested temporal consistency=0.98990 略低于预注册 0.99000 而失败。Phase 5B 只分解既有错误，不进行 test 后调参。Phase 4D/4E GRPO 仍不支持增益，多模态 reasoning/GRPO 仍关闭。
 
 ## 当前应该使用的 MRI
 
@@ -326,5 +326,13 @@ Confirmation 的 JSON validity、evidence precision/recall、numeric/time citati
 冻结 GRU-D 的 test macro/pooled normalized MAE 为 **0.37510/0.36288**。在 LOCF 可覆盖的相同行上，GRU-D/LOCF 为 0.36200/0.37939，subject-mean 差 **-0.02144**，95% CI **[-0.03913, -0.00423]**。uncertainty-error Spearman 为 0.1584。数值预测三项 gate 全部通过。
 
 Raw SFT 产生 488/495 份合法 JSON；grammar model 为 **495/495**。Grammar 的 evidence precision/recall、numeric/time/domain accuracy、forecast/uncertainty preservation 均为 1.000，幻觉和 future leakage 均为 0，nested state consistency 为 0.99515。Nested temporal consistency 为 **0.98990**，相对 raw SFT 改善 +0.01051，95% CI [0.00121, 0.02182]，但仍比预注册绝对门槛 0.99000 低约 0.00010。该分数平均每份报告五个认知域中的四项字段；grammar 保留全部 numeric/timepoint anchors，但 2,475 个域级 trend labels 中有 100 个不同，涉及 67/495 份报告。因此完整 `phase4f_frozen_system_confirmed=false`；不得在 test 上修改这些标签或降低阈值。论文可以报告已确认的数值性能和结构完整性改善，同时必须明确完整推理门槛窄幅失败。完整结果见 [Phase 4F 报告](outputs/phase4f_frozen_grud_phase4c_test_20261015/report.md)和[独立核验](outputs/phase4f_frozen_grud_phase4c_test_20261015/verification.json)。
+
+## Phase 5B：冻结 structured-reasoning error decomposition
+
+[分析协议](reports/experiments/phase5b_frozen_reasoning_error_decomposition_protocol.md)只读取 Phase 4F 已生成的 495 份 grammar reports，不训练模型、不重新生成报告，也不改变 ±0.5 state 和 ±0.25 trend 阈值。分析重建了 4,950 个 domain-field decisions，并以 2,000 次 subject-cluster bootstrap 分解 domain、horizon、expected label、history、missingness 和阈值距离。
+
+Current-state 有 **36/2,475（1.45%，95% CI 0.97–1.98%）** 个 label mismatch；trend 有 **100/2,475（4.04%，95% CI 2.99–5.17%）**。Trend 错误在 Memory 最高（40/495，8.08%）；expected `improve` 的错误为 39/130（30.0%），最常见方向是 `improve → stable`（26 个）。Trend 阈值 0.10 z 内只有 8 个 decisions，其中 5 个错误；相对远阈值的差为 56.88 个百分点，但 95% CI 很宽 [13.99, 94.19]，只能作为小样本描述。Current-state 的 near-minus-far 差为 0.83 个百分点，95% CI [-0.17, 1.85]。
+
+该分析确认偏差位于 categorical state/trend selection，而 Phase 4F 的数值、时间点、evidence、forecast 和 uncertainty anchors 均保持不变。它不改变 `phase4f_frozen_system_confirmed=false`，也不允许利用 495 名 test subjects 修复策略。下一项合规实验应是预先冻结的外部队列验证。完整结果见 [Phase 5B 报告](outputs/phase5b_frozen_reasoning_error_decomposition_20261016/report.md)和[独立核验](outputs/phase5b_frozen_reasoning_error_decomposition_20261016/verification.json)。
 
 数据审计入口：[summary.md](reports/data_audit/summary.md)。完整工程状态：[BUILD_STATUS.md](BUILD_STATUS.md)。

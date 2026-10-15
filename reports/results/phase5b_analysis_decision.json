@@ -1,0 +1,16 @@
+{
+  "run_id": "phase5b_frozen_reasoning_error_decomposition_20261016",
+  "analysis_only": true,
+  "post_test_descriptive": true,
+  "training_performed": false,
+  "generation_performed": false,
+  "reports": 495,
+  "subjects": 495,
+  "decisions_per_field": 2475,
+  "current_state_mismatches": 36,
+  "trend_mismatches": 100,
+  "phase4f_decision_changed": false,
+  "phase4f_frozen_system_confirmed": false,
+  "further_test_tuning_permitted": false,
+  "next_experiment": "prospectively_frozen_external_cohort_validation"
+}
