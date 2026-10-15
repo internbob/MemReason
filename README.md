@@ -37,6 +37,16 @@ seed=2026，按受试者 70/10/20 划分，不使用诊断分层。全部 4,316 
 
 `processed/mri_metadata.csv` 保存主扫描、alternate 元数据、IDA Study Date 来源及序列描述。`processed/events.csv` 保存全事件索引；有 IDA 日期的 MRI 使用真实日期相对认知时间原点定位，剩余 868 次明确标为 `nominal_session_month`。时间原点不使用未来随访日期估计基线。`train_normalization.json` 仅用训练受试者有效观测拟合。输入 provenance/hash 在 `reports/data_audit/provenance.json`。
 
+## 更新 GitHub
+
+完成新的代码或实验后，在项目根目录执行：
+
+```bash
+bash scripts/git_update.sh "Describe the code or experiment update"
+```
+
+该脚本会拉取远端状态、导出去标识化的聚合结果、运行测试、按公开文件白名单暂存、检查大文件和常见凭据、创建 commit，并推送到 `origin`。它不会上传 `outputs/`、`processed/`、`splits/`、模型权重、NIfTI、IDA 下载文件或 ADNI 行级 CSV。公开结果位于 [`reports/results/`](reports/results/README.md)。可以临时设置 `SKIP_TESTS=1` 跳过测试，但正式结果更新建议保留默认测试。
+
 ## 运行
 
 环境已在计算节点检查；使用现有 Python，不安装或修改全局环境：
