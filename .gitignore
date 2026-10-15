@@ -6,3 +6,8 @@ processed/
 splits/
 *.pt
 *.nii*
+
+# Local ADNI exports and metadata downloads must remain outside Git.
+idaSearch*.csv
+adni_all_longitudinal_scales_visit_with_ravlt_logmem.csv
+*.safetensors

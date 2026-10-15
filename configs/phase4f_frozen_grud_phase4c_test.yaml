@@ -1,0 +1,37 @@
+experiment: phase4f_frozen_grud_phase4c_test
+run_id: phase4f_frozen_grud_phase4c_test_20261015
+phase4a_run_id: phase4a_frozen_cognitive_reasoning_20261014
+phase4b_run_id: phase4b_cognitive_reasoning_sft_20261014
+phase4c_run_id: phase4c_grammar_constrained_decoding_20261015
+test_split: original_adni_test
+selection_seed: 20261022
+selection:
+  maximum_reasoning_examples_per_subject: 1
+decoding:
+  raw_batch_size: 24
+  constrained_batch_size: 16
+  raw_max_new_tokens: 1280
+  status_choices: [elevated_impairment, lower_impairment, within_training_reference, unavailable]
+  trend_choices: [decline, improve, stable, insufficient_history]
+  frozen_selected_arm: grammar_model
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261023
+forecast_gate:
+  maximum_macro_normalized_mae: 0.42
+  maximum_paired_nmae_degradation_vs_locf: 0.02
+  require_positive_uncertainty_error_spearman: true
+reasoning_gate:
+  minimum_format_validity: 1.0
+  minimum_evidence_precision: 0.99
+  minimum_evidence_recall: 0.99
+  minimum_numeric_citation_accuracy: 0.99
+  minimum_time_citation_accuracy: 0.99
+  minimum_domain_accuracy: 0.99
+  minimum_current_state_consistency: 0.99
+  minimum_temporal_consistency: 0.99
+  minimum_forecast_preservation: 1.0
+  minimum_uncertainty_preservation: 1.0
+  maximum_hallucinated_evidence_rate: 0.0
+  maximum_future_evidence_leakage: 0.0
+  require_format_improvement_ci_vs_raw: true

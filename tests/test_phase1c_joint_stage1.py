@@ -11,6 +11,7 @@ from memreason_rl.experiments.phase1c_joint_stage1 import (
     build_domain_assignment,
     build_reconstruction_samples,
     load_config,
+    reconstruction_type_metrics,
     response_text,
 )
 
@@ -82,3 +83,18 @@ def test_phase1c_arms_are_parameter_matched_and_ignore_padding():
         torch.testing.assert_close(before[0], after[0])
         torch.testing.assert_close(before[1], after[1])
     assert len(set(counts)) == 1
+
+
+def test_ordinal_reconstruction_metrics_accept_float_encoded_truth():
+    dictionary = load_dictionary()
+    predictions = pd.DataFrame(
+        {
+            "task": ["masked_item"] * 4,
+            "model": ["response_aware ensemble"] * 4,
+            "target": ["cdr_cdmemory"] * 4,
+            "truth": [0.0, 0.5, 1.0, 2.0],
+            "prediction": [0.1, 0.6, 1.2, 1.8],
+        }
+    )
+    result = reconstruction_type_metrics(predictions, dictionary)
+    assert result.loc[0, "weighted_kappa"] == 1.0

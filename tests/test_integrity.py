@@ -7,6 +7,7 @@ from memreason_rl.data.common import ROOT,valid_value
 from memreason_rl.data.split_subjects import split_subjects
 from memreason_rl.data.dictionary import build_dictionary,state_items,load_dictionary
 from memreason_rl.data.match_mri_cognition import match_mri_cognition
+from memreason_rl.data.build_mri_metadata import load_ida_image_metadata
 from memreason_rl.data.align_nearest_mri_month import align_visits_to_nearest_mri_month
 from memreason_rl.rl.evidence_verifier import verify_evidence
 from memreason_rl.rl.rewards import availability_weighted_reward
@@ -37,6 +38,15 @@ def test_same_visit_does_not_invent_date_weight_or_qc():
     match=match_mri_cognition(visits,scans).iloc[0]
     assert match.match_strategy=='same_visit_code'
     assert pd.isna(match.time_weight) and not match.main_grounding_eligible
+
+def test_ida_metadata_requires_exact_image_subject_and_date(tmp_path):
+    path=tmp_path/'ida.csv'
+    pd.DataFrame([
+        {'Subject ID':'002_S_0295','Study Date':'4/18/2006','Image ID':'I45108','Description':'MPRAGE','Type':'Pre-processed'},
+    ]).to_csv(path,index=False)
+    lookup=load_ida_image_metadata(path)
+    assert lookup['45108']['subject_id_normalized']=='002_S_0295'
+    assert lookup['45108']['scan_date_parsed']==pd.Timestamp('2006-04-18')
 
 def test_nearest_mri_month_grouping_is_subject_local_and_tie_prefers_past():
     visits=pd.DataFrame([

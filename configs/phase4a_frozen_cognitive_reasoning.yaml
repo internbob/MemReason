@@ -1,0 +1,53 @@
+experiment: phase4a_frozen_cognitive_reasoning
+run_id: phase4a_frozen_cognitive_reasoning_20261014
+development_only: true
+data_policy: original_train_subjects_only
+reasoning_split:
+  seed: 20261014
+  build_fraction: 0.80
+  dev_fraction: 0.10
+  confirmation_fraction: 0.10
+neural_seeds: [2026, 2027, 2028]
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+future_forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+inputs:
+  require_dictionary_verified: true
+  scalar_monotonic_only: true
+  exclude_prefixes: [dxsum_, faq_, AVLT_, LogMem]
+  diagnosis_input: false
+training:
+  batch_size: 256
+  max_epochs: 40
+  patience: 7
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 128
+  layers: 2
+  dropout: 0.1
+  gradient_clip: 1.0
+reasoning:
+  evidence_items_per_domain: 2
+  state_z_threshold: 0.5
+  trend_z_threshold: 0.25
+  confidence_high_normalized_std: 0.10
+  confidence_moderate_normalized_std: 0.25
+gate:
+  minimum_format_validity: 1.0
+  minimum_evidence_precision: 0.99
+  minimum_evidence_recall: 0.99
+  minimum_numeric_citation_accuracy: 0.99
+  minimum_time_citation_accuracy: 0.99
+  maximum_hallucinated_evidence_rate: 0.01
+  minimum_domain_accuracy: 0.95
+  minimum_current_state_consistency: 0.99
+  minimum_temporal_consistency: 0.95
+  minimum_forecast_preservation: 0.9999
+  minimum_uncertainty_preservation: 0.9999
+  maximum_future_evidence_leakage: 0.0

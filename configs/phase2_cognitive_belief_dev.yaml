@@ -1,0 +1,69 @@
+experiment: phase2_cognitive_belief_dev
+run_id: phase2_cognitive_belief_dev_20261010
+seed: 2026
+neural_seeds: [2026, 2027, 2028]
+arms:
+  grud_gaussian:
+    typed_response: false
+    probabilistic_belief: false
+  typed_direct_gaussian:
+    typed_response: true
+    probabilistic_belief: false
+  typed_belief_dynamics:
+    typed_response: true
+    probabilistic_belief: true
+inputs:
+  verified_from_dictionary: true
+  use_for_state: true
+  scalar_monotonic_only: true
+  exclude_prefixes: [dxsum_, faq_]
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+interpolation:
+  require_visits: 3
+  hide_complete_middle_visit: true
+development_partition:
+  train_tune_fraction: 0.10
+  validation_calibration_fraction: 0.50
+  subject_hash_seed: 2026
+model:
+  item_dim: 48
+  domain_dim: 64
+  hidden_dim: 128
+  state_dim: 48
+  layers: 2
+  dropout: 0.1
+training:
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  max_epochs: 35
+  patience: 7
+  normalized_huber_weight: 0.10
+  task_sampling: balanced
+calibration:
+  method: groupwise_gaussian_variance_temperature
+  grouping: [task, target, horizon_months]
+  minimum_group_targets: 20
+  temperature_clip: [0.25, 4.0]
+  coverage_levels: [0.50, 0.80, 0.90, 0.95]
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_unit: subject
+  confidence_level: 0.95
+gate:
+  candidate: typed_belief_dynamics
+  baseline: grud_gaussian
+  normalized_mae_noninferiority_margin: 0.005
+  require_calibrated_nll_improvement: true
+  maximum_multilevel_calibration_error: 0.05
+  coverage_95_bounds: [0.90, 0.98]
+evaluation_policy: train_inner_tune_then_validation_calibration_evaluation_subject_disjoint_test_never_loaded

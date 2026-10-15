@@ -1,0 +1,43 @@
+{
+  "run_id": "phase4f_frozen_grud_phase4c_test_20261015",
+  "frozen_system": "phase4a_grud_plus_phase4c_grammar_model",
+  "test_opened_once": true,
+  "training_performed": false,
+  "checkpoint_selection_performed": false,
+  "test_forecast_subjects": 495,
+  "test_reasoning_subjects": 495,
+  "grammar_label_audit": {
+    "current_state_label_mismatches": 36,
+    "current_state_reports_affected": 32,
+    "current_state_domain_labels": 2475,
+    "trend_label_mismatches": 100,
+    "trend_reports_affected": 67,
+    "trend_domain_labels": 2475,
+    "current_state_metric_definition": "mean nested agreement over status, severity_z, and items for five domains",
+    "temporal_metric_definition": "mean nested agreement over label, start_severity_z, end_severity_z, and timepoints for five domains"
+  },
+  "criteria": {
+    "forecast_macro_nmae": true,
+    "forecast_locf_noninferiority": true,
+    "positive_uncertainty_error_association": true,
+    "format_validity": true,
+    "evidence_precision": true,
+    "evidence_recall": true,
+    "numeric_citation_accuracy": true,
+    "time_citation_accuracy": true,
+    "domain_accuracy": true,
+    "current_state_consistency": true,
+    "temporal_consistency": false,
+    "forecast_preservation": true,
+    "uncertainty_preservation": true,
+    "zero_hallucinated_evidence": true,
+    "zero_future_evidence_leakage": true,
+    "format_improvement_ci_vs_raw": true
+  },
+  "phase4f_frozen_system_confirmed": false,
+  "paper_primary_method_ready": false,
+  "grpo_supported": false,
+  "multimodal_reasoning_supported": false,
+  "further_test_tuning_permitted": false,
+  "next_action": "report_confirmatory_failure_without_test_tuning"
+}

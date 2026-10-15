@@ -1,0 +1,5 @@
+arm,format_validity,evidence_precision,evidence_recall,numeric_citation_accuracy,time_citation_accuracy,domain_accuracy,hallucinated_evidence_rate,future_evidence_leakage,current_state_consistency,temporal_consistency,forecast_preservation,uncertainty_preservation,exact_report_match,forbidden_claim
+grammar_executable,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0
+grammar_model,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.9951515151515152,0.98989898989899,1.0,1.0,0.8141414141414142,0.0
+raw_sft,0.9858585858585859,0.9856565656565656,0.9818759018759018,0.9854545454545455,0.9856565656565656,0.9856565656565656,0.014343434343434342,0.0,0.9810101010101011,0.9793939393939394,0.9858585858585859,0.9858585858585859,0.8343434343434344,0.0
+teacher,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0

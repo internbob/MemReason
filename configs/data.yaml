@@ -4,6 +4,7 @@ split_fractions: [0.7, 0.1, 0.2]
 mri:
   primary_root: /public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI/ADNI_Linear
   session_metadata: /public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI.csv
+  image_metadata: "/home_data/home/zhouwl2023/project/MemReason/idaSearch_10_12_2026 (2).csv"
   alternate_roots:
     surfgt: /public_bme/data/lianzf2024/UniSurf/surfGT/T1/ADNI/Step01_sMRI_data
     unisurf_longitudinal: /public_bme/data/lianzf2024/UniSurf/Longitudinal/UniSurf/ADNI/Step01_sMRI_data

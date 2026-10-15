@@ -691,6 +691,30 @@ def train_one(
 ) -> tuple[pd.DataFrame, int]:
     seed_everything(seed)
     settings = config["training"]
+    path = checkpoint_path(output, arm, seed)
+    curves_path = path.parent / "curves.csv"
+    if path.exists() and curves_path.exists():
+        checkpoint = torch.load(path, map_location="cpu", weights_only=True)
+        if checkpoint["features"] != features or checkpoint["targets"] != targets:
+            raise RuntimeError(f"Checkpoint data contract mismatch for {arm}/{seed}")
+        print(json.dumps({"arm": arm, "seed": seed, "checkpoint_reused": True}), flush=True)
+        return (
+            evaluate_checkpoint(
+                arm,
+                seed,
+                descriptors,
+                domain_assignment,
+                val_samples,
+                features,
+                targets,
+                normalization,
+                response_vocab,
+                config,
+                output,
+                device,
+            ),
+            int(checkpoint["parameter_count"]),
+        )
     train_samples = flatten_tasks(train_tasks)
     counts = Counter(sample.task for sample in train_samples)
     weights = torch.tensor([1.0 / counts[sample.task] for sample in train_samples], dtype=torch.double)
@@ -757,7 +781,6 @@ def train_one(
                 break
     if best_state is None:
         raise RuntimeError(f"No checkpoint for {arm}/{seed}")
-    path = checkpoint_path(output, arm, seed)
     path.parent.mkdir(parents=True, exist_ok=True)
     torch.save(
         {
@@ -894,11 +917,19 @@ def reconstruction_type_metrics(
             record["accuracy"] = float(((group.prediction >= 0.5).astype(int) == labels).mean())
             record["auroc"] = float(roc_auc_score(labels, group.prediction)) if labels.nunique() == 2 else None
         if value_type == "ordinal":
+            truth = []
             rounded = []
-            for target, prediction in zip(group.target, group.prediction):
+            for target, observed, prediction in zip(group.target, group.truth, group.prediction):
                 allowed = np.asarray(dictionary[target]["valid_values"], dtype=float)
+                truth.append(int(np.argmin(np.abs(allowed - observed))))
                 rounded.append(float(allowed[np.argmin(np.abs(allowed - prediction))]))
-            record["weighted_kappa"] = float(cohen_kappa_score(group.truth, rounded, weights="quadratic"))
+            predicted = [
+                int(np.argmin(np.abs(np.asarray(dictionary[target]["valid_values"], dtype=float) - value)))
+                for target, value in zip(group.target, rounded)
+            ]
+            record["weighted_kappa"] = float(
+                cohen_kappa_score(truth, predicted, weights="quadratic")
+            )
         rows.append(record)
     return pd.DataFrame(rows)
 
@@ -972,6 +1003,15 @@ def run(config_path: Path, smoke: bool = False) -> None:
         config["training"].update(max_epochs=2, patience=2, batch_size=64)
     output = ROOT / "outputs" / (config["run_id"] + ("_smoke" if smoke else ""))
     output.mkdir(parents=True, exist_ok=True)
+    resolved_config_path = output / "resolved_config.json"
+    if resolved_config_path.exists():
+        previous_config = json.loads(resolved_config_path.read_text())
+        if previous_config != config:
+            raise RuntimeError(
+                f"Refusing to reuse {output}: its frozen resolved config has changed"
+            )
+    else:
+        save_json(config, resolved_config_path)
     dictionary = load_dictionary()
     features = select_verified_scalar_features(config, dictionary)
     targets = list(config["targets"])
@@ -1058,7 +1098,6 @@ def run(config_path: Path, smoke: bool = False) -> None:
         "cublas_workspace_config": os.environ["CUBLAS_WORKSPACE_CONFIG"],
     }
     save_json(manifest, output / "manifest.json")
-    save_json(config, output / "resolved_config.json")
     save_json(response_vocab, output / "response_vocab_train.json")
     if smoke:
         save_json(

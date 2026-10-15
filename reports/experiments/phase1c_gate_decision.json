@@ -1,0 +1,15 @@
+{
+  "run_id": "phase1c_joint_stage1_20261004",
+  "criteria": {
+    "masked_item_improved": false,
+    "masked_instrument_improved": false,
+    "cross_scale_two_pairs_improved": false,
+    "no_diagnosis_leakage": true,
+    "future_noninferior": false
+  },
+  "stage1_gate_passed": false,
+  "future_noninferiority_supportive": false,
+  "missingness_only_validation_balanced_accuracy": 0.4196486931976516,
+  "advance_to_mri_stage2": false,
+  "reason": "Response-aware descriptors improved only MMSE+CDR to ADAS13; both masked tasks worsened, the second cross-scale task did not improve, and future non-inferiority was not established."
+}

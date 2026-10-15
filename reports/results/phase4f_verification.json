@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "forecast_samples": 4951,
+  "available_forecast_targets": 20007,
+  "forecast_subjects": 495,
+  "reasoning_reports": 495,
+  "reasoning_subjects": 495,
+  "macro_normalized_mae": 0.3750969386262255,
+  "grud_minus_locf_subject_mean": -0.021437083859682838,
+  "uncertainty_error_spearman": 0.15842717471559237,
+  "valid_json": {
+    "raw_sft": 488,
+    "grammar_model": 495,
+    "grammar_executable": 495,
+    "teacher": 495
+  },
+  "exact_reports": {
+    "raw_sft": 413,
+    "grammar_model": 403,
+    "grammar_executable": 495,
+    "teacher": 495
+  },
+  "generation_sha256": {
+    "raw_sft": "a2652a464ca34fd7a1b8a925e6f81b58590c5c24189aa7e1ae19d04fe2889d21",
+    "grammar_model": "bc63c836df47d3b920bbb2a82444a1a8105bd188164c98878731abb1768e5467",
+    "grammar_executable": "3ae2e6ec290f95715e701c99dfc2111e7dba1a519e397fd081839dc6ce486776",
+    "teacher": "63936e644698f177dd70c30df2514b4e462a22dc0fcde38e5a8d899583e0e3f7"
+  },
+  "grammar_current_state_label_mismatches": 36,
+  "grammar_current_state_reports_affected": 32,
+  "grammar_trend_label_mismatches": 100,
+  "grammar_trend_reports_affected": 67,
+  "grammar_domain_labels_per_field": 2475,
+  "current_state_metric_definition": "mean nested agreement over 3 fields x 5 domains per report",
+  "temporal_metric_definition": "mean nested agreement over 4 fields x 5 domains per report",
+  "grammar_temporal_consistency": 0.98989898989899,
+  "failed_criteria": [
+    "temporal_consistency"
+  ],
+  "phase4f_frozen_system_confirmed": false,
+  "paper_primary_method_ready": false,
+  "training_performed": false,
+  "grpo_adapter_used": false,
+  "further_test_tuning_permitted": false
+}

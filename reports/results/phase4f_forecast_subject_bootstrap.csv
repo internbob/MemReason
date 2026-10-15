@@ -1,0 +1,2 @@
+comparison,metric,difference,ci_low,ci_high,replicates,paired_rows,subjects
+grud_minus_locf,normalized_absolute_error,-0.021437083859682838,-0.03913072957129142,-0.0042319535882548625,2000,19757,495

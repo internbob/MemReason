@@ -1,0 +1,50 @@
+experiment: phase4b_cognitive_reasoning_sft
+run_id: phase4b_cognitive_reasoning_sft_20261014
+source_run_id: phase4a_frozen_cognitive_reasoning_20261014
+development_only: true
+data_policy: original_train_subjects_only
+model:
+  name: DeepSeek-R1-Distill-Qwen-1.5B
+  path: /home_data/home/zhouwl2023/project/New-AD/BHG-model/DeepSeek-R1-Distill-Qwen-1.5B
+  dtype: bfloat16
+  attention: sdpa
+prompt:
+  max_length: 3584
+  max_new_tokens: 1280
+  compact_history: first_and_last_per_item
+training:
+  seed: 20261014
+  epochs: 1
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 0.0002
+  weight_decay: 0.01
+  warmup_fraction: 0.03
+  gradient_clip: 1.0
+  gradient_checkpointing: false
+  lora_rank: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  lora_targets: [q_proj, k_proj, v_proj, o_proj]
+  maximum_examples_per_build_subject: 2
+  maximum_examples_per_dev_subject_horizon: 1
+evaluation:
+  batch_size: 24
+  maximum_examples_per_confirmation_subject: 1
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261015
+gate:
+  minimum_format_validity: 1.0
+  minimum_evidence_precision: 0.99
+  minimum_evidence_recall: 0.99
+  minimum_numeric_citation_accuracy: 0.99
+  minimum_time_citation_accuracy: 0.99
+  minimum_domain_accuracy: 0.99
+  minimum_current_state_consistency: 0.95
+  minimum_temporal_consistency: 0.95
+  minimum_forecast_preservation: 0.99
+  minimum_uncertainty_preservation: 0.99
+  maximum_hallucinated_evidence_rate: 0.01
+  maximum_future_evidence_leakage: 0.0
+  require_improvement_over_base: true
+  composite_improvement_margin: 0.0

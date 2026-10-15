@@ -1,0 +1,56 @@
+experiment: phase4d_cognitive_constrained_grpo
+run_id: phase4d_cognitive_constrained_grpo_20261015
+phase4a_run_id: phase4a_frozen_cognitive_reasoning_20261014
+phase4b_run_id: phase4b_cognitive_reasoning_sft_20261014
+phase4c_run_id: phase4c_grammar_constrained_decoding_20261015
+selection_seed: 20261018
+data:
+  rollout_subjects: 64
+  rollout_examples_per_subject: 1
+  development_examples_per_subject: 1
+  confirmation_subjects: 256
+  confirmation_examples_per_subject: 1
+policy:
+  group_size: 4
+  sampling_temperature: 1.2
+  rollout_batch_size: 2
+  gradient_checkpointing: true
+  maximum_updates: 32
+  checkpoint_updates: [8, 16, 24, 32]
+  learning_rate: 0.00001
+  weight_decay: 0.0
+  clip_epsilon: 0.2
+  kl_beta: 0.02
+  gradient_clip: 0.5
+  maximum_mean_kl: 0.15
+  maximum_consecutive_kl_violations: 3
+  minimum_group_reward_std: 0.005
+  maximum_consecutive_low_variance_updates: 8
+reward_weights:
+  current_state: 0.35
+  temporal: 0.35
+  outcome: 0.10
+  evidence: 0.05
+  domain: 0.05
+  uncertainty: 0.05
+  format: 0.05
+decoding:
+  evaluation_batch_size: 16
+  status_choices: [elevated_impairment, lower_impairment, within_training_reference, unavailable]
+  trend_choices: [decline, improve, stable, insufficient_history]
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261019
+development_gate:
+  minimum_state_label_accuracy: 0.97
+  minimum_trend_label_accuracy: 0.97
+  minimum_action_composite_improvement: 0.0
+  minimum_active_group_fraction: 0.10
+confirmation_gate:
+  minimum_format_validity: 1.0
+  minimum_anchor_preservation: 1.0
+  maximum_future_evidence_leakage: 0.0
+  state_noninferiority_margin: -0.01
+  trend_noninferiority_margin: -0.01
+  require_positive_action_composite_ci: true
+  require_positive_exact_report_ci: true

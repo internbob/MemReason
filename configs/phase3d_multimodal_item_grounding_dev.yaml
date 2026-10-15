@@ -1,0 +1,47 @@
+experiment: phase3d_multimodal_item_grounding_dev
+run_id: phase3d_multimodal_item_grounding_dev_20261014
+development_only: true
+test_policy: never_load_test
+date_window_days: 90
+seeds: [2026, 2027, 2028]
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+arms:
+  - cognition_only
+  - global_mri
+  - item_spatial_attention
+items:
+  source_config: phase1b_semantic_fair.yaml
+  source_descriptor_run: phase1b_semantic_fair_20261003
+  masked_items_per_visit: 3
+  masked_instruments_per_visit: 1
+backbone:
+  source_run: phase3c_concurrent_spatial_grounding_dev_20261014
+  feature_shape: [3, 4, 3]
+  feature_channels: 64
+training:
+  batch_size: 192
+  max_epochs: 28
+  patience: 6
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 128
+  self_attention_layers: 2
+  attention_heads: 4
+  dropout: 0.10
+  gradient_clip: 1.0
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261014
+  attention_top_fraction: 0.20
+gate:
+  minimum_attention_spearman: 0.25
+  minimum_top_token_overlap: 0.35
+  maximum_normalized_attention_entropy: 0.98
+  require_both_tasks_vs_cognition: true
+  require_overall_vs_global: true
+  require_controls: true

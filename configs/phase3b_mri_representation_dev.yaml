@@ -1,0 +1,42 @@
+experiment: phase3b_mri_representation_dev
+run_id: phase3b_mri_representation_dev_20261014
+development_only: true
+test_policy: never_load_test
+seeds: [2026, 2027, 2028]
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+date_window_days: 90
+representations:
+  - demographics_only
+  - global_mri
+  - sfcn_3d
+volume:
+  output_shape: [48, 56, 48]
+  extraction_workers: 8
+training:
+  batch_size_tabular: 256
+  batch_size_volume: 32
+  max_epochs: 30
+  patience: 6
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  dataloader_workers: 4
+future_change:
+  horizons_months: [12, 24]
+  tolerance_months: {12: 3, 24: 6}
+  ridge_alpha: 10.0
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261014
+gate:
+  minimum_significant_endpoints: 2
+  require_overall_vs_demographics: true
+  require_overall_vs_subject_shuffle: true
+  require_future_change_overall: true
+  require_future_change_12_or_24_month: true

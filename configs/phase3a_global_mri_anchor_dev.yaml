@@ -1,0 +1,52 @@
+experiment: phase3a_global_mri_anchor_dev
+run_id: phase3a_global_mri_anchor_dev_20261013
+development_only: true
+test_policy: never_load_test
+seed: 2026
+neural_seeds: [2026, 2027, 2028]
+arms:
+  - cognition_only
+  - observed_mri
+  - shuffled_subject_mri
+  - shuffled_time_mri
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+future_forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+mri:
+  date_window_days: 90
+  require_date_window_verified: true
+  require_target_after_scan: true
+  technical_qc:
+    min_mask_voxels: 10000
+    min_mask_fraction: 0.01
+    max_mask_fraction: 0.80
+    min_foreground_std: 1.0e-6
+  pooled_grid: [6, 7, 6]
+  extraction_workers: 8
+  shuffle_seed: 31415
+training:
+  batch_size: 256
+  max_epochs: 40
+  patience: 7
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 128
+  layers: 2
+  dropout: 0.1
+  gradient_clip: 1.0
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261013
+  confidence_level: 0.95
+gate:
+  overall_improvement_ci_upper: 0.0
+  require_observed_better_than_cognition: true
+  require_observed_better_than_both_shuffles: true
+  require_supported_12_or_24_month_improvement: true
+  minimum_technical_qc_pass_rate: 0.95

@@ -1,9 +1,9 @@
 {
   "engineering_smoke_only": true,
   "forecast_forward_backward_finite": true,
-  "forecast_loss": 0.5971556305885315,
-  "state_items": 78,
-  "target_items": 98,
+  "forecast_loss": 0.5273808836936951,
+  "state_items": 76,
+  "target_items": 96,
   "faq_and_diagnosis_absent_from_state": true,
   "real_mri_path": "/public_bme2/bme-dgshen/WeilinZhou/AD_longitudinal/ADNI/ADNI_Linear/sub-ADNI002S0295/ses-M000/t1/affine.nii.gz",
   "preprocessed_mri_shape": [

@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import yaml
-from .common import ROOT, SCALES, read_config, read_csv, save_csv, save_json, sha256, dates, valid_value
+from .common import ROOT, DAYS_PER_MONTH, SCALES, read_config, read_csv, save_csv, save_json, sha256, dates, valid_value
 from .dictionary import build_dictionary
 from .split_subjects import split_subjects
 from .build_mri_metadata import build_mri_metadata
@@ -104,6 +104,14 @@ def main(config_path=None):
         scans_with_subject_session_mapping=('visit_month','count'), true_scan_dates=('scan_date','count')).reset_index()
     comparison['subjects_overlapping_cognition'] = comparison.source.map(mri[mri.subject_id.isin(raw.subject_id)].groupby('source').subject_id.nunique()).fillna(0).astype(int)
     save_csv(comparison, ROOT/'reports/data_audit/mri_root_comparison.csv')
+    date_coverage = mri.groupby(['source', 'primary'], dropna=False).agg(
+        scans=('scan_id', 'size'),
+        scans_with_image_id=('image_id', 'count'),
+        scans_with_true_date=('scan_date', 'count'),
+        subjects=('subject_id', 'nunique'),
+    ).reset_index()
+    date_coverage['true_date_fraction'] = date_coverage.scans_with_true_date / date_coverage.scans
+    save_csv(date_coverage, ROOT/'reports/data_audit/mri_date_coverage.csv')
     df = enrich_provenance(raw, Path(cfg['item_provenance_csv']), Path(cfg['clinical_source_dir']))
     df['split'] = df.subject_id.map(split_map)
     nearest_window = cfg['mri'].get('nearest_month_window', 6)
@@ -126,13 +134,14 @@ def main(config_path=None):
     save_csv(matches, ROOT/'reports/matching/mri_cognition_matching.csv')
     stats = []
     for window in cfg['mri']['sensitivity_days']:
-        matched_scans = matches.scan_id.nunique()
-        verified = matches.date_difference_days.notna()
-        stats.append(dict(window_days=window, same_visit_pairs=int((matches.match_strategy=='same_visit_code').sum()),
-            true_date_pairs_evaluable=int(verified.sum()), true_date_pairs_within_window=int((verified & (matches.date_difference_days<=window)).sum()),
-            matched_pairs=len(matches), matched_mri=matched_scans, unmatched_cognition_visits=len(df)-len(matches),
+        window_matches = match_mri_cognition(df,mri,window,cfg['mri']['tau_days'])
+        matched_scans = window_matches.scan_id.nunique()
+        verified = window_matches.date_difference_days.notna()
+        stats.append(dict(window_days=window, same_visit_pairs=int((window_matches.match_strategy=='same_visit_code').sum()),
+            true_date_pairs_evaluable=int(verified.sum()), true_date_pairs_within_window=int((verified & (window_matches.date_difference_days<=window)).sum()),
+            matched_pairs=len(window_matches), matched_mri=matched_scans, unmatched_cognition_visits=len(df)-len(window_matches),
             unmatched_primary_mri=len(primary)-matched_scans, sensitivity_status='not_evaluable_without_scan_dates' if not verified.any() else 'evaluated',
-            median_gap_days=float(matches.date_difference_days.median()) if verified.any() else None))
+            median_gap_days=float(window_matches.date_difference_days.median()) if verified.any() else None))
     save_csv(pd.DataFrame(stats),ROOT/'reports/mri_cognition_matching_stats.csv')
     wide = df.merge(matches.drop(columns='subject_id'),on='visit_id',how='left',validate='one_to_one')
     wide['mri_available'] = wide.mri_available.eq(True)
@@ -143,9 +152,17 @@ def main(config_path=None):
     events, invalid = build_cognitive_events(df,dictionary)
     save_csv(invalid,ROOT/'reports/data_audit/invalid_observations.csv')
     mri_events=[]
+    origin_by_subject = pd.to_datetime(
+        df.groupby('subject_id').time_origin_date.first(), errors='coerce'
+    ).to_dict()
     for scan in mri[mri.primary & mri.subject_id.isin(raw.subject_id)].to_dict('records'):
+        scan_date = pd.to_datetime(scan.get('scan_date'), errors='coerce')
+        origin = origin_by_subject.get(scan['subject_id'])
+        has_true_time = pd.notna(scan_date) and pd.notna(origin)
+        event_time = float((scan_date-origin).days/DAYS_PER_MONTH) if has_true_time else scan['visit_month']
         mri_events.append(dict(event_id=scan['scan_id'],subject_id=scan['subject_id'],rid=scan['rid'],visit_id=f"{scan['subject_id']}:{scan['visit_code']}",visit_code=scan['visit_code'],visit_month=scan['visit_month'],
-            time_month=scan['visit_month'],event_date=None,time_source='nominal_session_month',event_type='MRI_T1',instrument='MRI',role='mri',
+            time_month=event_time,event_date=scan_date.date().isoformat() if has_true_time else None,
+            time_source='ida_study_date' if has_true_time else 'nominal_session_month',event_type='MRI_T1',instrument='MRI',role='mri',
             payload_json='{}',state_payload_json='{}',image_path=scan['image_path'],scan_id=scan['scan_id'],split=scan['split'],phase=scan['cohort'],main_eligible=False))
     events=pd.concat([events,pd.DataFrame(mri_events)],ignore_index=True).sort_values(['subject_id','time_month','event_id']).reset_index(drop=True)
     if events.event_id.duplicated().any():
@@ -200,9 +217,14 @@ def main(config_path=None):
         manifest.append(dict(source=name,sampled_path=p,shape=list(img.shape),spacing=[float(x) for x in img.header.get_zooms()],orientation=list(nib.aff2axcodes(img.affine)),
             scope='one_header_per_source; not full QC',skull_stripping='unverified',bias_correction='unverified',clinical_qc='unknown'))
     save_json({'sources':manifest,'online_preprocessing':{'orientation':'RAS','spacing_mm':[2.,2.,2.],'crop_pad':[96,112,96],'intensity':'finite foreground z-score','upstream_corrections':'not claimed'}},ROOT/'processed/preprocessing_manifest.json')
+    dated = mri.scan_date.notna()
+    expected_date_source = str(Path(cfg['mri']['image_metadata']))
     checks={'subject_split_disjoint':subjects.subject_id.is_unique,'every_visit_retained':len(wide)==len(raw),
             'no_missing_value_imputation':True,'original_sha256':sha256(source),
-            'all_primary_paths_exist':bool(mri[mri.primary].path_exists.all()),'no_actual_scan_dates_fabricated':bool(mri.scan_date.isna().all()),
+            'all_primary_paths_exist':bool(mri[mri.primary].path_exists.all()),
+            'all_scan_dates_have_auditable_ida_source':bool((mri.loc[dated, 'date_metadata_source']==expected_date_source).all()),
+            'primary_scans_with_true_dates':int(mri.loc[mri.primary, 'scan_date'].notna().sum()),
+            'primary_scans_without_true_dates':int(mri.loc[mri.primary, 'scan_date'].isna().sum()),
             'events_unique':bool(events.event_id.is_unique),'forecast_targets_strictly_future':bool((forecasts.target_time_min>forecasts.cutoff_month).all()),
             'normalization_fit_split':'train','split_seed':cfg['seed'],'input_visits':len(raw),'input_subjects':raw.subject_id.nunique(),
             'matched_visits':len(matches),'primary_scans_in_cognitive_cohort':len(mri_events),'invalid_observations':len(invalid)}
@@ -210,16 +232,18 @@ def main(config_path=None):
     checks['nearest_month_window'] = nearest_window
     checks['nearest_month_eligible_visits'] = int(nearest_month.mri_month_match_eligible.sum())
     save_json(checks,ROOT/'reports/data_audit/validation.json')
-    input_paths=[source,Path(cfg['mri']['session_metadata']),dictionary_path,Path(config_path) if config_path else ROOT/'configs/data.yaml',Path(cfg['item_provenance_csv'])]
+    input_paths=[source,Path(cfg['mri']['session_metadata']),Path(cfg['mri']['image_metadata']),dictionary_path,Path(config_path) if config_path else ROOT/'configs/data.yaml',Path(cfg['item_provenance_csv'])]
     input_paths.extend(sorted(Path(cfg['clinical_source_dir']).glob('*_*.csv')))
     save_json({'inputs':{str(p):sha256(p) for p in input_paths if p.is_file()},'split_algorithm':'sorted subjects; numpy.default_rng(seed).shuffle; floor 70%,floor 10%,remainder 20%'},ROOT/'reports/data_audit/provenance.json')
+    primary_true_dates = int(primary.scan_date.notna().sum())
+    primary_missing_dates = int(primary.scan_date.isna().sum())
     summary=f'''# MemReason Phase 0 数据审计
 
 原始数据：{len(raw)} visits，{raw.subject_id.nunique()} subjects，{len(raw.columns)} columns。原始 CSV 未修改；缺失值未填补。
 
 ## MRI 数据源
 
-主目录：`{cfg['mri']['primary_root']}`。全目录 {len(primary)} scans；认知队列内 {len(mri_events)} scans；同 subject + visit 匹配 {len(matches)} visits。
+主目录：`{cfg['mri']['primary_root']}`。全目录 {len(primary)} scans；其中 {primary_true_dates} scans 通过 Image ID 与 IDA Study Date 精确连接，{primary_missing_dates} scans 因缺少或未命中 Image ID 仍无真实日期；认知队列内 {len(mri_events)} scans；90 天主协议匹配 {len(matches)} visits。
 
 详见 `mri_root_comparison.csv`。保留全部认知访视；MRI 不作为纳入认知队列的条件。
 
@@ -231,8 +255,8 @@ def main(config_path=None):
 
 ## 必须保留的限制
 
-- 配套 MRI CSV 提供 image_id/session，没有实际 scan_date、scanner、field_strength 或 QC；均保持未知。不能将同访视匹配说成已验证 ≤90 天。30/60/90/180 天敏感性暂不可计算。
-- MRI 名义时间只用于明确标记的探索性事件流。正式 grounding 还需真实采集日期和 QC。MRI header 检查不等于 QC。
+- IDA 导出 `{cfg['mri']['image_metadata']}` 提供 Image ID 级 `Study Date`；仅在 Image ID 和 subject 同时一致时写入 `scan_date`。真实日期覆盖和 30/60/90/180 天匹配敏感性见 `mri_date_coverage.csv` 与 `mri_cognition_matching_stats.csv`。
+- 未获得日期的 MRI 继续使用明确标记的 nominal session month。scanner、field strength 和临床 QC 仍未知，因此 `main_grounding_eligible` 继续为 false；MRI header 检查不等于 QC。
 - ADAS/CDR/FAQ/MMSE/MoCA 的官方编码核验由独立脚本维护；重建 Phase 0 数据不会覆盖已核验字典。当前核验状态见 `reports/data_audit/dictionary_verification.md`；`verified_from_dictionary=false` 的字段不能进入正式语义实验。
 - RAVLT Trial*Int 不按学习词数解释；原值保留在 CSV 和事件证据中，默认不进入 state。999/9999 及候选范围异常单独记录在 `invalid_observations.csv`，原始表不改写。
 - FAQ、诊断、总分不进入 memory state encoder；CDR function items 只作 outcome。源文件 presence flags 保留，availability 另按实际 payload 统计。

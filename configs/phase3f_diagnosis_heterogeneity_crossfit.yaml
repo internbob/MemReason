@@ -1,0 +1,47 @@
+experiment: phase3f_diagnosis_heterogeneity_crossfit
+run_id: phase3f_diagnosis_heterogeneity_crossfit_20261014
+development_only: true
+data_policy: original_train_subjects_only
+date_window_days: 90
+folds: 5
+seeds: [2026, 2027, 2028]
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+arms:
+  - global_pool
+  - target_spatial_attention
+sources:
+  phase3b_run: phase3b_mri_representation_dev_20261014
+  phase3c_run: phase3c_concurrent_spatial_grounding_dev_20261014
+backbone:
+  feature_shape: [3, 4, 3]
+  feature_channels: 64
+training:
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 128
+  attention_heads: 4
+  dropout: 0.15
+  gradient_clip: 1.0
+  frozen_epochs:
+    global_pool: {2026: 21, 2027: 34, 2028: 26}
+    target_spatial_attention: {2026: 16, 2027: 12, 2028: 8}
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261014
+  attention_top_fraction: 0.20
+gate:
+  minimum_direction_folds: 4
+  minimum_attention_spearman: 0.30
+  minimum_top_token_overlap: 0.40
+  minimum_fold_signature_spearman: 0.25
+  minimum_fold_signature_overlap: 0.35
+  require_ad_benefit: true
+  require_mci_harm: true
+  require_ad_vs_mci_interaction: true
+  require_all_mechanism_controls: true

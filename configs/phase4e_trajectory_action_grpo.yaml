@@ -1,0 +1,69 @@
+experiment: phase4e_trajectory_action_grpo
+run_id: phase4e_trajectory_action_grpo_20261015
+phase4a_run_id: phase4a_frozen_cognitive_reasoning_20261014
+phase4b_run_id: phase4b_cognitive_reasoning_sft_20261014
+phase4d_run_id: phase4d_cognitive_constrained_grpo_20261015
+selection_seed: 20261020
+targets: [adas_total13, cdr_cdrsb, faq_faqtotal, mmse_mmscore, moca_moca]
+data:
+  sft_subjects: 256
+  rollout_subjects: 96
+  development_subjects: 256
+  examples_per_subject: 1
+action_sft:
+  epochs: 1
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 0.00005
+  weight_decay: 0.0
+  warmup_fraction: 0.05
+  gradient_clip: 0.5
+  max_length: 3584
+  gradient_checkpointing: true
+policy:
+  group_size: 4
+  sampling_temperature: 1.3
+  rollout_batch_size: 2
+  gradient_checkpointing: true
+  maximum_updates: 32
+  checkpoint_updates: [8, 16, 24, 32]
+  learning_rate: 0.00001
+  weight_decay: 0.0
+  clip_epsilon: 0.2
+  kl_beta: 0.02
+  gradient_clip: 0.5
+  maximum_mean_kl: 0.15
+  maximum_consecutive_kl_violations: 3
+  minimum_group_reward_std: 0.005
+  maximum_consecutive_low_variance_updates: 8
+actions:
+  residual_choices: [drop, lower, anchor, raise, boost]
+  residual_std_units: {drop: -0.5, lower: -0.25, anchor: 0.0, raise: 0.25, boost: 0.5}
+  uncertainty_choices: [compact, baseline, wide]
+  uncertainty_multipliers: {compact: 0.75, baseline: 1.0, wide: 1.5}
+  uncertainty_floor_std_units: 0.05
+  temporal_change_threshold_std_units: 0.10
+reward_weights:
+  outcome: 0.65
+  uncertainty: 0.15
+  temporal: 0.10
+  clinical_range: 0.10
+decoding:
+  evaluation_batch_size: 16
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261021
+development_gate:
+  require_nmae_improvement_over_sft: true
+  require_nmae_improvement_over_frozen: true
+  require_negative_nmae_bootstrap_ci_vs_frozen: true
+  maximum_normalized_crps_degradation_vs_frozen: 0.01
+  maximum_temporal_accuracy_degradation_vs_frozen: 0.01
+  minimum_clinical_range_rate: 1.0
+  minimum_active_group_fraction: 0.10
+confirmation_gate:
+  require_negative_nmae_bootstrap_ci_vs_frozen: true
+  require_negative_nmae_bootstrap_ci_vs_sft: true
+  maximum_normalized_crps_degradation_vs_frozen: 0.01
+  maximum_temporal_accuracy_degradation_vs_frozen: 0.01
+  minimum_clinical_range_rate: 1.0

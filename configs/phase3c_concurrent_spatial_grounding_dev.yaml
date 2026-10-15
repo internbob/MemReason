@@ -1,0 +1,41 @@
+experiment: phase3c_concurrent_spatial_grounding_dev
+run_id: phase3c_concurrent_spatial_grounding_dev_20261014
+development_only: true
+test_policy: never_load_test
+date_window_days: 90
+seeds: [2026, 2027, 2028]
+targets:
+  adas_total13: ADAS13
+  cdr_cdrsb: CDRSB
+  faq_faqtotal: FAQ
+  mmse_mmscore: MMSE
+  moca_moca: MoCA
+arms:
+  - global_pool
+  - target_spatial_attention
+backbone:
+  source_run: phase3b_mri_representation_dev_20261014
+  frozen_blocks: 4
+  feature_shape: [3, 4, 3]
+  feature_channels: 64
+training:
+  batch_size: 256
+  max_epochs: 35
+  patience: 7
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 128
+  attention_heads: 4
+  dropout: 0.15
+  gradient_clip: 1.0
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261014
+  attention_top_fraction: 0.20
+gate:
+  minimum_significant_endpoints: 2
+  minimum_attention_spearman: 0.30
+  minimum_top_token_overlap: 0.40
+  require_vs_global_pool: true
+  require_vs_spatial_permutation: true
+  require_vs_query_permutation: true
