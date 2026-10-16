@@ -1,0 +1,53 @@
+experiment: phase5d_anchored_bifactor_mirt
+run_id: phase5d_anchored_mirt_dev_20261016
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+phase5c_output: outputs/phase5c_memory_measurement_dev_20261016
+folds: 5
+partition_seed: 20261025
+inner_dev_fraction: 0.10
+arms:
+  - invariant_mirt
+  - partial_invariant_mirt
+  - no_anchor_mirt
+baseline_arms:
+  - fixed_domain_score
+  - unconstrained_autoencoder
+time_bins:
+  labels: [baseline, month_1_12, month_13_24, after_month_24]
+masking:
+  item_fraction: 0.20
+training:
+  learning_rate: 0.025
+  finetune_learning_rate: 0.010
+  weight_decay: 0.0001
+  invariant_epochs: 90
+  finetune_epochs: 50
+  evaluation_every: 10
+  patience_evaluations: 3
+  inference_steps: 60
+  inference_learning_rate: 0.08
+  kl_weight: 0.05
+  dif_l2_weight: 0.02
+  minimum_precision: 3.0
+dif:
+  residual_effect_threshold: 0.08
+  minimum_group_observations: 100
+  group_types: [time_bin, diagnosis, adni_phase]
+anchor:
+  minimum_fit_observations: 200
+  minimum_stable_folds: 4
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261027
+  state_bootstrap_replicates: 2000
+gate:
+  candidate: partial_invariant_mirt
+  fixed_baseline: fixed_domain_score
+  predictive_baseline: unconstrained_autoencoder
+  ae_noninferiority_margin: 0.01
+  memory_cross_view_ccc_lower_bound: 0.70
+  minimum_memory_anchors: 3
+  minimum_anchor_instruments: 2
+  minimum_folds_better_than_fixed: 4
+evaluation_policy: nested_subject_crossfit_original_train_only

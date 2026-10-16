@@ -1,0 +1,9 @@
+task,candidate,baseline,difference,ci_low,ci_high,subjects,paired_decisions,replicates
+heldout_instrument,partial_invariant_mirt,fixed_domain_score,0.0008147252200045324,-0.0029981620170044915,0.004653997899906665,2738,150325,2000
+heldout_instrument,partial_invariant_mirt,unconstrained_autoencoder,0.0747596577451792,0.0701384978476995,0.07956958856142954,2738,150325,2000
+heldout_instrument,partial_invariant_mirt,invariant_mirt,0.0,0.0,0.0,2738,150325,2000
+heldout_instrument,partial_invariant_mirt,no_anchor_mirt,-0.013340411114603698,-0.014196210648174222,-0.012489693187172569,2738,150325,2000
+heldout_item,partial_invariant_mirt,fixed_domain_score,0.0191678487557028,0.015578513945045318,0.022554770429664372,3008,119470,2000
+heldout_item,partial_invariant_mirt,unconstrained_autoencoder,0.06341202113746275,0.0584201139258391,0.06857860321615548,3008,119470,2000
+heldout_item,partial_invariant_mirt,invariant_mirt,0.0,0.0,0.0,3008,119470,2000
+heldout_item,partial_invariant_mirt,no_anchor_mirt,-0.015017815722870692,-0.015696350177380983,-0.014311890720407033,3008,119470,2000

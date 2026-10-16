@@ -1,0 +1,27 @@
+{
+  "run_id": "phase5d_anchored_mirt_dev_20261016",
+  "development_only": true,
+  "original_train_only": true,
+  "validation_loaded": false,
+  "test_loaded": false,
+  "candidate": "partial_invariant_mirt",
+  "fixed_score_improvement": false,
+  "autoencoder_noninferiority": false,
+  "memory_cross_view_ccc": {
+    "ccc": 0.37127716252397536,
+    "ci_low": 0.3547057418192815,
+    "ci_high": 0.3872608689438949,
+    "replicates": 2000,
+    "subjects": 2734,
+    "pairs": 9749
+  },
+  "cross_view_gate": false,
+  "stable_memory_anchors": 8,
+  "stable_memory_anchor_instruments": 2,
+  "anchor_gate": true,
+  "folds_better_than_fixed": 1,
+  "fold_reproducibility_gate": false,
+  "phase5d_measurement_gate_passed": false,
+  "continuous_time_dynamics_open": false,
+  "next_step": "retain_measurement_negative_and_do_not_enter_dynamics"
+}

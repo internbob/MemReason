@@ -345,4 +345,10 @@ Stage 0 将 12 个新增 memory fields 与 ADNI 官方 ITEM dictionary 精确匹
 
 Stage 1 只使用 original train，完成五折 nested subject-wise cross-fitting、15 个 neural checkpoints、1,079,180 条 OOF masked predictions 和 178,315 条 cross-view state pairs。无约束 autoencoder 的 held-out item/instrument macro normalized MAE 最好，为 **0.4446/0.4539**；概率 domain model 为 **0.6782/0.5507**。概率 domain model 相对无约束模型的 held-out-instrument subject-level error 差为 **+0.10739**，95% CI **[0.10099, 0.11331]**。其 cross-view Spearman 为 **-0.0776**，低于 fixed domain score 的 0.4684 和无约束模型的 0.9526。因此 `stage1_measurement_gate_passed=false`，不按当前结构进入 continuous-time dynamics。完整结果见 [Stage 1 报告](outputs/phase5c_memory_measurement_dev_20261016/report.md)和[独立核验](outputs/phase5c_memory_measurement_dev_20261016/verification.json)。
 
+## Phase 5D：anchored bifactor MIRT 与 measurement invariance
+
+[冻结协议](reports/experiments/phase5d_anchored_mirt_protocol.md)将状态识别为 positive-loading global impairment 与 Memory-specific impairment，分别使用 Bernoulli、beta 和 graded-response likelihood，并只在 original-train 内进行五折 nested subject cross-fitting。时间、诊断和 ADNI phase 的 residual DIF 只在 outer-fit 数据中审计；诊断不进入状态推断。实验复用 Phase 5C 的 fixed score 和 unconstrained autoencoder OOF 对照，共产生 15 个 MIRT checkpoints、1,348,975 条五臂预测和 29,247 条 cross-view records。
+
+冻结规则没有在任何 fold 选择出具有实际效应的 time DIF，因此 partial-invariant 与 invariant arm 完全相同。其 held-out item/instrument macro normalized MAE 为 **0.5181/0.5273**，fixed score 为 0.4866/0.5212，unconstrained autoencoder 为 0.4446/0.4539。候选相对 autoencoder 的 held-out-instrument subject difference 为 **+0.07476**，95% CI **[0.07014, 0.07957]**。Memory cross-view CCC 为 **0.3713**，95% CI **[0.3547, 0.3873]**。8 个来自 ADAS/MMSE 的 Memory anchors 通过稳定性门槛，但预测非劣性、cross-view coherence 和 fold reproducibility 均失败。因此 `phase5d_measurement_gate_passed=false`、`continuous_time_dynamics_open=false`。完整结果见 [Phase 5D 报告](outputs/phase5d_anchored_mirt_dev_20261016/report.md)和[独立核验](outputs/phase5d_anchored_mirt_dev_20261016/verification.json)。
+
 数据审计入口：[summary.md](reports/data_audit/summary.md)。完整工程状态：[BUILD_STATUS.md](BUILD_STATUS.md)。

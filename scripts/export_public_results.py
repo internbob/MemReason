@@ -81,6 +81,22 @@ EXPORTS = {
         "phase5c_memory_measurement_decision.json",
     "outputs/phase5c_memory_measurement_dev_20261016/verification.json":
         "phase5c_memory_measurement_verification.json",
+    "outputs/phase5d_anchored_mirt_dev_20261016/report.md":
+        "phase5d_anchored_mirt_report.md",
+    "outputs/phase5d_anchored_mirt_dev_20261016/aggregate_metrics.csv":
+        "phase5d_anchored_mirt_aggregate_metrics.csv",
+    "outputs/phase5d_anchored_mirt_dev_20261016/cross_view_summary.csv":
+        "phase5d_anchored_mirt_cross_view_summary.csv",
+    "outputs/phase5d_anchored_mirt_dev_20261016/subject_bootstrap.csv":
+        "phase5d_anchored_mirt_subject_bootstrap.csv",
+    "outputs/phase5d_anchored_mirt_dev_20261016/anchor_stability.csv":
+        "phase5d_anchored_mirt_anchor_stability.csv",
+    "outputs/phase5d_anchored_mirt_dev_20261016/instrument_connectivity.csv":
+        "phase5d_anchored_mirt_instrument_connectivity.csv",
+    "outputs/phase5d_anchored_mirt_dev_20261016/development_decision.json":
+        "phase5d_anchored_mirt_decision.json",
+    "outputs/phase5d_anchored_mirt_dev_20261016/verification.json":
+        "phase5d_anchored_mirt_verification.json",
 }
 
 
