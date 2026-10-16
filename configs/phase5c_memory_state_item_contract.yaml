@@ -1,0 +1,1280 @@
+contract: phase5c_memory_state_items_v1
+frozen_date: '2026-10-16'
+development_data: original_train_only
+primary_state_items:
+- instrument: ADAS
+  domain: Memory
+  construct: WordRecall
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 10
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q1score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q1SCORE
+- instrument: ADAS
+  domain: Language
+  construct: Commands
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q2score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q2SCORE
+- instrument: ADAS
+  domain: Executive
+  construct: ConstructionalPraxis
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q3score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q3SCORE
+- instrument: ADAS
+  domain: Memory
+  construct: DelayedRecall
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 10
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q4score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q4SCORE
+- instrument: ADAS
+  domain: Language
+  construct: Naming
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q5score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q5SCORE
+- instrument: ADAS
+  domain: Language
+  construct: NamingWithCue
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q5score_cue
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q5SCORE_CUE
+- instrument: ADAS
+  domain: Executive
+  construct: IdeationalPraxis
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q6score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q6SCORE
+- instrument: ADAS
+  domain: Orientation
+  construct: Orientation
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 8
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q7score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q7SCORE
+- instrument: ADAS
+  domain: Memory
+  construct: WordRecognition
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 12
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q8score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q8SCORE
+- instrument: ADAS
+  domain: Memory
+  construct: RememberingInstructions
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q9score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q9SCORE
+- instrument: ADAS
+  domain: Language
+  construct: SpokenLanguageComprehension
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q10score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q10SCORE
+- instrument: ADAS
+  domain: Language
+  construct: WordFindingDifficulty
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q11score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q11SCORE
+- instrument: ADAS
+  domain: Language
+  construct: LanguageAbility
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q12score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q12SCORE
+- instrument: ADAS
+  domain: Attention
+  construct: NumberCancellation
+  value_type: continuous
+  direction: higher=worse
+  range:
+  - 0
+  - 5
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: adas_q13score
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=Q13SCORE
+- instrument: CDR
+  domain: Memory
+  construct: InformantMemoryRating
+  value_type: ordinal
+  direction: higher=worse
+  range: null
+  valid_values:
+  - 0
+  - 0.5
+  - 1
+  - 2
+  - 3
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: cdr_cdmemory
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDMEMORY
+- instrument: CDR
+  domain: Orientation
+  construct: InformantRating
+  value_type: ordinal
+  direction: higher=worse
+  range: null
+  valid_values:
+  - 0
+  - 0.5
+  - 1
+  - 2
+  - 3
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: cdr_cdorient
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDORIENT
+- instrument: CDR
+  domain: Executive
+  construct: InformantRating
+  value_type: ordinal
+  direction: higher=worse
+  range: null
+  valid_values:
+  - 0
+  - 0.5
+  - 1
+  - 2
+  - 3
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: cdr_cdjudge
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CDJUDGE
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmyear
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMYEAR
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmmonth
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMMONTH
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmday
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMDAY
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmseason
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMSEASON
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmhospit
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMHOSPIT
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmfloor
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMFLOOR
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmcity
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMCITY
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmarea
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMAREA
+- instrument: MMSE
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmstate
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMSTATE
+- instrument: MMSE
+  domain: Memory
+  construct: Registration
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_word1
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD1
+- instrument: MMSE
+  domain: Memory
+  construct: Registration
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_word2
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD2
+- instrument: MMSE
+  domain: Memory
+  construct: Registration
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_word3
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD3
+- instrument: MMSE
+  domain: Memory
+  construct: LearningTrials
+  value_type: continuous
+  direction: higher=better
+  range:
+  - 1
+  - 6
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmtrials
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMTRIALS
+- instrument: MMSE
+  domain: Attention
+  construct: SpellingBackward
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmd
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMD
+- instrument: MMSE
+  domain: Attention
+  construct: SpellingBackward
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mml
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MML
+- instrument: MMSE
+  domain: Attention
+  construct: SpellingBackward
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmr
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMR
+- instrument: MMSE
+  domain: Attention
+  construct: SpellingBackward
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmo
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMO
+- instrument: MMSE
+  domain: Attention
+  construct: SpellingBackward
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmw
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMW
+- instrument: MMSE
+  domain: Memory
+  construct: DelayedRecall
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_word1dl
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD1DL
+- instrument: MMSE
+  domain: Memory
+  construct: DelayedRecall
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_word2dl
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD2DL
+- instrument: MMSE
+  domain: Memory
+  construct: DelayedRecall
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_word3dl
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=WORD3DL
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmwatch
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMWATCH
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmpencil
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMPENCIL
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmrepeat
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMREPEAT
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmhand
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMHAND
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmfold
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMFOLD
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmonflr
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMONFLR
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmread
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMREAD
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmwrite
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMWRITE
+- instrument: MMSE
+  domain: Language
+  construct: LanguagePraxis
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: mmse_mmdraw
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MMDRAW
+- instrument: MOCA
+  domain: Executive
+  construct: ExecutiveVisuospatial
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_trails
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=TRAILS
+- instrument: MOCA
+  domain: Executive
+  construct: ExecutiveVisuospatial
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_cube
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CUBE
+- instrument: MOCA
+  domain: Executive
+  construct: ExecutiveVisuospatial
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_clockcon
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CLOCKCON
+- instrument: MOCA
+  domain: Executive
+  construct: ExecutiveVisuospatial
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_clockno
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CLOCKNO
+- instrument: MOCA
+  domain: Executive
+  construct: ExecutiveVisuospatial
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_clockhan
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CLOCKHAN
+- instrument: MOCA
+  domain: Language
+  construct: Language
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_lion
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=LION
+- instrument: MOCA
+  domain: Language
+  construct: Language
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_rhino
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=RHINO
+- instrument: MOCA
+  domain: Language
+  construct: Language
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_camel
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CAMEL
+- instrument: MOCA
+  domain: Attention
+  construct: AttentionWorkingMemory
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_digfor
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DIGFOR
+- instrument: MOCA
+  domain: Attention
+  construct: AttentionWorkingMemory
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_digback
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DIGBACK
+- instrument: MOCA
+  domain: Language
+  construct: Language
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_repeat1
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=REPEAT1
+- instrument: MOCA
+  domain: Language
+  construct: Language
+  value_type: binary
+  direction: higher=better
+  range:
+  - 0
+  - 1
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_repeat2
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=REPEAT2
+- instrument: MOCA
+  domain: Language
+  construct: Language
+  value_type: continuous
+  direction: higher=better
+  range:
+  - 0
+  - 99
+  valid_values: null
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_ffluency
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=FFLUENCY
+- instrument: MOCA
+  domain: Executive
+  construct: ExecutiveVisuospatial
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_abstran
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=ABSTRAN
+- instrument: MOCA
+  domain: Executive
+  construct: ExecutiveVisuospatial
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_absmeas
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=ABSMEAS
+- instrument: MOCA
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_date
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DATE
+- instrument: MOCA
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_month
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=MONTH
+- instrument: MOCA
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_year
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=YEAR
+- instrument: MOCA
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_day
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=DAY
+- instrument: MOCA
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_place
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=PLACE
+- instrument: MOCA
+  domain: Orientation
+  construct: Orientation
+  value_type: binary
+  direction: higher=better
+  range: null
+  valid_values:
+  - 0
+  - 1
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+  field: moca_city
+  source: https://adni.loni.usc.edu/data-samples/data-dictionary-search/?q=CITY
+- field: LogMemIA_ImmediateScore
+  instrument: LOGMEM
+  domain: Memory
+  construct: ImmediateStoryRecall
+  value_type: continuous
+  direction: higher=better
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 99
+  - 999
+  - 9999
+  source: phase5c_memory_field_audit.csv
+- field: LogMemIIA_DelayedScore
+  instrument: LOGMEM
+  domain: Memory
+  construct: DelayedStoryRecall
+  value_type: continuous
+  direction: higher=better
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 99
+  - 999
+  - 9999
+  source: phase5c_memory_field_audit.csv
+auxiliary_memory_validity:
+- field: AVLT_Trial1Int
+  construct: IntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Trial2Int
+  construct: IntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Trial3Int
+  construct: IntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Trial4Int
+  construct: IntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Trial5Int
+  construct: IntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Trial6Int
+  construct: IntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Trial7Int
+  construct: IntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Delay_Rec
+  construct: RecognitionScore
+  role: auxiliary_only
+  direction: higher=better
+  range:
+  - 0
+  - 15
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+- field: AVLT_Delay_TotInt
+  construct: DelayedIntrusionCount
+  role: auxiliary_only
+  direction: higher=worse
+  range:
+  - 0
+  - 25
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+metadata_only:
+- field: LogMemIIA_ReminderGiven
+  construct: ReminderMetadata
+  role: metadata_only
+  direction: nonmonotonic
+  valid_values:
+  - 1
+  - 2
+  missing_codes:
+  - -4
+  - -1
+  - 999
+  - 9999
+exclusions:
+  diagnosis: downstream_only
+  FAQ: downstream_only
+  MRI: downstream_only
+  AVLT_intrusion_fields: not_recall_scores

@@ -65,6 +65,22 @@ EXPORTS = {
         "phase5b_analysis_decision.json",
     "outputs/phase5b_frozen_reasoning_error_decomposition_20261016/verification.json":
         "phase5b_verification.json",
+    "reports/data_audit/phase5c_memory_field_audit.md":
+        "phase5c_memory_field_audit.md",
+    "reports/data_audit/phase5c_memory_field_audit.csv":
+        "phase5c_memory_field_audit.csv",
+    "outputs/phase5c_memory_measurement_dev_20261016/report.md":
+        "phase5c_memory_measurement_report.md",
+    "outputs/phase5c_memory_measurement_dev_20261016/aggregate_metrics.csv":
+        "phase5c_memory_measurement_aggregate_metrics.csv",
+    "outputs/phase5c_memory_measurement_dev_20261016/cross_view_summary.csv":
+        "phase5c_memory_measurement_cross_view_summary.csv",
+    "outputs/phase5c_memory_measurement_dev_20261016/subject_bootstrap.csv":
+        "phase5c_memory_measurement_subject_bootstrap.csv",
+    "outputs/phase5c_memory_measurement_dev_20261016/development_decision.json":
+        "phase5c_memory_measurement_decision.json",
+    "outputs/phase5c_memory_measurement_dev_20261016/verification.json":
+        "phase5c_memory_measurement_verification.json",
 }
 
 

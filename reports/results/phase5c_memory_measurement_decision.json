@@ -1,0 +1,15 @@
+{
+  "run_id": "phase5c_memory_measurement_dev_20261016",
+  "development_only": true,
+  "original_train_only": true,
+  "validation_loaded": false,
+  "test_loaded": false,
+  "primary_items": 70,
+  "memory_items": 14,
+  "folds": 5,
+  "heldout_instrument_improvement": false,
+  "cross_view_coherence_improvement": false,
+  "stage1_measurement_gate_passed": false,
+  "phase5c_complete": false,
+  "next_step": "continuous_time_dynamics_if_passed_else_report_measurement_negative"
+}

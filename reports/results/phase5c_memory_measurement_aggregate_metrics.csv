@@ -1,0 +1,9 @@
+arm,task,macro_item_mae,items,decisions,memory_macro_item_mae,memory_items
+domain_constrained,heldout_instrument,0.5175348405013617,70,150325,0.5438450215534003,14
+domain_constrained,heldout_item,0.6645483934040299,70,119470,0.7975346492317461,14
+fixed_domain_score,heldout_instrument,0.5211838383263268,70,150325,0.5326259696407113,14
+fixed_domain_score,heldout_item,0.4866195897368153,70,119470,0.49773229624653353,14
+probabilistic_domain,heldout_instrument,0.5507271879682202,70,150325,0.5871537984016014,14
+probabilistic_domain,heldout_item,0.6781959276947659,70,119470,0.7969294054130539,14
+unconstrained_autoencoder,heldout_instrument,0.4538522229891051,70,150325,0.4401050841966662,14
+unconstrained_autoencoder,heldout_item,0.444635548018173,70,119470,0.4300501546101331,14

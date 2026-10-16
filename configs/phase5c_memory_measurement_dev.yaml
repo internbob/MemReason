@@ -1,0 +1,30 @@
+experiment: phase5c_memory_measurement_dev
+run_id: phase5c_memory_measurement_dev_20261016
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+folds: 5
+partition_seed: 20261025
+inner_dev_fraction: 0.10
+arms: [fixed_domain_score, unconstrained_autoencoder, domain_constrained, probabilistic_domain]
+masking:
+  item_fraction: 0.20
+  minimum_input_items: 1
+training:
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_epochs: 35
+  patience: 6
+  hidden_dim: 96
+  domain_hidden_dim: 32
+  kl_weight: 0.001
+  consistency_weight: 0.10
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261026
+stage1_gate:
+  heldout_instrument_improvement_required: true
+  cross_view_correlation_improvement_required: true
+  candidate: probabilistic_domain
+  baselines: [fixed_domain_score, unconstrained_autoencoder]
+evaluation_policy: nested_subject_crossfit_original_train_only

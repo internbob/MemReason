@@ -35,7 +35,7 @@
 | Phase 4E trajectory-action GRPO | 完成，新 development gate 未通过 | 256/96/256 名互斥 action-SFT/rollout/development subjects；32 updates、256 candidates；best NMAE 0.39970，冻结 GRU-D 为 0.35108，差 +0.04862 [0.03620, 0.06064]；test 未加载 |
 | Phase 4F sealed-test confirmation | 完成，完整 gate 窄幅未通过 | 495 test subjects、4,951 samples、20,007 targets；GRU-D macro NMAE 0.37510，显著优于 LOCF；grammar JSON/evidence/anchors 全部通过，但 nested temporal consistency=0.98990，略低于 0.99000 |
 | Phase 5B frozen error decomposition | 完成，post-test descriptive | 495 reports、4,950 domain-field decisions；state/trend mismatch 36/100；Memory trend 8.08%，expected improve 30.0%；输入哈希、完整分母、reference labels 与 Phase 4F 决定均独立复核；不允许 test 后调参 |
-| Phase 5C interpretable memory-state redesign | 协议已提出，尚未运行 | typed measurement + continuous predict/update + progressive/transient state + executable evidence reasoning；只允许 original-train nested development，确认必须使用外部队列；AVLT/Logical Memory 需先完成编码核验 |
+| Phase 5C interpretable memory-state redesign | Stage 0/1 完成，measurement gate 未通过 | AVLT/Logical Memory audit 与 70-item contract 完成；original-train 五折 nested OOF：unconstrained AE item/instrument 0.4446/0.4539，probabilistic domain 0.6782/0.5507；cross-view Spearman -0.0776，停止当前结构进入 dynamics |
 | RLVR / GRPO | 两项真实 cognitive-only 实验均完成，不支持增益声明 | Phase 4D 的 state/trend action 与 Phase 4E 的 forecast/uncertainty action 均未超过冻结基线；Phase 4C 仍为支持策略，multimodal GRPO 关闭 |
 | Leakage audit | 完成初筛 | 仅量表缺失模式预测 diagnosis，验证 balanced accuracy 0.420；应继续按 phase 控制协议混杂 |
 | 科研 gates | Phase 4A/4C 通过；Phase 4F 仅 temporal 差 1e-4 未通过；Phase 4B raw、Phase 4D/4E GRPO、MRI/dynamics 未通过 | test 后不得再调；论文可报告冻结 GRU-D 的确认结果与 Phase 4C 的结构完整性改善，但不能声称完整 confirmatory gate 通过 |
@@ -89,8 +89,10 @@
 - `reports/experiments/phase5b_frozen_reasoning_error_decomposition_protocol.md`：冻结 Phase 4F 输出、decision-level 分母、阈值距离、分层因素、subject bootstrap 和 post-test interpretation 规则。
 - `outputs/phase5b_frozen_reasoning_error_decomposition_20261016/`：4,950 个重建 decisions、完整 confusion/rate/near-far 表、2,000 次 subject-cluster bootstrap、PDF/PNG 论文图、报告和独立 verification；无训练、无重新生成、Phase 4F 决定不变。
 - `reports/methods/memreason_state_paper_and_method_reframing.md`：以可解释 memory state 为核心的论文问题、数学结构、reasoning 定义、实验矩阵、可保留证据和不可声称结论。
-- `reports/experiments/phase5c_interpretable_memory_state_dev_protocol.md`：新的 train-only nested development、state validity、faithfulness 和 external-validation gate；当前只完成协议，尚无 Phase 5C 结果。
+- `reports/experiments/phase5c_interpretable_memory_state_dev_protocol.md`：train-only nested development、state validity、faithfulness 和 external-validation gate；Stage 0/1 已执行并记录 negative measurement decision，当前架构未开放 Stage 2。
+- `reports/data_audit/phase5c_memory_field_audit.md` 与 `configs/phase5c_memory_state_item_contract.yaml`：12 个 AVLT/Logical Memory 字段的官方语义、特殊码和角色核验；冻结 70-item state contract。
+- `outputs/phase5c_memory_measurement_dev_20261016/`：五折 nested train-only measurement experiment，15 个 neural checkpoints、完整 OOF masked predictions、cross-view states、subject bootstrap、negative gate、报告和独立 verification；validation/test 未加载。
 
-后续必须按规范推进，不能仅填写 gate 的布尔值来替代 artifact。Phase 4F 已一次性打开官方 test，冻结 GRU-D 的数值预测获得确认：macro NMAE 0.37510，且相对 LOCF 的 subject-mean 差为 -0.02144，95% CI [-0.03913, -0.00423]。Phase 4C grammar 在 test 上得到 100% JSON/evidence/forecast/uncertainty preservation、零幻觉和零未来泄漏，并显著改善 raw SFT；但 nested temporal consistency 为 0.98990，低于预注册 0.99000，因此完整 Phase 4F gate=false。Phase 5B 将 100 个 trend label 偏差定位到 Memory、`improve` 和极少量近阈值 decisions，但这是 post-test descriptive evidence，不得据此修复标签或更改阈值。论文应按“数值预测确认、结构完整性确认、完整推理门槛窄幅失败”报告；下一项确认实验需要预先冻结的外部队列。Phase 4D/4E 的 GRPO 负结果和 MRI longitudinal/multimodal gate 继续保持不变。
+后续必须按规范推进，不能仅填写 gate 的布尔值来替代 artifact。Phase 4F 已一次性打开官方 test，冻结 GRU-D 的数值预测获得确认：macro NMAE 0.37510，且相对 LOCF 的 subject-mean 差为 -0.02144，95% CI [-0.03913, -0.00423]。Phase 4C grammar 在 test 上得到 100% JSON/evidence/forecast/uncertainty preservation、零幻觉和零未来泄漏，并显著改善 raw SFT；但 nested temporal consistency 为 0.98990，低于预注册 0.99000，因此完整 Phase 4F gate=false。Phase 5B 是 post-test descriptive evidence。Phase 5C Stage 1 又显示当前 domain-constrained measurement 并未形成跨量表一致 state，故不得把它扩展成 dynamics 或声称已学到 memory state。论文当前仍应按“数值预测确认、结构完整性确认、memory-state measurement negative”报告；新的状态模型需要 anchored multidimensional IRT/measurement-invariance redesign，并在外部队列确认。Phase 4D/4E 的 GRPO 负结果和 MRI longitudinal/multimodal gate 继续保持不变。
 
-源 CSV 和外部 MRI 均未改动。本次仅在 MemReason 目录创建代码、派生表和报告；未创建 Git commit。
+源 CSV 和外部 MRI 均未改动。本次仅在 MemReason 目录创建代码、派生表和报告；公开仓库只导出不含受试者标识的聚合结果。

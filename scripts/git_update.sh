@@ -54,7 +54,8 @@ git add -A -- \
   reports/MemReason_monthly_weekly_report_202610.md \
   reports/MemReason_monthly_weekly_report_202610_en.md \
   reports/data_audit/summary.md \
-  reports/data_audit/ida_scan_date_linkage.md
+  reports/data_audit/ida_scan_date_linkage.md \
+  reports/data_audit/phase5c_memory_field_audit.md
 
 echo "[5/7] Checking staged paths, file sizes, and common credential patterns"
 while IFS= read -r path; do

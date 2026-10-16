@@ -1,0 +1,5 @@
+task,candidate,baseline,difference,ci_low,ci_high,subjects,paired_decisions,replicates
+heldout_item,probabilistic_domain,fixed_domain_score,0.2444724427459471,0.2366814255597986,0.25204119039696926,3008,119470,2000
+heldout_item,probabilistic_domain,unconstrained_autoencoder,0.288716615127707,0.27971688739334394,0.2974190561850356,3008,119470,2000
+heldout_instrument,probabilistic_domain,fixed_domain_score,0.03344530420368029,0.029038151878142043,0.03799845457277777,2738,150325,2000
+heldout_instrument,probabilistic_domain,unconstrained_autoencoder,0.10739023672885495,0.10099303713465652,0.11330541225111747,2738,150325,2000

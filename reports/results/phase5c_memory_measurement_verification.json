@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "primary_items": 70,
+  "memory_items": 14,
+  "folds": 5,
+  "predictions": 1079180,
+  "cross_view_states": 178315,
+  "train_only": true,
+  "validation_or_test_loaded": false,
+  "stage1_measurement_gate_passed": false,
+  "phase5c_complete": false
+}

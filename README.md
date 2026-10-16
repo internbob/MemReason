@@ -339,4 +339,10 @@ Current-state 有 **36/2,475（1.45%，95% CI 0.97–1.98%）** 个 label mismat
 
 论文主问题进一步聚焦为：能否从稀疏、异步、部分缺失的认知观测中学习一个具有可解释动态结构的长期 cognitive memory state，并用它预测和解释个体变化。新的 [paper/method reframing](reports/methods/memreason_state_paper_and_method_reframing.md) 将主方法定义为 typed item measurement、continuous-time predict-update state、progressive/transient decomposition 和 executable evidence reasoning；GRU-D 保留为强预测基线，Phase 4C 作为可靠 renderer，MRI/GRPO 作为次要或负结果。对应的 [Phase 5C train-only protocol](reports/experiments/phase5c_interpretable_memory_state_dev_protocol.md) 明确要求 nested subject-wise development 和后续外部确认，不重新使用已消费的 ADNI validation/test 进行选择。
 
+## Phase 5C Stage 0/1：memory coding audit 与 measurement development
+
+Stage 0 将 12 个新增 memory fields 与 ADNI 官方 ITEM dictionary 精确匹配。`AVLT_Trial1Int`–`Trial7Int` 是 intrusion counts，`AVLT_Delay_TotInt` 是 delayed intrusions，不能作为 recall scores；`AVLT_Delay_Rec` 才是 recognition score。Logical Memory immediate/delayed 按 0–25 分处理，99/999/9999 和负特殊码视为缺失。冻结 contract 使用原 68 个 verified items 加两项 Logical Memory，共 70 个 state items，其中 14 个属于 Memory；AVLT 只作 auxiliary validity。
+
+Stage 1 只使用 original train，完成五折 nested subject-wise cross-fitting、15 个 neural checkpoints、1,079,180 条 OOF masked predictions 和 178,315 条 cross-view state pairs。无约束 autoencoder 的 held-out item/instrument macro normalized MAE 最好，为 **0.4446/0.4539**；概率 domain model 为 **0.6782/0.5507**。概率 domain model 相对无约束模型的 held-out-instrument subject-level error 差为 **+0.10739**，95% CI **[0.10099, 0.11331]**。其 cross-view Spearman 为 **-0.0776**，低于 fixed domain score 的 0.4684 和无约束模型的 0.9526。因此 `stage1_measurement_gate_passed=false`，不按当前结构进入 continuous-time dynamics。完整结果见 [Stage 1 报告](outputs/phase5c_memory_measurement_dev_20261016/report.md)和[独立核验](outputs/phase5c_memory_measurement_dev_20261016/verification.json)。
+
 数据审计入口：[summary.md](reports/data_audit/summary.md)。完整工程状态：[BUILD_STATUS.md](BUILD_STATUS.md)。

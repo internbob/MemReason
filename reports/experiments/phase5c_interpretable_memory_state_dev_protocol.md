@@ -1,6 +1,6 @@
 # Phase 5C: Interpretable Dynamic Memory State Development Protocol
 
-Status: proposed train-only redevelopment protocol. No result claim has been made.
+Status: Stage 0/1 completed on original-train nested folds; the measurement gate failed. Continuous-time Stage 2 is not opened for the current domain-constrained architecture.
 
 ## Primary question
 
@@ -82,3 +82,9 @@ Advance to external validation only if all are true:
 7. all conclusions reproduce across nested folds without using ADNI validation/test subjects.
 
 Failure at this gate is reported as a development negative result. Passing it permits protocol freezing and external evaluation; it does not retrospectively reopen the ADNI test set.
+
+## Stage 0/1 decision recorded 2026-10-16
+
+The coding audit confirmed that `AVLT_Trial*Int` and `AVLT_Delay_TotInt` are intrusion counts rather than recall scores. The frozen primary contract contains 68 previously verified items plus Logical Memory immediate and delayed recall. AVLT variables are auxiliary only.
+
+Five-fold nested original-train cross-fitting compared fixed domain scoring, an unconstrained five-dimensional autoencoder, a deterministic domain-constrained encoder, and a probabilistic domain-constrained encoder. The probabilistic candidate had held-out item/instrument macro normalized MAE 0.6782/0.5507, while the unconstrained autoencoder achieved 0.4446/0.4539. The candidate-minus-unconstrained held-out-instrument difference was +0.10739, 95% subject-bootstrap CI [0.10099, 0.11331]. Candidate cross-view Spearman was -0.0776. Both prespecified Stage 1 conditions failed, so the current architecture stops before Stage 2. Any further state-model redesign is a new development protocol and needs external confirmation.
