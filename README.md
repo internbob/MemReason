@@ -335,4 +335,8 @@ Current-state 有 **36/2,475（1.45%，95% CI 0.97–1.98%）** 个 label mismat
 
 该分析确认偏差位于 categorical state/trend selection，而 Phase 4F 的数值、时间点、evidence、forecast 和 uncertainty anchors 均保持不变。它不改变 `phase4f_frozen_system_confirmed=false`，也不允许利用 495 名 test subjects 修复策略。下一项合规实验应是预先冻结的外部队列验证。完整结果见 [Phase 5B 报告](outputs/phase5b_frozen_reasoning_error_decomposition_20261016/report.md)和[独立核验](outputs/phase5b_frozen_reasoning_error_decomposition_20261016/verification.json)。
 
+## Method reframing: interpretable cognitive memory state
+
+论文主问题进一步聚焦为：能否从稀疏、异步、部分缺失的认知观测中学习一个具有可解释动态结构的长期 cognitive memory state，并用它预测和解释个体变化。新的 [paper/method reframing](reports/methods/memreason_state_paper_and_method_reframing.md) 将主方法定义为 typed item measurement、continuous-time predict-update state、progressive/transient decomposition 和 executable evidence reasoning；GRU-D 保留为强预测基线，Phase 4C 作为可靠 renderer，MRI/GRPO 作为次要或负结果。对应的 [Phase 5C train-only protocol](reports/experiments/phase5c_interpretable_memory_state_dev_protocol.md) 明确要求 nested subject-wise development 和后续外部确认，不重新使用已消费的 ADNI validation/test 进行选择。
+
 数据审计入口：[summary.md](reports/data_audit/summary.md)。完整工程状态：[BUILD_STATUS.md](BUILD_STATUS.md)。

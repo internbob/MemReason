@@ -49,6 +49,7 @@ git add -A -- \
   scripts \
   tests \
   reports/experiments \
+  reports/methods \
   reports/results \
   reports/MemReason_monthly_weekly_report_202610.md \
   reports/MemReason_monthly_weekly_report_202610_en.md \
