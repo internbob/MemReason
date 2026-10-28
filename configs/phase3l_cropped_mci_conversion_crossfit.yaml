@@ -1,0 +1,54 @@
+experiment: phase3l_cropped_mci_conversion_crossfit
+run_id: phase3l_cropped_mci_conversion_crossfit_20261017
+analysis_status: exploratory_user_requested
+data_policy: original_train_subjects_only
+source_diagnostic_run_id: phase3k_cropped_mri_diagnosis_crossfit_20261017
+source_mri_run_id: phase3b_mri_representation_dev_20261014
+reuse_subject_folds: outputs/phase3h_mci_conversion_crossfit_20261017/subject_folds.csv
+volume_cache:
+  path: /public_bme/data/zhouwl2023/MemReason_cache/phase3k_cropped_t1_cache_20261017/volumes_center_crop_160x192x160_float16.npy
+  runtime_path: /dev/shm/zhouwl2023/phase3k_cropped_t1_cache_20261017/volumes_center_crop_160x192x160_float16.npy
+  source_shape: [193, 229, 193]
+  target_shape: [160, 192, 160]
+  voxel_size_mm: [1.0, 1.0, 1.0]
+  spatial_interpolation: false
+  padding: false
+baseline_diagnosis: MCI
+positive_outcome: first_future_AD
+horizons_months: [24, 36]
+targets: [adas_total13, cdr_cdrsb, faq_faqtotal, mmse_mmscore, moca_moca]
+outer_folds: 5
+inner_tune_fraction: 0.15
+fold_seed: 20261017
+neural_seeds: [2026, 2027, 2028]
+sfcn_training:
+  batch_size: 32
+  gradient_accumulation_steps: 1
+  max_epochs: 15
+  patience: 4
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  # Workers are non-persistent so training and validation queues never overlap.
+  num_workers: 2
+  amp: true
+logistic:
+  C: 1.0
+  max_iter: 3000
+classification_threshold: 0.5
+statistics:
+  bootstrap_seed: 20261017
+  bootstrap_replicates: 2000
+arms:
+  - demographics
+  - global_mri
+  - sfcn_mri
+  - cognition
+  - cognition_global_mri
+  - cognition_sfcn_mri
+  - cognition_shuffled_sfcn
+interpretation:
+  official_validation_loaded: false
+  official_test_loaded: false
+  external_confirmation_required: true

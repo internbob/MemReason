@@ -1,0 +1,16 @@
+arm,metric,value
+demographics,ACC,0.6015625
+demographics,AUC,0.6338938379898724
+demographics,SEN,0.6208651399491094
+demographics,SEC,0.5864811133200796
+demographics,F1,0.5775147928994083
+demographics_native_fullres_mri,ACC,0.7209821428571429
+demographics_native_fullres_mri,AUC,0.7997106420004148
+demographics_native_fullres_mri,SEN,0.6997455470737913
+demographics_native_fullres_mri,SEC,0.7375745526838966
+demographics_native_fullres_mri,F1,0.6875
+native_fullres_mri,ACC,0.7220982142857143
+native_fullres_mri,AUC,0.7985572569671032
+native_fullres_mri,SEN,0.7073791348600509
+native_fullres_mri,SEC,0.7335984095427436
+native_fullres_mri,F1,0.6906832298136646

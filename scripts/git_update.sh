@@ -61,7 +61,7 @@ echo "[5/7] Checking staged paths, file sizes, and common credential patterns"
 while IFS= read -r path; do
   [[ -z "$path" ]] && continue
   case "$path" in
-    outputs/*|processed/*|splits/*|*.pt|*.nii|*.nii.gz|*.safetensors|idaSearch*.csv|adni_all_longitudinal_scales_visit_with_ravlt_logmem.csv|reports/matching/*.csv|reports/data_audit/*.csv)
+    outputs/*|processed/*|splits/*|*.pt|*.pth|*.ckpt|*.bin|*.npy|*.npz|*.h5|*.hdf5|*.parquet|*.pkl|*.pickle|*.nii|*.nii.gz|*.safetensors|idaSearch*.csv|adni_all_longitudinal_scales_visit_with_ravlt_logmem.csv|reports/matching/*.csv|reports/data_audit/*.csv)
       echo "Refusing forbidden staged path: $path" >&2
       exit 1
       ;;

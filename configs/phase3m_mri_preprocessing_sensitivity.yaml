@@ -1,0 +1,44 @@
+experiment: phase3m_mri_preprocessing_sensitivity
+run_id: phase3m_mri_preprocessing_sensitivity_20261018
+development_only: true
+data_policy: original_train_subjects_only
+source_fullres_run_id: phase3i_native_resolution_adcn_20261017
+source_crop_run_id: phase3k_cropped_t1_cache_20261017
+source_lowres_run_id: phase3b_mri_representation_dev_20261014
+representations:
+  center_crop:
+    shape: [160, 192, 160]
+    cache_path: /public_bme/data/zhouwl2023/MemReason_cache/phase3m_mri_preprocessing_sensitivity_20261018/volumes_center_crop_160x192x160_float16.npy
+    cache_index: outputs/phase3m_mri_preprocessing_sensitivity_20261018/center_crop_volume_index.csv
+    spatial_interpolation: false
+  lowres:
+    shape: [48, 56, 48]
+    cache_path: outputs/phase3b_mri_representation_dev_20261014/volumes_48x56x48.npy
+    cache_index: outputs/phase3b_mri_representation_dev_20261014/volume_index.csv
+    spatial_interpolation: true
+outer_folds: 5
+inner_tune_fraction: 0.15
+fold_seed: 20261017
+neural_seed: 2026
+sfcn_training:
+  batch_size: 4
+  max_epochs: 12
+  patience: 3
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  num_workers: 2
+  amp: true
+logistic:
+  C: 1.0
+  max_iter: 3000
+temperature_grid: [0.5, 0.625, 0.75, 0.875, 1.0, 1.25, 1.5, 2.0, 2.5, 3.0]
+classification_threshold: 0.5
+statistics:
+  bootstrap_seed: 20261018
+  bootstrap_replicates: 2000
+gate:
+  crop_minus_full_auc_noninferiority_margin: -0.02
+  official_validation_loaded: false
+  official_test_loaded: false

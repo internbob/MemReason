@@ -1,0 +1,23 @@
+experiment: phase5e_reasoning_faithfulness_audit
+run_id: phase5e_reasoning_faithfulness_audit_20261016
+analysis_type: post_test_frozen_audit
+source_run_id: phase4f_frozen_grud_phase4c_test_20261015
+phase4a_run_id: phase4a_frozen_cognitive_reasoning_20261014
+selection_seed: 20261016
+interventions:
+  maximum_reasoning_examples_per_subject: 1
+  minimum_observed_visits_for_paired_deletion: 2
+  conditions:
+    - highest_influence_visit_deletion
+    - matched_random_visit_deletion
+    - reversed_time_gaps
+    - memory_score_reflection
+statistics:
+  bootstrap_seed: 20261016
+  bootstrap_replicates: 2000
+  confidence_level: 0.95
+claims:
+  checkpoint_selection_permitted: false
+  decoder_selection_permitted: false
+  threshold_tuning_permitted: false
+  confirmatory_reinterpretation_permitted: false

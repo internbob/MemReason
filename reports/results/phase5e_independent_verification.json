@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "four_interventions_present": true,
+    "paired_deletion_subjects_match": true,
+    "primary_influence_contrast_positive": true,
+    "all_ir_reports_exactly_verified": true,
+    "all_evidence_precise": true,
+    "no_future_leakage": true,
+    "no_deleted_event_retained": true,
+    "executable_exactly_matches_teacher": true,
+    "llm_advantage_not_claimed": true,
+    "audit_remains_post_test": true,
+    "paper_method_matches_results": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "run_id": "phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018",
+  "official_validation_loaded": false,
+  "official_test_loaded": false,
+  "training_subject_source": "original_train_only",
+  "mri_concurrent_signal_supported": true,
+  "mri_increment_beyond_cognition_supported": false,
+  "criteria": {
+    "mri_signal_effect": true,
+    "mri_signal_ci": true,
+    "fusion_increment_effect": false,
+    "fusion_increment_ci": false,
+    "mechanism_effect": false,
+    "mechanism_ci": false,
+    "balanced_accuracy_noninferiority": false,
+    "brier_noninferiority": false,
+    "decision_curve_gain": false
+  },
+  "ad_net_benefit_gain_thresholds": 0,
+  "mci_conversion_open": false,
+  "external_testing_required": true
+}

@@ -29,6 +29,32 @@ EXPORTS = {
         "phase2_cognitive_belief_report.md",
     "outputs/phase3e_frozen_spatial_grounding_test_20261014/report.md":
         "phase3e_spatial_grounding_test_report.md",
+    "outputs/phase3i_native_resolution_adcn_20261017/report.md":
+        "phase3i_native_resolution_adcn_report.md",
+    "outputs/phase3i_native_resolution_adcn_20261017/classification_metrics.csv":
+        "phase3i_native_resolution_adcn_metrics.csv",
+    "outputs/phase3i_native_resolution_adcn_20261017/development_decision.json":
+        "phase3i_native_resolution_adcn_decision.json",
+    "outputs/phase3i_native_resolution_adcn_20261017/verification.json":
+        "phase3i_native_resolution_adcn_verification.json",
+    "outputs/phase3m_mri_preprocessing_sensitivity_20261018/report.md":
+        "phase3m_mri_preprocessing_sensitivity_report.md",
+    "outputs/phase3m_mri_preprocessing_sensitivity_20261018/final_decision.json":
+        "phase3m_mri_preprocessing_sensitivity_decision.json",
+    "outputs/phase3m_mri_preprocessing_sensitivity_20261018/mask_retention_strata_metrics.csv":
+        "phase3m_mri_preprocessing_mask_retention.csv",
+    "outputs/phase3m_mri_preprocessing_sensitivity_20261018/independent_verification.json":
+        "phase3m_mri_preprocessing_verification.json",
+    "outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/report.md":
+        "phase3n_corrected_cropped_diagnosis_report.md",
+    "outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/requested_four_arm_report.md":
+        "phase3n_corrected_cropped_four_arm_report.md",
+    "outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/requested_four_arm_metrics_with_ci.csv":
+        "phase3n_corrected_cropped_four_arm_metrics.csv",
+    "outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/development_decision.json":
+        "phase3n_corrected_cropped_diagnosis_decision.json",
+    "outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/independent_verification.json":
+        "phase3n_corrected_cropped_diagnosis_verification.json",
     "outputs/phase4a_frozen_cognitive_reasoning_20261014/report.md":
         "phase4a_structured_reasoning_report.md",
     "outputs/phase4b_cognitive_reasoning_sft_20261014/report.md":
@@ -97,6 +123,18 @@ EXPORTS = {
         "phase5d_anchored_mirt_decision.json",
     "outputs/phase5d_anchored_mirt_dev_20261016/verification.json":
         "phase5d_anchored_mirt_verification.json",
+    "outputs/phase5e_reasoning_faithfulness_audit_20261016/report.md":
+        "phase5e_reasoning_faithfulness_report.md",
+    "outputs/phase5e_reasoning_faithfulness_audit_20261016/primary_deletion_contrast.json":
+        "phase5e_primary_deletion_contrast.json",
+    "outputs/phase5e_reasoning_faithfulness_audit_20261016/counterfactual_summary_bootstrap.csv":
+        "phase5e_counterfactual_summary_bootstrap.csv",
+    "outputs/phase5e_reasoning_faithfulness_audit_20261016/renderer_ablation_metrics.csv":
+        "phase5e_renderer_ablation_metrics.csv",
+    "outputs/phase5e_reasoning_faithfulness_audit_20261016/analysis_decision.json":
+        "phase5e_analysis_decision.json",
+    "outputs/phase5e_reasoning_faithfulness_audit_20261016/independent_verification.json":
+        "phase5e_independent_verification.json",
 }
 
 

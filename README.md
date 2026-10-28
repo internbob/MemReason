@@ -1,6 +1,8 @@
 # MemReason-RL
 
-本项目依据 `MemReason_RL_ADNI_Implementation_Spec.md` 构建。**已完成真实数据 Phase 0、subject-wise split、认知建模 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3F、reasoning Phase 4A–4F，以及 Phase 5B 冻结推理错误分解。** Phase 4F 已对冻结 GRU-D + Phase 4C 进行一次性官方 test 确认：GRU-D macro normalized MAE 为 0.37510，并显著优于 LOCF；grammar decoder 获得 100% JSON/evidence/forecast/uncertainty preservation 和零未来泄漏。完整 gate 因 nested temporal consistency=0.98990 略低于预注册 0.99000 而失败。Phase 5B 只分解既有错误，不进行 test 后调参。Phase 4D/4E GRPO 仍不支持增益，多模态 reasoning/GRPO 仍关闭。
+本项目依据 `MemReason_RL_ADNI_Implementation_Spec.md` 构建。**已完成真实数据 Phase 0、subject-wise split、认知建模 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3N、reasoning Phase 4A–4F，以及 Phase 5B–5E 的冻结错误分解、memory-state measurement 和 reasoning-faithfulness audit。** Phase 4F 已对冻结 GRU-D + Phase 4C 进行一次性官方 test 确认：GRU-D macro normalized MAE 为 0.37510，并显著优于 LOCF；grammar decoder 获得 100% JSON/evidence/forecast/uncertainty preservation 和零未来泄漏。完整 gate 因 nested temporal consistency=0.98990 略低于预注册 0.99000 而失败。Phase 5E 显示最高影响访视删除引起的预测位移显著高于随机删除，并确认 executable compiler/verifier 在全部反事实中保持证据和时间完整性；它同时表明 1.5B LLM renderer 没有超过确定性 renderer 的事实忠实度。当前论文主方法是 **GRU-D forecasting + typed executable reasoning IR/compiler/verifier**，LLM 仅为可选渲染器。Phase 4D/4E GRPO 仍不支持增益，多模态 reasoning/GRPO 仍关闭。
+
+GitHub 中保留的去标识化聚合结果见 [`reports/results/`](reports/results/README.md)；模型权重、MRI 数组、缓存、原始数据和受试者级预测均不进入 Git。
 
 ## 当前应该使用的 MRI
 
@@ -283,6 +285,61 @@ Out-of-fold spatial attention 的 macro normalized MAE 为 **0.4145**，global p
 
 三项机制对照均显著变差，cross-fold mean-map Spearman/top-20% overlap 为 0.7454/0.625；逐样本 cross-seed Spearman 为 0.3287，但 top-20% overlap 仅 **0.375**，低于 0.40 门槛。因此 `diagnosis_heterogeneity_replicated=false`。当前不应构建 diagnosis-conditioned 或 mixture-of-experts grounder；下一步优先转向外部队列确认、冻结认知模型的临床 robustness，或结束 MRI grounding 路线并整理论文负结果。完整结果见 [Phase 3F 报告](outputs/phase3f_diagnosis_heterogeneity_crossfit_20261014/report.md)和[独立核验脚本](scripts/verify_phase3f_diagnosis_crossfit.py)。
 
+## MRI Phase 3G：MRI-inclusive concurrent diagnosis
+
+Phase 3G 在[冻结协议](reports/experiments/phase3g_mri_diagnosis_crossfit_protocol.md)下，将真实日期相差不超过 90 天的预处理 T1 MRI 与 DXSUM CN/MCI/AD 标签连接。实验只使用原 train split 的 1,328 名受试者和 5,370 次 MRI-linked diagnostic visits；同一受试者的全部扫描固定在同一外层折。每折以其余受试者训练三个不同 seed 的 3D SFCN，在内部调优子集早停并校准，最终形成 15 个 checkpoints 和完整折外预测。对照包含 demographics、global MRI、SFCN MRI、截止扫描日之前的 cognition history、两种 cognition+MRI，以及 subject-shuffled MRI。该阶段的 SFCN 输入来自 `48×56×48` 三线性插值缓存，因此只作为低分辨率历史基线，不再作为后续主 MRI 结果。
+
+受试者平衡的折外结果显示，SFCN MRI 的 macro-AUC 为 **0.6984**，高于 demographics 的 0.5618；2,000 次 subject-cluster bootstrap 差为 **+0.1365**，95% CI [0.1103, 0.1630]，支持 MRI 本身携带并发诊断信号。cognition-only 的 macro-AUC 为 **0.9739**，而 cognition+SFCN MRI 为 0.9298，配对差 **-0.0442**，95% CI [-0.0513, -0.0372]；balanced accuracy 也从 0.8924 降至 0.7879。正确 MRI 融合优于 shuffled MRI（macro-AUC 差 +0.0142 [0.0061, 0.0224]），说明模型使用了患者对应影像，但当前融合未在强认知基线上产生临床增量。
+
+因此 `mri_concurrent_signal_supported=true`，`mri_increment_beyond_cognition_supported=false`。冻结协议规定只有完整增量 gate 通过才开放 MCI conversion，故本轮没有启动转化预测。这一结论属于 train-only 内部交叉验证，不能表述为外部临床验证。完整结果见 [Phase 3G 报告](outputs/phase3g_mri_diagnosis_crossfit_20261016/report.md)、[门槛决定](outputs/phase3g_mri_diagnosis_crossfit_20261016/development_decision.json)和[独立核验](outputs/phase3g_mri_diagnosis_crossfit_20261016/verification.json)。
+
+## MRI Phase 3H：MCI-to-AD conversion classification
+
+在用户明确要求开展两个分类实验后，Phase 3H 被单独标记为 exploratory follow-up；它不改写 Phase 3G 原冻结 gate 的失败结论。实验只使用 original-train subjects，并为每个时间窗选择每名受试者最早的、结局可判定的 MRI-linked MCI 基线。24 月队列包含 609 人和 128 名 converters，36 月队列包含 554 人和 183 名 converters。阳性为基线后在精确时间窗内首次诊断 AD；阴性必须有跨过完整时间窗的后续 DXSUM 诊断且窗内无 AD，从而排除无法判定的右删失基线。
+
+每个时间窗独立完成五折 subject-wise cross-fitting、三个 SFCN seeds，共 30 个 checkpoints。七个模型臂与 Phase 3G 一致，并使用 0.5 阈值报告 ACC、conversion sensitivity、nonconversion specificity 和 positive-class F1；AUC 为 threshold-free ROC-AUC。主要折外结果如下：
+
+| Horizon | Model | ACC | AUC | SEN | SEC | F1 |
+|---|---|---:|---:|---:|---:|---:|
+| 24 months | SFCN MRI | 0.7537 | 0.6031 | 0.1016 | 0.9272 | 0.1477 |
+| 24 months | Cognitive history | **0.7668** | **0.8117** | **0.7031** | 0.7838 | **0.5590** |
+| 24 months | Cognition + SFCN MRI | 0.7931 | 0.7158 | 0.1719 | **0.9584** | 0.2588 |
+| 36 months | SFCN MRI | 0.6209 | 0.6057 | 0.2350 | 0.8113 | 0.2905 |
+| 36 months | Cognitive history | **0.7690** | **0.8522** | **0.7377** | 0.7844 | **0.6784** |
+| 36 months | Cognition + SFCN MRI | 0.6913 | 0.7133 | 0.3607 | **0.8544** | 0.4356 |
+
+MRI-only 相对 demographics 的 AUC 差在 24 月为 +0.0913 [0.0207, 0.1649]，在 36 月为 +0.0554 [-0.0100, 0.1199]。正确 MRI 融合显著优于 shuffled-MRI fusion，但融合相对 cognition-only 在 24/36 月分别降低 AUC 0.0958 和 0.1390。因此 MRI 包含有限预后信号，但当前融合没有提供认知历史之外的增量。与 Phase 3G 相同，该阶段读取 `48×56×48` 缓存，结果保留为低分辨率探索性基线。完整结果见 [Phase 3H 报告](outputs/phase3h_mci_conversion_crossfit_20261017/report.md)、[联合指标表](outputs/phase3h_mci_conversion_crossfit_20261017/requested_classification_metrics.csv)、[论文图](outputs/phase3h_mci_conversion_crossfit_20261017/figures/fig_classification_metrics.pdf)和[独立核验](outputs/phase3h_mci_conversion_crossfit_20261017/verification.json)。
+
+## MRI Phase 3I：native-resolution AD-vs-CN sanity benchmark
+
+根据“不使用降采样 MRI”的更新要求，Phase 3I 使用完整 `193×229×193`、1 mm 各向同性 affine T1。对全部 6,464 个候选 MRI 的头信息审计确认形状、体素间距、mask 网格和 affine 完全一致，因此本阶段不做空间插值、裁剪或填充；float16 只用于缓存存储。冻结协议使用 original-train subjects、每人最早一张合格 MRI、五折 subject-wise cross-fitting，并报告 ACC/AUC/SEN/SEC/F1。896 名受试者（CN 503、AD 393）的折外结果中，native MRI 的 ACC/AUC/SEN/SEC/F1 为 0.7221/0.7986/0.7074/0.7336/0.6907；加入 demographics 后 AUC 为 0.7997，95% bootstrap CI [0.7701, 0.8289]。它比 demographics AUC 0.6339 明显更强，但比预设 0.8000 自动扩展门槛低 0.0003，因此严格 gate=false，不自动打开全分辨率三分类与 MCI conversion。详见 [Phase 3I protocol](reports/experiments/phase3i_native_resolution_adcn_protocol.md)与 [Phase 3I report](outputs/phase3i_native_resolution_adcn_20261017/report.md)。
+
+## 后续 MRI 输入规范
+
+Phase 3M 对固定中心裁剪进行了受试者、标签、五折、网络和预算完全匹配的敏感性试验。裁剪将每个体积的体素数减少约 42.4%，且 896 张审计扫描至少保留 98.44% 的脑掩膜；然而 AUC 非劣性区间下界未达到预设门槛。因此正式新实验暂时保留完整 `193×229×193` 输入，下一步验证由脑掩膜定义的 adaptive bounding box 后再决定是否缩小输入。标准固定裁剪加载器仍保留在 `memreason_rl/data/mri.py`，但不再作为正式默认方案。
+
+## MRI Phase 3J：native longitudinal gated fusion
+
+Phase 3J 已完成。冻结的 Phase 3I 五模型对 960 名受试者的 5,589 次 real-date、past-only MRI 生成结构负担轨迹；未来认知评价包含 185 名 MRI-linked subjects 和 8,718 个 target rows。longitudinal gated fusion 的 macro normalized MAE 为 **0.39572**，冻结 cognition 为 0.39691；subject-level 配对差为 **-0.00169**，95% CI [-0.00296, -0.00047]。该效应低于预设 0.005 最小改善，且相对 shuffled-MRI gated fusion 的差为 -0.00051，95% CI [-0.00117, 0.00011]。稀疏认知历史亚组区间也跨 0。
+
+MCI-to-AD progression 中，24/36 月 cognition AUC 为 **0.8800/0.8669**，longitudinal gated fusion 为 0.8563/0.8589；相对 cognition 的差分别为 -0.02370 和 -0.00806。因而 `phase3j_gate_passed=false`、`open_multimodal_reasoning=false`。本阶段说明 MRI 具有独立结构信号，但尚未证明其在强认知历史基础上的稳定增量。完整结果见 [Phase 3J report](outputs/phase3j_native_longitudinal_gated_fusion_20261017/report.md)和[开发决策](outputs/phase3j_native_longitudinal_gated_fusion_20261017/development_decision.json)。
+
+## MRI Phase 3K/3L：center-cropped T1 classification
+
+该实验原先生成了 15 个三分类和 30 个 MCI 转化 checkpoints。Phase 3M 的逐体积一致性审计随后发现，旧裁剪缓存中 896 个匹配扫描只有 248 个非空，648 个为全零；旧审计只检查首尾缓存行，未发现中间损坏。因此 Phase 3K/3L 的 MRI-only、融合、shuffled-MRI 指标和 bootstrap 结论全部失效，不得用于论文。cognition-only 分支没有读取该缓存，数值本身不受影响。缓存构建器现已改为核验每一个体积；三分类四臂已由 Phase 3N 使用新缓存重算，MCI 转化仍待使用正确缓存重算。
+
+## MRI Phase 3M：matched preprocessing sensitivity
+
+[冻结协议](reports/experiments/phase3m_mri_preprocessing_sensitivity_protocol.md)复用 Phase 3I 的 896 名 original-train AD/CN 受试者、每人最早一次扫描、标签、五个 outer folds、inner tuning rule、SFCN、优化器、训练预算和种子，仅替换 MRI 输入。新建的 896-scan 裁剪缓存逐行核验全部非空，并抽样确认其与完整规范化 MRI 的中心子数组逐体素完全一致。官方 validation 和 test 均未加载。
+
+完整网格、中心裁剪和低分辨率 MRI-only 的 ACC/AUC/SEN/SEC/F1 分别为 **0.7221/0.7986/0.7074/0.7336/0.6907**、**0.7243/0.7960/0.7023/0.7416/0.6909** 和 **0.7667/0.8135/0.7354/0.7913/0.7344**。中心裁剪相对完整网格的 AUC 差为 **-0.00257**，2,000 次配对受试者 bootstrap 95% CI **[-0.02872, 0.02327]**。点估计几乎相同，但区间下界低于预设 -0.02 非劣界值，因此严格 gate 未通过。下一步是 adaptive brain-mask bounding-box 敏感性实验，而不是直接把固定裁剪作为正式默认输入。完整结果见 [Phase 3M 报告](outputs/phase3m_mri_preprocessing_sensitivity_20261018/report.md)和[独立核验](outputs/phase3m_mri_preprocessing_sensitivity_20261018/independent_verification.json)。
+
+## MRI Phase 3N：corrected center-cropped CN/MCI/AD classification
+
+Phase 3N 从 `ADNI_Linear` 原始 `affine.nii.gz` 和 `mask.nii.gz` 路径重新读取 Phase 3G 的完整队列，将全部 5,370 张 `193×229×193`、1-mm T1 无插值中心裁剪为 `160×192×160`。缓存逐行复核 5,370/5,370 个体积均为有限且非空，并从 24 个分布位置重新读取原始 NIfTI，确认缓存与原始中心子数组逐元素一致。实验保持原来的 1,328 名 original-train subjects、诊断标签和 subject-wise 五折，每折训练 3 个 seed，共 15 个 SFCN checkpoints；官方 validation/test 未加载。
+
+四臂折外 ACC/macro-AUC/macro-SEN/macro-SEC/macro-F1 分别为：MRI-only **0.4973/0.6854/0.4869/0.7318/0.4924**，cognition-only **0.8826/0.9739/0.8924/0.9409/0.8828**，cognition+MRI **0.8403/0.9497/0.8302/0.9134/0.8387**，cognition+shuffled-MRI **0.8226/0.9455/0.8029/0.9016/0.8188**。2,000 次受试者级 bootstrap 支持 MRI-only 优于 demographics，但融合相对 cognition-only 的 macro-AUC 差为 **-0.02412**，95% CI **[-0.02937, -0.01936]**；正确 MRI 相对 shuffled MRI 的 AUC 差为 +0.00428，区间跨 0。因而 MRI 含有并发诊断信号，但当前融合没有提供认知量表之外的增量。Phase 3N 取代旧 Phase 3K 的全部 MRI 三分类结论；旧 Phase 3L MCI 转化结果仍然无效。详见[四臂结果及置信区间](outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/requested_four_arm_report.md)、[完整报告](outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/report.md)与[独立复核](outputs/phase3n_corrected_cropped_mri_diagnosis_crossfit_20261018/independent_verification.json)。
+
 ## Phase 4A：frozen cognitive structured-reasoning baseline
 
 [冻结协议](reports/experiments/phase4a_frozen_cognitive_reasoning_protocol.md)只使用原 train split 中具备未来预测样本的 1,671 名受试者，并新建 subject-disjoint build/dev/confirmation 划分：1,336/167/168 人，对应 13,238/1,582/1,757 份报告。三个 GRU-D checkpoint 使用 68 个已核验 cognitive items；normalization 只在 build subjects 拟合，dev 只用于 early stopping，confirmation 在冻结后评估。三种子均值写入 `forecast`，种子间标准差写入 `confidence`。
@@ -350,5 +407,13 @@ Stage 1 只使用 original train，完成五折 nested subject-wise cross-fittin
 [冻结协议](reports/experiments/phase5d_anchored_mirt_protocol.md)将状态识别为 positive-loading global impairment 与 Memory-specific impairment，分别使用 Bernoulli、beta 和 graded-response likelihood，并只在 original-train 内进行五折 nested subject cross-fitting。时间、诊断和 ADNI phase 的 residual DIF 只在 outer-fit 数据中审计；诊断不进入状态推断。实验复用 Phase 5C 的 fixed score 和 unconstrained autoencoder OOF 对照，共产生 15 个 MIRT checkpoints、1,348,975 条五臂预测和 29,247 条 cross-view records。
 
 冻结规则没有在任何 fold 选择出具有实际效应的 time DIF，因此 partial-invariant 与 invariant arm 完全相同。其 held-out item/instrument macro normalized MAE 为 **0.5181/0.5273**，fixed score 为 0.4866/0.5212，unconstrained autoencoder 为 0.4446/0.4539。候选相对 autoencoder 的 held-out-instrument subject difference 为 **+0.07476**，95% CI **[0.07014, 0.07957]**。Memory cross-view CCC 为 **0.3713**，95% CI **[0.3547, 0.3873]**。8 个来自 ADAS/MMSE 的 Memory anchors 通过稳定性门槛，但预测非劣性、cross-view coherence 和 fold reproducibility 均失败。因此 `phase5d_measurement_gate_passed=false`、`continuous_time_dynamics_open=false`。完整结果见 [Phase 5D 报告](outputs/phase5d_anchored_mirt_dev_20261016/report.md)和[独立核验](outputs/phase5d_anchored_mirt_dev_20261016/verification.json)。
+
+## Phase 5E：frozen reasoning faithfulness 与 renderer ablation
+
+[冻结审计协议](reports/experiments/phase5e_reasoning_faithfulness_audit_protocol.md)在 Phase 4F test 已打开的前提下预先固定四种干预和解释边界，不选择 checkpoint、decoder 或阈值。实验对 495 份报告构造 1,013 个 leave-one-visit 候选，并用 Phase 4A 的三个冻结 GRU-D checkpoint 重新前向计算。在 278 名至少有两个可删除观测访视的受试者中，最高影响访视删除的 normalized forecast displacement 为 **0.2244**，匹配随机删除为 **0.0811**；配对差为 **0.1432**，95% CI **[0.1191, 0.1706]**。最高影响删除使 31.0% 的 endpoint forecast-direction 标签、17.1% 的 domain-state 标签和 52.9% 的 domain-trend 标签改变。
+
+Memory score reflection 产生 1.5070 的平均预测位移，time-gap reversal 只产生 0.00268，说明当前冻结 GRU-D 对观测值明显敏感，而对仅改变间隔顺序的敏感度很低。所有反事实报告均由 typed executable IR 重新编译，verifier exact match/evidence precision 均为 1.000，删除证据残留和未来泄漏均为 0。
+
+同一批 495 份报告上的 renderer 消融显示：`grammar_executable` 与 teacher 完全一致，exact report match 为 1.000；`grammar_model` 为 0.8141，raw SFT 为 0.8343。Executable 相对 grammar model 的 state/temporal consistency 分别提高 0.00485 和 0.01010。因此论文的核心方法应明确为 **frozen GRU-D + typed executable reasoning IR/compiler/verifier**；1.5B LLM 不再承担事实判断，只能作为可选语言渲染器。该结果是 post-test audit，不改变 `phase4f_frozen_system_confirmed=false`。完整结果见 [Phase 5E 报告](outputs/phase5e_reasoning_faithfulness_audit_20261016/report.md)和[独立核验](outputs/phase5e_reasoning_faithfulness_audit_20261016/independent_verification.json)。
 
 数据审计入口：[summary.md](reports/data_audit/summary.md)。完整工程状态：[BUILD_STATUS.md](BUILD_STATUS.md)。

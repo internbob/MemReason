@@ -15,6 +15,21 @@ from memreason_rl.rl.grpo_trainer import grpo_loss
 from memreason_rl.models.temporal_dynamics import TimeAwareTransformer
 from memreason_rl.models.reasoning_llm import parse_report
 from memreason_rl.train.gates import require_gate
+from memreason_rl.data.mri import center_crop_3d, center_crop_slices
+
+
+def test_standard_mri_center_crop_preserves_shape():
+    shape = (193, 229, 193)
+    target = (160, 192, 160)
+    slices = center_crop_slices(shape, target)
+    assert [(part.start, part.stop) for part in slices] == [
+        (16, 176), (18, 210), (16, 176)
+    ]
+    volume = np.zeros(shape, dtype=np.uint8)
+    volume[16:176, 18:210, 16:176] = 1
+    cropped = center_crop_3d(volume, target)
+    assert cropped.shape == target
+    assert cropped.all()
 
 def test_subject_split_deterministic_and_disjoint():
     ids=[f's{i}' for i in range(100)]

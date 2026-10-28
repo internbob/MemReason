@@ -1,0 +1,12 @@
+{
+  "primary_comparison": "center_crop_mri minus fullres_mri",
+  "primary_metric": "AUC",
+  "difference": -0.0025698227935186946,
+  "ci_low": -0.028717003971866776,
+  "ci_high": 0.02326877417521482,
+  "noninferiority_margin": -0.02,
+  "center_crop_noninferiority_passed": false,
+  "future_mri_input_policy": "evaluate_adaptive_brain_mask_bounding_box",
+  "official_validation_loaded": false,
+  "official_test_loaded": false
+}

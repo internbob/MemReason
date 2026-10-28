@@ -1,0 +1,52 @@
+experiment: phase3j_native_longitudinal_gated_fusion
+run_id: phase3j_native_longitudinal_gated_fusion_20261017
+development_only: true
+source_native_run_id: phase3i_native_resolution_adcn_20261017
+source_cognitive_run_id: phase4a_frozen_cognitive_reasoning_20261014
+source_conversion_run_id: phase3h_mci_conversion_crossfit_20261017
+source_mri_manifest_run_id: phase3b_mri_representation_dev_20261014
+native_mri:
+  shape: [193, 229, 193]
+  voxel_size_mm: [1.0, 1.0, 1.0]
+  interpolation: false
+  crop_or_pad: false
+  batch_size: 2
+  num_workers: 4
+  amp: true
+  encoder_folds: [0, 1, 2, 3, 4]
+forecast:
+  fit_registry_split: dev
+  tune_registry_split: confirmation
+  evaluation_split: val
+  targets: [adas_total13, cdr_cdrsb, faq_faqtotal, mmse_mmscore, moca_moca]
+  horizons_months: [6, 12, 24, 36]
+  ridge_alphas: [0.01, 0.1, 1.0, 10.0, 100.0]
+  gated_seeds: [2026, 2027, 2028]
+  gated_hidden_dim: 32
+  gated_max_epochs: 300
+  gated_patience: 30
+  gated_learning_rate: 0.001
+  gated_weight_decay: 0.001
+  maximum_residual_sd: 2.0
+  sparse_history_max_visits: 2
+  sparse_missing_fraction: 0.50
+conversion:
+  horizons_months: [24, 36]
+  date_window_days: 90
+  baseline_diagnosis: MCI
+  threshold: 0.5
+  gated_seeds: [2026, 2027, 2028]
+  gated_hidden_dim: 16
+  gated_epochs: 300
+  gated_learning_rate: 0.001
+  gated_weight_decay: 0.01
+statistics:
+  bootstrap_seed: 20261017
+  bootstrap_replicates: 2000
+gate:
+  minimum_forecast_nmae_improvement: 0.005
+  maximum_forecast_difference_ci_high: 0.0
+  require_correct_mri_better_than_shuffled: true
+  require_sparse_history_noninferiority: true
+  minimum_conversion_auc_improvement: 0.01
+  official_test_loaded: false

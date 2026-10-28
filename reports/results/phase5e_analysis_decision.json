@@ -1,0 +1,11 @@
+{
+  "analysis_type": "post_test_frozen_audit",
+  "primary_visit_influence_contrast_supported": true,
+  "mechanical_traceability_supported": true,
+  "llm_renderer_factual_advantage_supported": false,
+  "paper_core_method": "frozen_grud_plus_typed_executable_reasoning_ir_compiler_verifier",
+  "llm_role": "optional_renderer_only",
+  "latent_clinical_memory_state_supported": false,
+  "phase4f_gate_reopened": false,
+  "external_confirmation_still_required": true
+}

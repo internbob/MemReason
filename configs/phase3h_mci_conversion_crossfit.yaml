@@ -1,0 +1,42 @@
+experiment: phase3h_mci_conversion_crossfit
+run_id: phase3h_mci_conversion_crossfit_20261017
+analysis_status: exploratory_user_requested
+data_policy: original_train_subjects_only
+source_diagnostic_run_id: phase3g_mri_diagnosis_crossfit_20261016
+source_mri_run_id: phase3b_mri_representation_dev_20261014
+baseline_diagnosis: MCI
+positive_outcome: first_future_AD
+horizons_months: [24, 36]
+targets: [adas_total13, cdr_cdrsb, faq_faqtotal, mmse_mmscore, moca_moca]
+outer_folds: 5
+inner_tune_fraction: 0.15
+fold_seed: 20261017
+neural_seeds: [2026, 2027, 2028]
+sfcn_training:
+  batch_size: 32
+  max_epochs: 15
+  patience: 4
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  num_workers: 0
+logistic:
+  C: 1.0
+  max_iter: 3000
+classification_threshold: 0.5
+statistics:
+  bootstrap_seed: 20261017
+  bootstrap_replicates: 2000
+arms:
+  - demographics
+  - global_mri
+  - sfcn_mri
+  - cognition
+  - cognition_global_mri
+  - cognition_sfcn_mri
+  - cognition_shuffled_sfcn
+interpretation:
+  official_validation_loaded: false
+  official_test_loaded: false
+  external_confirmation_required: true

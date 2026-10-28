@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "checks": {
+    "cache_shape": true,
+    "cache_all_rows_checked": true,
+    "cache_all_rows_finite": true,
+    "cache_all_rows_nonempty": true,
+    "cache_has_no_reported_failures": true,
+    "index_unique_and_complete": true,
+    "raw_path_sample_matches_cache": true,
+    "cohort_identical_to_phase3g": true,
+    "folds_identical_to_phase3g": true,
+    "five_folds_three_seeds": true,
+    "fifteen_checkpoints": true,
+    "four_primary_arms_present": true,
+    "all_probabilities_finite_and_normalized": true,
+    "cognition_negative_control_unchanged": true,
+    "point_metrics_recomputed": true,
+    "bootstrap_uses_2000_replicates": true,
+    "official_validation_not_loaded": true,
+    "official_test_not_loaded": true
+  },
+  "subjects": 1328,
+  "scans": 5370,
+  "checkpoints": 15,
+  "bootstrap_replicates": 2000
+}

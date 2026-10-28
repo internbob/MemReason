@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "n_subjects": 896,
+  "one_scan_per_subject": true,
+  "classes": {
+    "CN": 503,
+    "AD": 393
+  },
+  "input_shape": [
+    193,
+    229,
+    193
+  ],
+  "voxel_size_mm": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "spatial_interpolation": false,
+  "crop_or_pad": false,
+  "all_subjects_original_train": true,
+  "official_validation_loaded": false,
+  "official_test_loaded": false
+}

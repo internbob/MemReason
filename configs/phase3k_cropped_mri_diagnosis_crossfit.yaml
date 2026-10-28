@@ -1,0 +1,103 @@
+experiment: phase3k_cropped_mri_diagnosis_crossfit
+run_id: phase3k_cropped_mri_diagnosis_crossfit_20261017
+development_only: true
+data_policy: original_train_subjects_only
+source_mri_run_id: phase3b_mri_representation_dev_20261014
+reuse_diagnostic_run_id: phase3g_mri_diagnosis_crossfit_20261016
+reuse_subject_folds: outputs/phase3g_mri_diagnosis_crossfit_20261016/subject_folds.csv
+volume_cache:
+  run_id: phase3k_cropped_t1_cache_20261017
+  index: outputs/phase3k_cropped_t1_cache_20261017/volume_index.csv
+  path: /public_bme/data/zhouwl2023/MemReason_cache/phase3k_cropped_t1_cache_20261017/volumes_center_crop_160x192x160_float16.npy
+  runtime_path: /dev/shm/zhouwl2023/phase3k_cropped_t1_cache_20261017/volumes_center_crop_160x192x160_float16.npy
+  source_shape:
+  - 193
+  - 229
+  - 193
+  target_shape:
+  - 160
+  - 192
+  - 160
+  voxel_size_mm:
+  - 1.0
+  - 1.0
+  - 1.0
+  extraction_workers: 4
+  spatial_interpolation: false
+  padding: false
+date_window_days: 90
+classes:
+- CN
+- MCI
+- AD
+targets:
+- adas_total13
+- cdr_cdrsb
+- faq_faqtotal
+- mmse_mmscore
+- moca_moca
+outer_folds: 5
+inner_tune_fraction: 0.15
+fold_seed: 20261016
+neural_seeds:
+- 2026
+- 2027
+- 2028
+sfcn_training:
+  batch_size: 64
+  gradient_accumulation_steps: 1
+  max_epochs: 18
+  patience: 4
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  num_workers: 4
+  export_num_workers: 4
+  amp: true
+logistic:
+  C: 1.0
+  max_iter: 3000
+temperature_grid:
+- 0.5
+- 0.625
+- 0.75
+- 0.875
+- 1.0
+- 1.25
+- 1.5
+- 2.0
+- 2.5
+- 3.0
+statistics:
+  bootstrap_seed: 20261016
+  bootstrap_replicates: 2000
+decision_curve:
+  positive_class: AD
+  thresholds:
+  - 0.05
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.4
+  - 0.5
+gate:
+  minimum_mri_vs_demographics_macro_auc_difference: 0.01
+  minimum_fusion_vs_cognition_macro_auc_difference: 0.01
+  minimum_fusion_vs_shuffled_macro_auc_difference: 0.01
+  minimum_ci_low: 0.0
+  minimum_balanced_accuracy_difference: -0.01
+  maximum_brier_increase: 0.01
+  require_positive_ad_net_benefit_gain_at_thresholds: 2
+stopping:
+  open_mci_conversion_only_if_concurrent_increment_gate_passes: false
+  official_validation_loaded: false
+  official_test_loaded: false
+run_folds:
+- 0
+- 1
+- 2
+resume_completed_checkpoints: true
+defer_summary: true

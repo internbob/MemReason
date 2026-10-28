@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": {
+    "cohort_has_896_unique_subjects": true,
+    "source_folds_cover_cohort": true,
+    "six_expected_arms": true,
+    "one_prediction_per_subject_per_arm": true,
+    "labels_and_folds_identical_across_arms": true,
+    "reported_point_metrics_recomputed": true,
+    "crop_cache_all_rows_nonempty": true,
+    "crop_cache_is_exact_center_subarray": true,
+    "gate_recomputed": true,
+    "official_validation_not_loaded": true,
+    "official_test_not_loaded": true,
+    "corrupt_prior_attempt_retained": true
+  },
+  "recomputed_primary_gate": false,
+  "primary_ci_low": -0.0287170039718667,
+  "noninferiority_margin": -0.02
+}

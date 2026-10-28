@@ -5,7 +5,20 @@ outputs/
 processed/
 splits/
 *.pt
+*.pth
+*.ckpt
+*.bin
 *.nii*
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.parquet
+*.pkl
+*.pickle
+checkpoints/
+runs/
+wandb/
 
 # Local ADNI exports and metadata downloads must remain outside Git.
 idaSearch*.csv

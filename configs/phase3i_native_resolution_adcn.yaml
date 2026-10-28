@@ -1,0 +1,42 @@
+experiment: phase3i_native_resolution_adcn
+run_id: phase3i_native_resolution_adcn_20261017
+development_only: true
+data_policy: original_train_subjects_only
+source_diagnostic_run_id: phase3g_mri_diagnosis_crossfit_20261016
+source_mri_run_id: phase3b_mri_representation_dev_20261014
+classes: [CN, AD]
+scan_policy: earliest_eligible_scan_per_subject
+native_volume:
+  expected_shape: [193, 229, 193]
+  expected_voxel_size_mm: [1.0, 1.0, 1.0]
+  dtype: float16
+  extraction_workers: 4
+  spatial_interpolation: false
+  crop_or_pad: false
+outer_folds: 5
+inner_tune_fraction: 0.15
+fold_seed: 20261017
+neural_seeds: [2026]
+sfcn_training:
+  batch_size: 4
+  max_epochs: 12
+  patience: 3
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  num_workers: 2
+  amp: true
+logistic:
+  C: 1.0
+  max_iter: 3000
+temperature_grid: [0.5, 0.625, 0.75, 0.875, 1.0, 1.25, 1.5, 2.0, 2.5, 3.0]
+classification_threshold: 0.5
+statistics:
+  bootstrap_seed: 20261017
+  bootstrap_replicates: 2000
+stopping:
+  minimum_native_mri_auc: 0.80
+  expand_to_three_seed_multiclass_if_passed: true
+  official_validation_loaded: false
+  official_test_loaded: false

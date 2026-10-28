@@ -1,0 +1,9 @@
+{
+  "comparison": "highest_influence_minus_matched_random_deletion",
+  "metric": "normalized_forecast_displacement",
+  "difference": 0.14324417289103442,
+  "ci_low": 0.11914198956526124,
+  "ci_high": 0.1706314895927347,
+  "subjects": 278,
+  "replicates": 2000
+}

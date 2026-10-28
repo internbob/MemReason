@@ -1,0 +1,8 @@
+{
+  "native_resolution_mri_auc": 0.7997106420004148,
+  "minimum_native_mri_auc": 0.8,
+  "native_resolution_sanity_gate_passed": false,
+  "expand_to_three_seed_multiclass": false,
+  "official_validation_loaded": false,
+  "official_test_loaded": false
+}
