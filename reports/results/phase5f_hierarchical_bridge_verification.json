@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "folds": 5,
+  "arms": 5,
+  "predictions": 1348975,
+  "cross_view_pairs": 29247,
+  "supported_graph_edges": 30,
+  "train_only": true,
+  "validation_or_test_loaded": false,
+  "phase5f_measurement_gate_passed": false,
+  "continuous_time_dynamics_open": false
+}

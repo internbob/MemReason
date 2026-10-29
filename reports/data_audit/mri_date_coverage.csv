@@ -1,0 +1,4 @@
+source,primary,scans,scans_with_image_id,scans_with_true_date,subjects,true_date_fraction
+adni_linear,True,10230,9363,9362,1981,0.9151515151515152
+surfgt,False,1143,1143,1143,1143,1.0
+unisurf_longitudinal,False,523,523,523,100,1.0

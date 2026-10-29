@@ -17,6 +17,9 @@ Selected later results are also exported here as compact aggregate artifacts:
 - `phase3m_*` contains the matched MRI preprocessing sensitivity analysis.
 - `phase3n_*` contains the corrected center-cropped three-class MRI result.
 - `phase5e_*` contains the frozen reasoning-faithfulness and renderer ablation.
+- `phase5f_*` contains the train-only hierarchical shared-state, instrument-residual,
+  and bridge-graph measurement development result. Predictive gates passed, but
+  the frozen cross-view CCC threshold did not, so dynamics remain closed.
 
 These exports contain reports, aggregate metrics, decisions, and verification
 records only. Model weights, MRI arrays, caches, participant-level predictions,

@@ -1,0 +1,66 @@
+experiment: phase5g_bridge_strength_pareto_and_residual_gate
+run_id: phase5g_bridge_pareto_gate_dev_20261029
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+parent_config: configs/phase5f_hierarchical_bridge_dev.yaml
+parent_output: outputs/phase5f_hierarchical_bridge_dev_20261028
+folds: 5
+partition_seed: 20261025
+inner_dev_fraction: 0.10
+memory_constructs:
+  objective_recall:
+    - adas_q1score
+    - adas_q4score
+    - mmse_word1dl
+    - mmse_word2dl
+    - mmse_word3dl
+    - LogMemIA_ImmediateScore
+    - LogMemIIA_DelayedScore
+  acquisition_recognition:
+    - adas_q8score
+    - adas_q9score
+    - mmse_word1
+    - mmse_word2
+    - mmse_word3
+    - mmse_mmtrials
+  informant_memory:
+    - cdr_cdmemory
+masking:
+  item_fraction: 0.20
+training:
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_epochs: 45
+  patience: 7
+  hidden_dim: 64
+  posterior_logvar_min: -6.0
+  posterior_logvar_max: 3.0
+  kl_weight: 0.001
+  residual_kl_weight: 0.010
+  residual_loading_weight: 0.010
+  graph_weight: 0.10
+  gradient_clip: 5.0
+graph:
+  nominal_visit_weight: 0.25
+  date_window_days: 30
+  minimum_edge_weight: 0.05
+  compare_global_state: true
+  compare_domain_states: true
+scan:
+  graph_weights: [0.0, 0.01, 0.03, 0.10, 0.30, 1.00]
+  run_gated_zero_duplicate: false
+residual_adaptive_gate:
+  floor: 0.25
+  temperature: 1.0
+  detach_evidence: true
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261029
+  state_bootstrap_replicates: 2000
+selection:
+  primary_prediction_task: heldout_instrument
+  maximum_nmae_degradation_vs_residual_only: 0.01
+  target_ccc_lower_bound: 0.70
+evaluation_policy: nested_subject_crossfit_original_train_only
+

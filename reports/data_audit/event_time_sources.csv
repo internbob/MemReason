@@ -7,7 +7,7 @@ CDR,collection_date,14391
 CDR,nominal_visit_month,1
 DXSUM,collection_date,14282
 DXSUM,nominal_visit_month,47
-FAQ,collection_date,13446
+FAQ,collection_date,13449
 FAQ,nominal_visit_month,2
 LOGMEM_DELAYED,nominal_visit_month,1589
 LOGMEM_IMMEDIATE,nominal_visit_month,1599
@@ -15,4 +15,5 @@ MMSE,collection_date,14342
 MMSE,nominal_visit_month,2
 MOCA,collection_date,9146
 MOCA,nominal_visit_month,3
-MRI,nominal_session_month,10230
+MRI,ida_study_date,9362
+MRI,nominal_session_month,868

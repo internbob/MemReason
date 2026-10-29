@@ -135,6 +135,20 @@ EXPORTS = {
         "phase5e_analysis_decision.json",
     "outputs/phase5e_reasoning_faithfulness_audit_20261016/independent_verification.json":
         "phase5e_independent_verification.json",
+    "outputs/phase5f_hierarchical_bridge_dev_20261028/report.md":
+        "phase5f_hierarchical_bridge_report.md",
+    "outputs/phase5f_hierarchical_bridge_dev_20261028/aggregate_metrics.csv":
+        "phase5f_hierarchical_bridge_aggregate_metrics.csv",
+    "outputs/phase5f_hierarchical_bridge_dev_20261028/cross_view_summary.csv":
+        "phase5f_hierarchical_bridge_cross_view_summary.csv",
+    "outputs/phase5f_hierarchical_bridge_dev_20261028/subject_bootstrap.csv":
+        "phase5f_hierarchical_bridge_subject_bootstrap.csv",
+    "outputs/phase5f_hierarchical_bridge_dev_20261028/connection_graph.csv":
+        "phase5f_hierarchical_bridge_connection_graph.csv",
+    "outputs/phase5f_hierarchical_bridge_dev_20261028/development_decision.json":
+        "phase5f_hierarchical_bridge_decision.json",
+    "outputs/phase5f_hierarchical_bridge_dev_20261028/verification.json":
+        "phase5f_hierarchical_bridge_verification.json",
 }
 
 

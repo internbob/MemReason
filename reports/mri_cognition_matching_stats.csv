@@ -1,5 +1,5 @@
 window_days,same_visit_pairs,true_date_pairs_evaluable,true_date_pairs_within_window,matched_pairs,matched_mri,unmatched_cognition_visits,unmatched_primary_mri,sensitivity_status,median_gap_days
-30,9436,0,0,9436,9436,6017,794,not_evaluable_without_scan_dates,
-60,9436,0,0,9436,9436,6017,794,not_evaluable_without_scan_dates,
-90,9436,0,0,9436,9436,6017,794,not_evaluable_without_scan_dates,
-180,9436,0,0,9436,9436,6017,794,not_evaluable_without_scan_dates,
+30,9436,9368,8695,9442,9436,6011,794,evaluated,2.0
+60,9436,9371,9122,9445,9436,6008,794,evaluated,2.0
+90,9436,9372,9222,9446,9436,6007,794,evaluated,2.0
+180,9436,9438,9389,9512,9436,5941,794,evaluated,2.0

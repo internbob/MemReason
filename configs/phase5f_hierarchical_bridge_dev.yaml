@@ -1,0 +1,70 @@
+experiment: phase5f_hierarchical_shared_state_bridge
+run_id: phase5f_hierarchical_bridge_dev_20261028
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+phase5c_output: outputs/phase5c_memory_measurement_dev_20261016
+folds: 5
+partition_seed: 20261025
+inner_dev_fraction: 0.10
+arms:
+  - hierarchical_shared
+  - hierarchical_residual
+  - hierarchical_bridge
+baseline_arms:
+  - fixed_domain_score
+  - unconstrained_autoencoder
+memory_constructs:
+  objective_recall:
+    - adas_q1score
+    - adas_q4score
+    - mmse_word1dl
+    - mmse_word2dl
+    - mmse_word3dl
+    - LogMemIA_ImmediateScore
+    - LogMemIIA_DelayedScore
+  acquisition_recognition:
+    - adas_q8score
+    - adas_q9score
+    - mmse_word1
+    - mmse_word2
+    - mmse_word3
+    - mmse_mmtrials
+  informant_memory:
+    - cdr_cdmemory
+masking:
+  item_fraction: 0.20
+training:
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_epochs: 45
+  patience: 7
+  hidden_dim: 64
+  posterior_logvar_min: -6.0
+  posterior_logvar_max: 3.0
+  kl_weight: 0.001
+  residual_kl_weight: 0.010
+  residual_loading_weight: 0.010
+  graph_weight: 0.10
+  gradient_clip: 5.0
+graph:
+  nominal_visit_weight: 0.25
+  date_window_days: 30
+  minimum_edge_weight: 0.05
+  compare_global_state: true
+  compare_domain_states: true
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261028
+  state_bootstrap_replicates: 2000
+gate:
+  candidate: hierarchical_bridge
+  fixed_baseline: fixed_domain_score
+  predictive_baseline: unconstrained_autoencoder
+  ae_noninferiority_margin: 0.01
+  memory_cross_view_ccc_lower_bound: 0.70
+  minimum_memory_state_std: 0.20
+  maximum_residual_fraction: 0.50
+  minimum_folds_better_than_fixed: 4
+evaluation_policy: nested_subject_crossfit_original_train_only
+

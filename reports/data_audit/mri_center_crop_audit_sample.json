@@ -1,0 +1,22 @@
+{
+  "n_requested": 64,
+  "n_audited": 64,
+  "n_failures": 0,
+  "source_shape": [
+    193,
+    229,
+    193
+  ],
+  "target_shape": [
+    160,
+    192,
+    160
+  ],
+  "spatial_interpolation": false,
+  "voxel_reduction_fraction": 0.42377633067960796,
+  "scans_with_cropped_mask_voxels": 64,
+  "total_cropped_mask_voxels": 1141477,
+  "minimum_retained_fraction": 0.9881856963333863,
+  "median_retained_fraction": 0.9914002780868919,
+  "failures": []
+}

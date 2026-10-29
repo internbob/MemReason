@@ -1,0 +1,28 @@
+{
+  "run_id": "phase5f_hierarchical_bridge_dev_20261028",
+  "development_only": true,
+  "original_train_only": true,
+  "validation_loaded": false,
+  "test_loaded": false,
+  "candidate": "hierarchical_bridge",
+  "fixed_score_improvement": true,
+  "autoencoder_noninferiority": true,
+  "memory_cross_view_ccc": {
+    "ccc": 0.6339537837941039,
+    "ci_low": 0.6206555977733622,
+    "ci_high": 0.6466914203200339,
+    "replicates": 2000,
+    "subjects": 2734,
+    "pairs": 9749
+  },
+  "cross_view_gate": false,
+  "memory_state_std": 0.22940146556658875,
+  "noncollapse_gate": true,
+  "residual_loading_fraction": 0.08543648858879092,
+  "residual_control_gate": true,
+  "folds_better_than_fixed": 5,
+  "fold_reproducibility_gate": true,
+  "phase5f_measurement_gate_passed": false,
+  "continuous_time_dynamics_open": false,
+  "next_step": "retain_phase5f_measurement_result_and_keep_dynamics_closed"
+}

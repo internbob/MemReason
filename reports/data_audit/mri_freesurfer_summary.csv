@@ -1,0 +1,5 @@
+split,directories,subjects,image_eligible_scans,image_eligible_subjects,roi_eligible_scans,surface_eligible_scans,subjects_with_at_least_2_images,adjacent_pairs,adjacent_pairs_6_36_months,subjects_with_6_36_month_pairs,same_day_primary_matches
+all,376,72,374,72,368,369,71,302,148,63,310
+train,291,57,290,57,284,285,56,233,113,49,242
+val,25,4,25,4,25,25,4,21,13,4,21
+test,60,11,59,11,59,59,11,48,22,10,47
