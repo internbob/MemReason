@@ -1,6 +1,6 @@
 # 项目构建状态
 
-当前交付范围：根据 Implementation Spec 建立真实数据管线和可运行的建模 v0，生成可复现 CSV split，并完成 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3N、reasoning Phase 4A–4F、Phase 5B frozen error decomposition、Phase 5C/5D memory-state measurement development，以及 Phase 5E frozen reasoning-faithfulness/renderer-ablation audit。
+当前交付范围：根据 Implementation Spec 建立真实数据管线和可运行的建模 v0，生成可复现 CSV split，并完成 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3N、reasoning Phase 4A–4F、Phase 5B frozen error decomposition、Phase 5C–5H memory-state measurement development/audit、Phase 5E frozen reasoning-faithfulness/renderer-ablation audit，以及 train-only exploratory Phase 6A latent-state dynamics。
 
 | 部分 | 当前状态 | 证据/限制 |
 |---|---|---|
@@ -46,6 +46,10 @@
 | Phase 5C interpretable memory-state redesign | Stage 0/1 完成，measurement gate 未通过 | AVLT/Logical Memory audit 与 70-item contract 完成；original-train 五折 nested OOF：unconstrained AE item/instrument 0.4446/0.4539，probabilistic domain 0.6782/0.5507；cross-view Spearman -0.0776，停止当前结构进入 dynamics |
 | Phase 5D anchored bifactor MIRT | 完成，measurement gate 未通过 | train-only 五折 nested OOF；typed global+Memory IRT item/instrument 0.5181/0.5273，autoencoder 为 0.4446/0.4539；Memory cross-view CCC 0.3713 [0.3547, 0.3873]；8 个稳定 Memory anchors 来自 ADAS/MMSE，但预测与一致性门槛失败，dynamics 保持关闭 |
 | Phase 5E reasoning faithfulness / renderer ablation | 完成，post-test frozen audit | 495 test reports；1,013 个 leave-one-visit 前向候选；278 名可配对受试者中最高影响/随机删除预测位移 0.2244/0.0811，差 0.1432 [0.1191, 0.1706]；全部反事实 IR 通过 verifier、零删除证据残留和零未来泄漏；executable renderer 与 teacher 完全一致，LLM renderer 无事实忠实度优势 |
+| Phase 5F hierarchical bridge measurement | 完成，预测 gate 通过、measurement gate 未通过 | original-train 五折 nested OOF；hierarchical bridge held-out item/instrument NMAE 0.3989/0.4166，优于 fixed score 与 autoencoder；Memory CCC 0.6340 [0.6207, 0.6467]，但下限未达冻结 0.70 门槛 |
+| Phase 5G bridge Pareto / residual gate | 完成，train-only development，measurement gate 仍关闭 | 11 variants、55 fits；在 +0.010 prediction tolerance 下选择 `ungated_w0p1`，held-out-instrument NMAE 0.4180，Memory CCC 0.6296 [0.6163, 0.6423]；residual-adaptive gate 未支配 ungated Pareto frontier |
+| Phase 5H measurement identifiability audit | 完成，train-only audit，measurement gate 仍关闭 | 4 个量表复合指标、6 个同期量表对；Phase 5G state CCC 0.6296 [0.6157, 0.6433]；衰减上限中位数 0.7711，但仅 4/6 对支持 CCC≥0.70，故不能把统一 0.70 阈值视作所有量表对均可辨识，也不重开 Phase 5F gate |
+| Phase 6A latent-state dynamics | 完成，train-only exploratory，校准 gate 未通过 | 五折 subject cross-fitting、7 臂、30 checkpoints、15,502 forecast samples/arm；reference+MRI filter latent MAE 0.0905 vs latent LOCF 0.0949，participant difference -0.00346 [-0.00436, -0.00255]；真实 MRI 比置乱 MRI 改善 0.00051，但 95% coverage=0.8360，未满足预设校准范围；不作 confirmatory continuous-time claim |
 | RLVR / GRPO | 两项真实 cognitive-only 实验均完成，不支持增益声明 | Phase 4D 的 state/trend action 与 Phase 4E 的 forecast/uncertainty action 均未超过冻结基线；Phase 4C 仍为支持策略，multimodal GRPO 关闭 |
 | Leakage audit | 完成初筛 | 仅量表缺失模式预测 diagnosis，验证 balanced accuracy 0.420；应继续按 phase 控制协议混杂 |
 | 科研 gates | Phase 4A/4C 通过；Phase 4F 仅 temporal 差 1e-4 未通过；Phase 4B raw、Phase 4D/4E GRPO、MRI/dynamics 未通过 | test 后不得再调；论文可报告冻结 GRU-D 的确认结果与 Phase 4C 的结构完整性改善，但不能声称完整 confirmatory gate 通过 |

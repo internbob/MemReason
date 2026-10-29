@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "variants": 11,
+  "folds": 5,
+  "checkpoints": 55,
+  "selected": "ungated_w0p1"
+}

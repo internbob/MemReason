@@ -1,0 +1,13 @@
+{
+  "run_id": "phase6a_latent_state_dynamics_dev_20261029",
+  "exploratory_only": true,
+  "original_train_only": true,
+  "validation_or_test_loaded": false,
+  "candidate": "reference_mri_filter",
+  "candidate_vs_locf_pass": true,
+  "real_minus_shuffled_mri_latent_mae": -0.0005106192908769097,
+  "real_mri_better_than_shuffled": true,
+  "coverage_gate": false,
+  "measurement_gate_reopened": false,
+  "confirmatory_continuous_time_claim_open": false
+}

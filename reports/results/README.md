@@ -20,6 +20,15 @@ Selected later results are also exported here as compact aggregate artifacts:
 - `phase5f_*` contains the train-only hierarchical shared-state, instrument-residual,
   and bridge-graph measurement development result. Predictive gates passed, but
   the frozen cross-view CCC threshold did not, so dynamics remain closed.
+- `phase5g_*` contains the bridge-strength Pareto scan and residual-adaptive gate
+  study. The selected development point improves the prediction/coherence trade-off,
+  but does not reach the frozen measurement threshold.
+- `phase5h_*` contains the train-only measurement-identifiability audit. The
+  attenuation ceiling supports a 0.70 CCC for only four of six instrument
+  pairs, so the universal cross-view threshold and measurement gate remain closed.
+- `phase6a_*` contains the explicitly exploratory train-only latent-state dynamics
+  study. The reference+MRI filter improves latent MAE over latent LOCF, but its
+  95% interval coverage fails calibration; it does not reopen the measurement gate.
 
 These exports contain reports, aggregate metrics, decisions, and verification
 records only. Model weights, MRI arrays, caches, participant-level predictions,

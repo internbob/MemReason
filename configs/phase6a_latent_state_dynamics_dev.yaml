@@ -1,0 +1,46 @@
+experiment: phase6a_latent_state_dynamics
+run_id: phase6a_latent_state_dynamics_dev_20261029
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+phase5g_states: outputs/phase5g_bridge_pareto_gate_dev_20261029/cross_view_memory_states.csv
+phase5g_selected_arm: ungated_w0p1
+mri_burden: outputs/phase3j_native_longitudinal_gated_fusion_20261017/native_scan_structural_burden.csv
+folds: 5
+partition_seed: 20261025
+inner_dev_fraction: 0.10
+forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+arms:
+  - latent_locf
+  - exact_gaussian
+  - precision_filter
+  - latent_wasserstein
+  - reference_filter
+  - reference_mri_filter
+  - shuffled_mri_filter
+training:
+  learning_rate: 0.03
+  weight_decay: 0.0001
+  max_epochs: 500
+  patience: 60
+  wasserstein_weight: 0.10
+  minimum_variance: 0.0001
+  maximum_variance: 25.0
+  gradient_clip: 5.0
+reference:
+  cn_labels: [CN, NORMAL]
+  minimum_cn_records: 100
+mri:
+  features: [burden_mean, burden_disagreement, burden_slope, burden_recency, log_count]
+  minimum_scans: 1
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261029
+gate:
+  candidate: reference_mri_filter
+  baseline: latent_locf
+  maximum_latent_mae_difference: 0.0
+  require_real_mri_better_than_shuffled: true
+  coverage_95_bounds: [0.90, 0.98]
+evaluation_policy: exploratory_five_fold_subject_crossfit_original_train_only_measurement_gate_remains_closed

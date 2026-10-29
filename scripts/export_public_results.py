@@ -149,6 +149,38 @@ EXPORTS = {
         "phase5f_hierarchical_bridge_decision.json",
     "outputs/phase5f_hierarchical_bridge_dev_20261028/verification.json":
         "phase5f_hierarchical_bridge_verification.json",
+    "outputs/phase5g_bridge_pareto_gate_dev_20261029/report.md":
+        "phase5g_bridge_pareto_report.md",
+    "outputs/phase5g_bridge_pareto_gate_dev_20261029/aggregate_metrics.csv":
+        "phase5g_bridge_pareto_aggregate_metrics.csv",
+    "outputs/phase5g_bridge_pareto_gate_dev_20261029/pareto_frontier.csv":
+        "phase5g_bridge_pareto_frontier.csv",
+    "outputs/phase5g_bridge_pareto_gate_dev_20261029/development_decision.json":
+        "phase5g_bridge_pareto_decision.json",
+    "outputs/phase5g_bridge_pareto_gate_dev_20261029/verification.json":
+        "phase5g_bridge_pareto_verification.json",
+    "outputs/phase5h_measurement_identifiability_audit_20261029/report.md":
+        "phase5h_measurement_identifiability_report.md",
+    "outputs/phase5h_measurement_identifiability_audit_20261029/instrument_reliability.csv":
+        "phase5h_measurement_identifiability_reliability.csv",
+    "outputs/phase5h_measurement_identifiability_audit_20261029/cross_instrument_pairs.csv":
+        "phase5h_measurement_identifiability_pairs.csv",
+    "outputs/phase5h_measurement_identifiability_audit_20261029/decision.json":
+        "phase5h_measurement_identifiability_decision.json",
+    "outputs/phase5h_measurement_identifiability_audit_20261029/verification.json":
+        "phase5h_measurement_identifiability_verification.json",
+    "outputs/phase6a_latent_state_dynamics_dev_20261029/report.md":
+        "phase6a_latent_state_dynamics_report.md",
+    "outputs/phase6a_latent_state_dynamics_dev_20261029/aggregate_metrics.csv":
+        "phase6a_latent_state_dynamics_aggregate_metrics.csv",
+    "outputs/phase6a_latent_state_dynamics_dev_20261029/metrics_by_horizon.csv":
+        "phase6a_latent_state_dynamics_horizon_metrics.csv",
+    "outputs/phase6a_latent_state_dynamics_dev_20261029/subject_bootstrap.csv":
+        "phase6a_latent_state_dynamics_bootstrap.csv",
+    "outputs/phase6a_latent_state_dynamics_dev_20261029/development_decision.json":
+        "phase6a_latent_state_dynamics_decision.json",
+    "outputs/phase6a_latent_state_dynamics_dev_20261029/verification.json":
+        "phase6a_latent_state_dynamics_verification.json",
 }
 
 

@@ -1,0 +1,21 @@
+{
+  "run_id": "phase5g_bridge_pareto_gate_dev_20261029",
+  "development_only": true,
+  "original_train_only": true,
+  "validation_loaded": false,
+  "test_loaded": false,
+  "variants": 11,
+  "models": 55,
+  "zero_reference": "ungated_w0",
+  "selected_development_point": "ungated_w0p1",
+  "selected_graph_weight": 0.1,
+  "selected_gated": false,
+  "selected_heldout_instrument_nmae": 0.4179645378082567,
+  "selected_ccc": 0.6296106441837959,
+  "selected_ccc_ci_low": 0.6162561172207971,
+  "selected_ccc_ci_high": 0.6422912100102676,
+  "selected_pareto_optimal": true,
+  "selection_tolerance": 0.01,
+  "phase5f_measurement_gate_reopened": false,
+  "continuous_time_dynamics_open": false
+}

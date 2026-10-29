@@ -1,0 +1,15 @@
+experiment: phase5h_measurement_identifiability_audit
+run_id: phase5h_measurement_identifiability_audit_20261029
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+phase5g_states: outputs/phase5g_bridge_pareto_gate_dev_20261029/cross_view_memory_states.csv
+phase5g_selected_arm: ungated_w0p1
+temporal_reliability:
+  minimum_gap_months: 3
+  maximum_gap_months: 18
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261029
+  minimum_pairs: 30
+reference_threshold: 0.70
+evaluation_policy: descriptive_original_train_only_no_gate_reopening

@@ -1,0 +1,17 @@
+{
+  "run_id": "phase5h_measurement_identifiability_audit_20261029",
+  "descriptive_only": true,
+  "original_train_only": true,
+  "validation_or_test_loaded": false,
+  "selected_phase5g_state_ccc": {
+    "ccc": 0.6296106441837959,
+    "ci_low": 0.6157063319727455,
+    "ci_high": 0.6433333084626689
+  },
+  "reference_threshold": 0.7,
+  "instrument_pairs": 6,
+  "pairs_with_estimable_ceiling": 6,
+  "pairs_with_ceiling_at_least_threshold": 4,
+  "threshold_empirically_universal": false,
+  "phase5f_gate_reopened": false
+}
