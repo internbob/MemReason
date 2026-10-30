@@ -1,0 +1,23 @@
+{
+  "all_subjects_original_train": true,
+  "class_subjects": {
+    "AD": 296,
+    "CN": 198,
+    "MCI": 639
+  },
+  "class_visits": {
+    "AD": 783,
+    "CN": 816,
+    "MCI": 2664
+  },
+  "future_targets": {
+    "12": 2756,
+    "24": 3061,
+    "36": 2319,
+    "6": 1680
+  },
+  "history_future_leakage_rows": 0,
+  "scans": 4263,
+  "subjects": 774,
+  "validation_or_test_loaded": false
+}

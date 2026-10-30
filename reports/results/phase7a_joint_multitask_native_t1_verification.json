@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scans": 4263,
+  "subjects": 774,
+  "classes": [
+    "CN",
+    "MCI",
+    "AD"
+  ],
+  "folds": 5,
+  "training_arms": [
+    "classification_only",
+    "regression_only",
+    "joint_multitask"
+  ],
+  "checkpoints": 15,
+  "prediction_rows": 17052,
+  "subject_leakage": 0,
+  "history_future_leakage": 0,
+  "joint_multitask_gate_passed": false,
+  "original_train_only": true,
+  "validation_or_test_loaded": false
+}

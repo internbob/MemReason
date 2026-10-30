@@ -1,6 +1,6 @@
 # 项目构建状态
 
-当前交付范围：根据 Implementation Spec 建立真实数据管线和可运行的建模 v0，生成可复现 CSV split，并完成 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3N、reasoning Phase 4A–4F、Phase 5B frozen error decomposition、Phase 5C–5H memory-state measurement development/audit、Phase 5E frozen reasoning-faithfulness/renderer-ablation audit，以及 train-only exploratory Phase 6A–6D1 latent-state/MRI audits。
+当前交付范围：根据 Implementation Spec 建立真实数据管线和可运行的建模 v0，生成可复现 CSV split，并完成 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3N、reasoning Phase 4A–4F、Phase 5B frozen error decomposition、Phase 5C–5H memory-state measurement development/audit、Phase 5E frozen reasoning-faithfulness/renderer-ablation audit、train-only exploratory Phase 6A–6D1 latent-state/MRI audits，以及独立的 Phase 7A native-T1 三分类/Memory 联合训练开发实验。
 
 | 部分 | 当前状态 | 证据/限制 |
 |---|---|---|
@@ -54,6 +54,7 @@
 | Phase 6C longitudinal MRI identifiability | 完成，train-only exploratory，时间信号 gate 未通过 | 732 名至少两次 MRI 且跨度六个月的受试者、7,669 samples；true dynamics MAE 0.08756，未优于 static MRI 0.08755 或 subject-shuffled dynamics 0.08753；MRI 冻结为静态辅助变量 |
 | Phase 6D0 fold-aligned native embedding | 完成，泄漏审计通过 | 五个 native-resolution SFCN encoder；每个 encoder 排除其 Phase 6 evaluation fold；4,616 scans × 128 dimensions × 5 fold-specific coordinate systems；零 fit/evaluation subject overlap，不跨 encoder 逐维平均 |
 | Phase 6D1 static embedding incremental value | 完成，严格 incremental gate 未通过 | embedding MAE 0.08434，优于 cognition-only 0.08529 和 subject-shuffled 0.08541；相对 fold-aligned AD probability 0.08455 的差 -0.000240 [-0.000571, +0.000091]，仅 3/5 folds 占优；coverage 0.9505；Phase 6D2/6E 按协议关闭、未运行 |
+| Phase 7A native-T1 joint diagnosis/Memory | 完成，独立 train-only development branch，联合 gate 未通过 | 774 subjects、4,263 native `193×229×193` scans、15 checkpoints；joint/classification-only macro AUC 0.6085/0.5958，差 +0.01310 [-0.00725, +0.03235]，但 ACC 0.2691/0.2988；joint/regression-only future Memory MAE 0.08311/0.08349，差 -0.000325 [-0.000644, -0.000034]，仅 3/5 folds 达到改善而未满足 4/5 门槛；MCI sensitivity 0.061，需改进类别平衡与任务冲突，不开放 confirmatory claim |
 | RLVR / GRPO | 两项真实 cognitive-only 实验均完成，不支持增益声明 | Phase 4D 的 state/trend action 与 Phase 4E 的 forecast/uncertainty action 均未超过冻结基线；Phase 4C 仍为支持策略，multimodal GRPO 关闭 |
 | Leakage audit | 完成初筛 | 仅量表缺失模式预测 diagnosis，验证 balanced accuracy 0.420；应继续按 phase 控制协议混杂 |
 | 科研 gates | Phase 4A/4C 通过；Phase 4F 仅 temporal 差 1e-4 未通过；Phase 4B raw、Phase 4D/4E GRPO、MRI/dynamics 未通过 | test 后不得再调；论文可报告冻结 GRU-D 的确认结果与 Phase 4C 的结构完整性改善，但不能声称完整 confirmatory gate 通过 |

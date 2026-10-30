@@ -46,6 +46,10 @@ Selected later results are also exported here as compact aggregate artifacts:
   subject-shuffled embeddings, but not reproducibly over its own encoder's AD
   probability. The prespecified gate is therefore false, so Phase 6D2 and Phase 6E
   were not opened.
+- `phase7a_*` contains the independent native-T1 CN/MCI/AD and Memory multitask
+  development branch. Joint training raises macro AUC and slightly lowers future
+  Memory MAE, but lowers accuracy/macro F1, has weak MCI sensitivity, and improves
+  future MAE in only 3/5 folds versus the frozen 4/5 requirement. Its gate is false.
 
 These exports contain reports, aggregate metrics, decisions, and verification
 records only. Model weights, MRI arrays, caches, participant-level predictions,

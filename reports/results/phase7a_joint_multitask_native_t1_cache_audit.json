@@ -1,0 +1,23 @@
+{
+  "cache_path": "/public_bme/data/zhouwl2023/MemReason_cache/phase7a_joint_multitask_native_t1_dev_20261030/volumes_native_193x229x193_float16.npy",
+  "crop_or_pad": false,
+  "dtype": "float16",
+  "observed_shapes": {
+    "193x229x193": 4263
+  },
+  "observed_voxel_sizes_mm": {
+    "1.0x1.0x1.0": 4263
+  },
+  "scans": 4263,
+  "shape": [
+    193,
+    229,
+    193
+  ],
+  "spatial_interpolation": false,
+  "voxel_size_mm": [
+    1.0,
+    1.0,
+    1.0
+  ]
+}

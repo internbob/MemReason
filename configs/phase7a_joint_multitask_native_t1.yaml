@@ -1,0 +1,70 @@
+experiment: phase7a_joint_multitask_native_t1
+run_id: phase7a_joint_multitask_native_t1_dev_20261030
+data_split: original_train_only
+classes: [CN, MCI, AD]
+folds: 5
+partition_seed: 20261030
+inner_dev_fraction: 0.12
+
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+phase5g_states: outputs/phase5g_bridge_pareto_gate_dev_20261029/cross_view_memory_states.csv
+phase5g_selected_arm: ungated_w0p1
+longitudinal_mri_burden: outputs/phase3j_native_longitudinal_gated_fusion_20261017/native_scan_structural_burden.csv
+train_mri_registry: splits/train_mri.csv
+phase6d0_config: configs/phase6d0_native_embedding_extract.yaml
+warm_start_checkpoints: outputs/phase6d0_native_embedding_extract_20261030/checkpoints
+warm_start_seed: 2026
+
+native_volume:
+  expected_shape: [193, 229, 193]
+  expected_voxel_size_mm: [1.0, 1.0, 1.0]
+  cache_root: /public_bme/data/zhouwl2023/MemReason_cache/phase7a_joint_multitask_native_t1_dev_20261030
+  cache_filename: volumes_native_193x229x193_float16.npy
+  extraction_workers: 8
+  spatial_interpolation: false
+  crop_or_pad: false
+
+forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+  history_features: [last, mean, slope_per_year, log_count, recency_years]
+
+arms:
+  - classification_only
+  - regression_only
+  - joint_multitask
+
+training:
+  seed: 2026
+  batch_size: 4
+  gradient_accumulation_steps: 2
+  max_epochs: 16
+  patience: 4
+  encoder_learning_rate: 0.0001
+  head_learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  num_workers: 2
+  amp: true
+  amp_dtype: bfloat16
+  log_variance_bounds: [-6.0, 3.0]
+  diagnosis_weight: 1.0
+  current_memory_weight: 0.5
+  future_memory_weight: 1.0
+  label_smoothing: 0.05
+  subject_balanced_one_scan_per_epoch: true
+
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261030
+
+gate:
+  classification_auc_noninferiority_margin: -0.01
+  require_joint_auc_point_nonnegative: true
+  require_joint_future_mae_ci_below_zero: true
+  minimum_folds_future_better: 4
+  minimum_horizons_future_noninferior: 3
+  coverage_95_bounds: [0.90, 0.98]
+
+evaluation_policy: exploratory_original_train_only_five_fold_subject_crossfit_no_official_validation_or_test

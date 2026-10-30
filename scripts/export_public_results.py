@@ -227,6 +227,30 @@ EXPORTS = {
         "phase6d1_static_embedding_incremental_decision.json",
     "outputs/phase6d1_static_embedding_incremental_dev_20261030/verification.json":
         "phase6d1_static_embedding_incremental_verification.json",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/report.md":
+        "phase7a_joint_multitask_native_t1_report.md",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/cohort_audit.json":
+        "phase7a_joint_multitask_native_t1_cohort_audit.json",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/native_cache_audit.json":
+        "phase7a_joint_multitask_native_t1_cache_audit.json",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/diagnostic_metrics.csv":
+        "phase7a_joint_multitask_native_t1_diagnostic_metrics.csv",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/diagnostic_per_class_metrics.csv":
+        "phase7a_joint_multitask_native_t1_per_class_metrics.csv",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/diagnostic_metric_intervals.csv":
+        "phase7a_joint_multitask_native_t1_diagnostic_intervals.csv",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/diagnostic_bootstrap.csv":
+        "phase7a_joint_multitask_native_t1_diagnostic_bootstrap.csv",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/regression_metrics.csv":
+        "phase7a_joint_multitask_native_t1_regression_metrics.csv",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/regression_metrics_by_horizon.csv":
+        "phase7a_joint_multitask_native_t1_horizon_metrics.csv",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/regression_bootstrap.json":
+        "phase7a_joint_multitask_native_t1_regression_bootstrap.json",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/development_decision.json":
+        "phase7a_joint_multitask_native_t1_decision.json",
+    "outputs/phase7a_joint_multitask_native_t1_dev_20261030/verification.json":
+        "phase7a_joint_multitask_native_t1_verification.json",
 }
 
 
