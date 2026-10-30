@@ -1,6 +1,6 @@
 # MemReason-RL
 
-本项目依据 `MemReason_RL_ADNI_Implementation_Spec.md` 构建。**已完成真实数据 Phase 0、subject-wise split、认知建模 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3N、reasoning Phase 4A–4F、Phase 5B–5H measurement/reasoning audits，以及 train-only exploratory Phase 6A latent-state dynamics。** Phase 4F 已对冻结 GRU-D + Phase 4C 进行一次性官方 test 确认：GRU-D macro normalized MAE 为 0.37510，并显著优于 LOCF；grammar decoder 获得 100% JSON/evidence/forecast/uncertainty preservation 和零未来泄漏。完整 gate 因 nested temporal consistency=0.98990 略低于预注册 0.99000 而失败。Phase 5F/5G 将 held-out-instrument NMAE 降到约 0.42，并把 Memory cross-view CCC 提高到约 0.63，但未达到冻结的 0.70 门槛。Phase 6A 的 reference+MRI filter 在 original-train cross-fitting 中优于 latent LOCF，但 95% coverage 仅 0.836，因此只作为探索性结果，不重开 measurement gate。当前论文主方法仍是 **GRU-D forecasting + typed executable reasoning IR/compiler/verifier**，LLM 仅为可选渲染器。Phase 4D/4E GRPO 仍不支持增益，多模态 reasoning/GRPO 仍关闭。
+本项目依据 `MemReason_RL_ADNI_Implementation_Spec.md` 构建。**已完成真实数据 Phase 0、subject-wise split、认知建模 Phase 1A–1F、cognitive-only irregular-time belief/calibration、MRI Phase 3A–3N、reasoning Phase 4A–4F、Phase 5B–5H measurement/reasoning audits，以及 train-only exploratory Phase 6A–6D1 latent-state/MRI audits。** Phase 4F 已对冻结 GRU-D + Phase 4C 进行一次性官方 test 确认：GRU-D macro normalized MAE 为 0.37510，并显著优于 LOCF；grammar decoder 获得 100% JSON/evidence/forecast/uncertainty preservation 和零未来泄漏。完整 gate 因 nested temporal consistency=0.98990 略低于预注册 0.99000 而失败。Phase 5F/5G 将 held-out-instrument NMAE 降到约 0.42，并把 Memory cross-view CCC 提高到约 0.63，但未达到冻结的 0.70 门槛。Phase 6D1 证明 fold-aligned 128D MRI embedding 相对 cognition-only 和 subject-shuffled embedding 有微小、可复现的静态增益，但相对同一 encoder 的 AD 概率增益未通过预注册门槛，因此 Phase 6D2/6E 未开放。当前论文主方法仍是 **GRU-D forecasting + typed executable reasoning IR/compiler/verifier**，LLM 仅为可选渲染器。Phase 4D/4E GRPO 仍不支持增益，多模态 reasoning/GRPO 仍关闭。
 
 GitHub 中保留的去标识化聚合结果见 [`reports/results/`](reports/results/README.md)；模型权重、MRI 数组、缓存、原始数据和受试者级预测均不进入 Git。
 
@@ -429,5 +429,23 @@ Phase 5G 在 original-train 五折中比较 11 个 bridge/gate variants（55 fit
 ## Phase 6A：exploratory latent-state dynamics
 
 在不重开 Phase 5F measurement gate 的前提下，Phase 6A 使用 Phase 5G OOF state 作为 noisy teacher，完成 original-train-only 五折 subject cross-fitting：7 个 arms、30 个 checkpoints、每臂 15,502 个 6/12/24/36 月预测样本。`reference_mri_filter` 的 latent MAE 为 **0.0905**，latent LOCF 为 **0.0949**；受试者配对差 **-0.00346**，95% CI **[-0.00436, -0.00255]**。真实 MRI 相对置乱 MRI 的 latent MAE 差为 **-0.00051**，但当前未对这项小差异作显著性声明。候选 95% coverage 仅 **0.8360**，未通过预设校准范围，因此只能报告点预测的探索性增益，不能声称已经确认连续时间潜在状态。完整结果见 [Phase 6A 报告](outputs/phase6a_latent_state_dynamics_dev_20261029/report.md)和[独立核验](outputs/phase6a_latent_state_dynamics_dev_20261029/verification.json)。
+
+## Phase 6B：MRI incremental-value audit
+
+Phase 6B 固定 Phase 6A folds，在 original-train-only 五折中训练 cognition-only、MRI metadata-only、real MRI、subject-shuffled MRI、within-subject time-shuffled MRI 和 MRI-only 六臂，共 30 个 checkpoints。主终点改为未来真实 observed Memory composite，而 Phase 5G latent teacher 仅作为辅助监督。Real MRI 的 composite MAE 为 **0.08450**，优于 cognition-only 的 0.08561、metadata-only 的 0.08547 和 subject-shuffled MRI 的 0.08557；对应受试者配对差分别为 **-0.001087**、**-0.000740** 和 **-0.000744**，且均在 5/5 folds、4/4 horizons 保持方向。临床区间 coverage 为 **0.9476**，进入冻结的 0.90--0.98 范围。
+
+但是 real MRI 与 within-subject time-shuffled MRI 的受试者配对差仅为 **-0.000055**，95% participant-bootstrap CI **[-0.000193, +0.000076]**，只在 3/5 folds、2/4 horizons 占优。该结果支持患者特异的稳定结构表型，但不支持当前 burden/slope 表示利用了正确纵向顺序。因此 `mri_content_signal_supported=false`、`disagreement_filter_open=false`；下一步应先改进 MRI 纵向表征或时间对齐，而不是直接加入复杂分歧 gate。完整结果见 [Phase 6B 报告](outputs/phase6b_mri_incremental_value_dev_20261029/report.md)、[独立核验](outputs/phase6b_mri_incremental_value_dev_20261029/verification.json)和[独立图件](outputs/phase6b_mri_incremental_value_dev_20261029/figures/README.md)。
+
+## Phase 6C：longitudinal MRI temporal-signal identifiability
+
+Phase 6C 使用实际 MRI acquisition date，并将队列限制为截止日前至少 2 次 MRI、跨度至少 6 个月的 original-train 受试者，共 **732 人、7,669 个预测样本**。五个动态特征包括首末 burden 变化与实际时间斜率、最近两次变化与斜率、首末 disagreement 变化；所有负对照都严格保留同一受试者的最新 burden/disagreement、MRI availability、recency、scan count 和 observation span。实验完成 6 臂五折、30 个可审计 checkpoints；其中 sign-flip 是候选模型的推理期方向干预，因为全程符号翻转是可逆变换，重新训练不能构成有效负对照。
+
+True longitudinal MRI 的 observed Memory composite MAE 为 **0.08756**，低于 cognition-only 的 0.09002，但没有优于 static MRI（0.08755）或 subject-shuffled dynamics（0.08753）。受试者配对的 true-minus-static 差为 **+0.000098**，95% CI **[-0.000084, +0.000290]**；true-minus-subject-shuffled 为 **+0.000157**，95% CI **[-0.000062, +0.000372]**。真实动态只在 2/5 folds、1/4 horizons 优于 static MRI。候选 coverage 为 **0.9485**，校准合格，但时间信号判据失败。因此 `longitudinal_mri_signal_supported=false`、`disagreement_filter_open=false`，当前 MRI 应冻结为静态辅助变量。完整结果见 [Phase 6C 报告](outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/report.md)、[独立核验](outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/verification.json)和[独立图件](outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/figures/README.md)。
+
+## Phase 6D0/6D1：fold-aligned 128D MRI embedding
+
+Phase 6D0 在 native `193×229×193` T1 上重新训练五个 fold-specific SFCN encoder。对 fold `k`，encoder fit subjects 与该 fold 的 Phase 6 evaluation subjects 严格隔离；随后用每个 encoder 分别提取 original-train 的 **4,616** 个纵向扫描、每个 **128 维**的 embedding。五套独立 encoder 的坐标不作逐维平均，泄漏审计为零。完整结果见 [Phase 6D0 报告](outputs/phase6d0_native_embedding_extract_20261030/report.md)和[独立核验](outputs/phase6d0_native_embedding_extract_20261030/verification.json)。
+
+Phase 6D1 对每个 outer fold 只使用对应 encoder，并在 outer-fit 内拟合标准化与 PCA-16；只有 acquisition date 不晚于 cognition cutoff 的扫描可进入模型。`embedding_static` 的 observed Memory composite MAE 为 **0.08434**，优于 cognition-only 的 0.08529（配对差 **-0.001048**，95% CI **[-0.001486, -0.000587]**）和 subject-shuffled embedding 的 0.08541（差 **-0.000836**，95% CI **[-0.001328, -0.000349]**）。但相对同一 encoder 的 AD probability（MAE 0.08455）差仅为 **-0.000240**，95% CI **[-0.000571, +0.000091]**，且只在 3/5 folds 占优。候选 coverage 为 **0.9505**，但严格 incremental gate 仍为 false。结论是 128D embedding 含有真实患者特异信息，却尚未证明其超出分类概率的额外维度能稳定改善预测；按冻结执行顺序，Phase 6D2 和 Phase 6E 均未开放。完整结果见 [Phase 6D1 报告](outputs/phase6d1_static_embedding_incremental_dev_20261030/report.md)和[独立核验](outputs/phase6d1_static_embedding_incremental_dev_20261030/verification.json)。
 
 数据审计入口：[summary.md](reports/data_audit/summary.md)。完整工程状态：[BUILD_STATUS.md](BUILD_STATUS.md)。

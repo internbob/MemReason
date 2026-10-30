@@ -1,0 +1,36 @@
+{
+  "run_id": "phase6b_mri_incremental_value_dev_20261029",
+  "exploratory_only": true,
+  "original_train_only": true,
+  "validation_or_test_loaded": false,
+  "candidate": "real_mri",
+  "primary_endpoint": "future_observed_memory_composite_mae",
+  "comparisons": {
+    "cognition_only": {
+      "overall_difference": -0.0011066453295383721,
+      "folds_better": 5,
+      "horizons_noninferior": 4
+    },
+    "metadata_only": {
+      "overall_difference": -0.0009655597124943321,
+      "folds_better": 5,
+      "horizons_noninferior": 4
+    },
+    "subject_shuffled_mri": {
+      "overall_difference": -0.0010695287487664379,
+      "folds_better": 5,
+      "horizons_noninferior": 4
+    },
+    "time_shuffled_mri": {
+      "overall_difference": -3.475874219995012e-05,
+      "folds_better": 3,
+      "horizons_noninferior": 2
+    }
+  },
+  "candidate_coverage_95": 0.947555154173655,
+  "coverage_gate": true,
+  "mri_content_signal_supported": false,
+  "disagreement_filter_open": false,
+  "measurement_gate_reopened": false,
+  "confirmatory_multimodal_claim_open": false
+}

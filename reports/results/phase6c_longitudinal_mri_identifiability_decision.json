@@ -1,0 +1,37 @@
+{
+  "run_id": "phase6c_longitudinal_mri_identifiability_dev_20261030",
+  "exploratory_only": true,
+  "original_train_only": true,
+  "validation_or_test_loaded": false,
+  "candidate": "true_longitudinal_mri",
+  "primary_endpoint": "future_observed_memory_composite_mae",
+  "comparisons": {
+    "static_mri": {
+      "overall_difference": 1.0987510385265797e-05,
+      "folds_better": 2,
+      "horizons_better": 1
+    },
+    "date_permuted_dynamics": {
+      "overall_difference": -9.559807309850177e-05,
+      "folds_better": 4,
+      "horizons_better": 3
+    },
+    "sign_flipped_dynamics": {
+      "overall_difference": -0.0002651083113652114,
+      "folds_better": 4,
+      "horizons_better": 4
+    },
+    "subject_shuffled_dynamics": {
+      "overall_difference": 2.9135900360577338e-05,
+      "folds_better": 3,
+      "horizons_better": 1
+    }
+  },
+  "candidate_coverage_95": 0.9484939366279828,
+  "coverage_gate": true,
+  "longitudinal_mri_signal_supported": false,
+  "disagreement_filter_open": false,
+  "freeze_mri_as_static_auxiliary": true,
+  "measurement_gate_reopened": false,
+  "confirmatory_multimodal_claim_open": false
+}

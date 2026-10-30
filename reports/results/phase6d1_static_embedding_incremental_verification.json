@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "arms": 6,
+  "folds": 5,
+  "predictions": 93012,
+  "checkpoints": 30,
+  "static_embedding_gate_passed": false,
+  "validation_or_test_loaded": false
+}

@@ -1,0 +1,11 @@
+candidate,comparator,metric,difference,ci_low,ci_high,subjects,replicates
+true_longitudinal_mri,cognition_only,composite_absolute_error,-0.002453501591286707,-0.003543079551969411,-0.0013415388809602787,732,2000
+true_longitudinal_mri,cognition_only,latent_absolute_error,-0.00023139257307938074,-0.0016476317206062492,0.0011344161418528704,732,2000
+true_longitudinal_mri,static_mri,composite_absolute_error,9.75789707604946e-05,-8.413032061056357e-05,0.00029003504707155863,732,2000
+true_longitudinal_mri,static_mri,latent_absolute_error,0.000275355889759774,2.513697295124835e-05,0.0005407584951341453,732,2000
+true_longitudinal_mri,date_permuted_dynamics,composite_absolute_error,-9.710871562893424e-06,-0.00017696171750103754,0.00016519350601977426,732,2000
+true_longitudinal_mri,date_permuted_dynamics,latent_absolute_error,7.295673477209794e-05,-0.00015855074761152656,0.0002932223604176275,732,2000
+true_longitudinal_mri,sign_flipped_dynamics,composite_absolute_error,1.6319933765347405e-06,-0.00033864125062889685,0.00035430384572622894,732,2000
+true_longitudinal_mri,sign_flipped_dynamics,latent_absolute_error,0.0002227843894797601,-0.0002261487085213548,0.0006903530165768202,732,2000
+true_longitudinal_mri,subject_shuffled_dynamics,composite_absolute_error,0.00015666829240164258,-6.248201626650112e-05,0.00037242366218135525,732,2000
+true_longitudinal_mri,subject_shuffled_dynamics,latent_absolute_error,7.729261322655801e-05,-0.00024492915743423537,0.0003923490167513782,732,2000

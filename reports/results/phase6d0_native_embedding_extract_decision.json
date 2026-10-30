@@ -1,0 +1,10 @@
+{
+  "run_id": "phase6d0_native_embedding_extract_20261030",
+  "original_train_only": true,
+  "validation_or_test_loaded": false,
+  "fold_aligned_embeddings_ready": true,
+  "folds": 5,
+  "scans": 4616,
+  "embedding_dimension": 128,
+  "coordinatewise_fold_averaging": false
+}

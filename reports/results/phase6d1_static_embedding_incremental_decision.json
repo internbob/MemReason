@@ -1,0 +1,37 @@
+{
+  "run_id": "phase6d1_static_embedding_incremental_dev_20261030",
+  "original_train_only": true,
+  "validation_or_test_loaded": false,
+  "candidate": "embedding_static",
+  "comparisons": {
+    "cognition_only": {
+      "overall_difference": -0.0009482819469696924,
+      "participant_difference": -0.0010478149814778304,
+      "ci_low": -0.0014858124705028797,
+      "ci_high": -0.0005874094589060227,
+      "folds_better": 4,
+      "horizons_noninferior": 4
+    },
+    "probability_static": {
+      "overall_difference": -0.00021050470405784005,
+      "participant_difference": -0.00024009107506558336,
+      "ci_low": -0.0005708712572338458,
+      "ci_high": 9.066899018764507e-05,
+      "folds_better": 3,
+      "horizons_noninferior": 4
+    },
+    "subject_shuffled_embedding": {
+      "overall_difference": -0.0010635271632956494,
+      "participant_difference": -0.0008357726500287023,
+      "ci_low": -0.00132816386698822,
+      "ci_high": -0.0003490003678937843,
+      "folds_better": 5,
+      "horizons_noninferior": 4
+    }
+  },
+  "candidate_coverage_95": 0.9505225132241001,
+  "static_embedding_gate_passed": false,
+  "phase6d2_open": false,
+  "measurement_gate_reopened": false,
+  "confirmatory_multimodal_claim_open": false
+}

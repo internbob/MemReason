@@ -1,0 +1,11 @@
+candidate,comparator,metric,difference,ci_low,ci_high,subjects,replicates
+embedding_static,cognition_only,composite_absolute_error,-0.0010478149814778304,-0.0014858124705028797,-0.0005874094589060227,1640,2000
+embedding_static,cognition_only,latent_absolute_error,-0.0007360256258650766,-0.0013837425763636975,-9.38943350549701e-05,1640,2000
+embedding_static,metadata_only,composite_absolute_error,-0.0006766972766700907,-0.0010930572896001474,-0.00028627318755716953,1640,2000
+embedding_static,metadata_only,latent_absolute_error,-0.00025732417683538105,-0.0007920648867519715,0.0003150881331703197,1640,2000
+embedding_static,probability_static,composite_absolute_error,-0.00024009107506558336,-0.0005708712572338458,9.066899018764507e-05,1640,2000
+embedding_static,probability_static,latent_absolute_error,-0.00019934336999909914,-0.0006908963378817294,0.0002319575231917842,1640,2000
+embedding_static,probability_plus_embedding,composite_absolute_error,2.1485662111644048e-05,-1.6353711873706607e-05,5.468832471489763e-05,1640,2000
+embedding_static,probability_plus_embedding,latent_absolute_error,-5.065513827208715e-05,-9.637951301525852e-05,-9.538577145376664e-06,1640,2000
+embedding_static,subject_shuffled_embedding,composite_absolute_error,-0.0008357726500287023,-0.00132816386698822,-0.0003490003678937843,1640,2000
+embedding_static,subject_shuffled_embedding,latent_absolute_error,-0.00041973467073262396,-0.0010886146802770154,0.0002784539006658581,1640,2000

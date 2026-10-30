@@ -1,0 +1,55 @@
+experiment: phase6d1_static_embedding_incremental
+run_id: phase6d1_static_embedding_incremental_dev_20261030
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+phase5g_states: outputs/phase5g_bridge_pareto_gate_dev_20261029/cross_view_memory_states.csv
+phase5g_selected_arm: ungated_w0p1
+embedding_run: outputs/phase6d0_native_embedding_extract_20261030
+folds: 5
+inner_dev_fraction: 0.10
+forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+arms:
+  - cognition_only
+  - metadata_only
+  - probability_static
+  - embedding_static
+  - probability_plus_embedding
+  - subject_shuffled_embedding
+training:
+  learning_rate: 0.03
+  weight_decay: 0.0001
+  max_epochs: 500
+  patience: 60
+  wasserstein_weight: 0.10
+  clinical_nll_weight: 1.00
+  minimum_variance: 0.0001
+  gradient_clip: 5.0
+reference:
+  cn_labels: [CN, NORMAL]
+  minimum_cn_records: 100
+mri:
+  cognitive_cutoff_date: cognition_date_end
+  embedding_dimension: 128
+  pca_dimension: 16
+  embedding_indices: [0, 16]
+  probability_index: 16
+  metadata_indices: [17, 18]
+  features: [embedding_pc00, embedding_pc01, embedding_pc02, embedding_pc03,
+             embedding_pc04, embedding_pc05, embedding_pc06, embedding_pc07,
+             embedding_pc08, embedding_pc09, embedding_pc10, embedding_pc11,
+             embedding_pc12, embedding_pc13, embedding_pc14, embedding_pc15,
+             probability_ad, recency_years, log_scan_count]
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261030
+selection:
+  candidate: embedding_static
+  comparators: [cognition_only, probability_static, subject_shuffled_embedding]
+  minimum_folds_better: 4
+  minimum_horizons_noninferior: 3
+  maximum_horizon_degradation: 0.0
+  require_bootstrap_ci_below_zero: true
+  coverage_95_bounds: [0.90, 0.98]
+evaluation_policy: exploratory_five_fold_subject_crossfit_original_train_only_gate_before_longitudinal_embedding

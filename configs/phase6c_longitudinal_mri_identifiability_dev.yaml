@@ -1,0 +1,60 @@
+experiment: phase6c_longitudinal_mri_identifiability
+run_id: phase6c_longitudinal_mri_identifiability_dev_20261030
+data_split: original_train_only
+item_contract: configs/phase5c_memory_state_item_contract.yaml
+phase5g_states: outputs/phase5g_bridge_pareto_gate_dev_20261029/cross_view_memory_states.csv
+phase5g_selected_arm: ungated_w0p1
+mri_burden: outputs/phase3j_native_longitudinal_gated_fusion_20261017/native_scan_structural_burden.csv
+folds: 5
+partition_seed: 20261025
+inner_dev_fraction: 0.10
+forecast:
+  horizons_months: [6, 12, 24, 36]
+  tolerance_months: {6: 3, 12: 3, 24: 6, 36: 6}
+arms:
+  - cognition_only
+  - static_mri
+  - true_longitudinal_mri
+  - date_permuted_dynamics
+  - sign_flipped_dynamics
+  - subject_shuffled_dynamics
+training:
+  learning_rate: 0.03
+  weight_decay: 0.0001
+  max_epochs: 500
+  patience: 60
+  wasserstein_weight: 0.10
+  clinical_nll_weight: 1.00
+  minimum_variance: 0.0001
+  gradient_clip: 5.0
+reference:
+  cn_labels: [CN, NORMAL]
+  minimum_cn_records: 100
+mri:
+  cognitive_cutoff_date: cognition_date_end
+  minimum_scans: 2
+  minimum_span_years: 0.5
+  sensitivity_span_years: 1.0
+  features:
+    - latest_burden
+    - latest_disagreement
+    - recency_years
+    - log_scan_count
+    - log_span_years
+    - first_last_burden_delta
+    - burden_slope_per_year
+    - last_two_burden_delta
+    - last_two_burden_slope_per_year
+    - first_last_disagreement_delta
+  static_feature_indices: [0, 1, 2, 3, 4]
+  dynamic_feature_indices: [5, 6, 7, 8, 9]
+statistics:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261030
+selection:
+  candidate: true_longitudinal_mri
+  comparators: [static_mri, date_permuted_dynamics, sign_flipped_dynamics, subject_shuffled_dynamics]
+  minimum_folds_better: 4
+  minimum_horizons_better: 3
+  coverage_95_bounds: [0.90, 0.98]
+evaluation_policy: exploratory_five_fold_subject_crossfit_original_train_only_no_validation_or_test

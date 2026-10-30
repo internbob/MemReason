@@ -1,0 +1,34 @@
+experiment: phase6d0_native_embedding_extract
+run_id: phase6d0_native_embedding_extract_20261030
+data_split: original_train_only
+phase5g_states: outputs/phase5g_bridge_pareto_gate_dev_20261029/cross_view_memory_states.csv
+phase5g_selected_arm: ungated_w0p1
+phase3i_cohort: outputs/phase3i_native_resolution_adcn_20261017/cohort_manifest.csv
+phase3i_subject_folds: outputs/phase3i_native_resolution_adcn_20261017/subject_folds.csv
+phase3i_volume_cache: outputs/phase3i_native_resolution_adcn_20261017/volumes_native_193x229x193_float16.npy
+longitudinal_mri_burden: outputs/phase3j_native_longitudinal_gated_fusion_20261017/native_scan_structural_burden.csv
+train_mri_registry: splits/train_mri.csv
+folds: 5
+encoder_seed: 2026
+inner_tune_fraction: 0.15
+inner_seed: 20261030
+native_volume:
+  expected_shape: [193, 229, 193]
+  spatial_interpolation: false
+  crop_or_pad: false
+sfcn_training:
+  batch_size: 4
+  max_epochs: 12
+  patience: 3
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.15
+  gradient_clip: 1.0
+  num_workers: 2
+  amp: true
+encoding:
+  batch_size: 2
+  num_workers: 4
+  amp: true
+  embedding_dimension: 128
+evaluation_policy: fold_aligned_encoder_excludes_every_phase6_outer_evaluation_subject

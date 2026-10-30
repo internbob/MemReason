@@ -29,6 +29,23 @@ Selected later results are also exported here as compact aggregate artifacts:
 - `phase6a_*` contains the explicitly exploratory train-only latent-state dynamics
   study. The reference+MRI filter improves latent MAE over latent LOCF, but its
   95% interval coverage fails calibration; it does not reopen the measurement gate.
+- `phase6b_*` contains the train-only MRI incremental-value audit. Real MRI
+  improves the observed Memory endpoint over cognition-only, acquisition metadata,
+  and subject-shuffled controls, but not over within-subject time shuffling; the
+  multimodal disagreement-aware filter therefore remains closed.
+- `phase6c_*` contains the actual-date longitudinal MRI identifiability audit on
+  participants with at least two pre-cutoff scans spanning six months. Correct
+  dynamics do not improve over the same latest static MRI state or subject-shuffled
+  dynamics, so MRI is frozen as a static auxiliary covariate for this representation.
+- `phase6d0_*` contains the fold-aligned native-resolution SFCN extraction audit.
+  Five separately trained encoders produce 128-dimensional embeddings for 4,616
+  original-train scans, with zero overlap between each encoder's fit subjects and
+  its Phase 6 evaluation fold. Embedding coordinates are never averaged across encoders.
+- `phase6d1_*` contains the static 128-dimensional embedding incremental-value audit.
+  The embedding arm improves the observed Memory endpoint over cognition-only and
+  subject-shuffled embeddings, but not reproducibly over its own encoder's AD
+  probability. The prespecified gate is therefore false, so Phase 6D2 and Phase 6E
+  were not opened.
 
 These exports contain reports, aggregate metrics, decisions, and verification
 records only. Model weights, MRI arrays, caches, participant-level predictions,

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "arms": 6,
+  "folds": 5,
+  "predictions": 46014,
+  "forecast_samples_per_arm": 7669,
+  "subjects": 732,
+  "checkpoints": 30,
+  "figures_pdf": 6,
+  "figures_png": 6,
+  "primary_endpoint": "future_observed_memory_composite_mae",
+  "longitudinal_mri_signal_supported": false,
+  "validation_or_test_loaded": false,
+  "measurement_gate_reopened": false
+}

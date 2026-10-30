@@ -181,6 +181,52 @@ EXPORTS = {
         "phase6a_latent_state_dynamics_decision.json",
     "outputs/phase6a_latent_state_dynamics_dev_20261029/verification.json":
         "phase6a_latent_state_dynamics_verification.json",
+    "outputs/phase6b_mri_incremental_value_dev_20261029/report.md":
+        "phase6b_mri_incremental_value_report.md",
+    "outputs/phase6b_mri_incremental_value_dev_20261029/aggregate_metrics.csv":
+        "phase6b_mri_incremental_value_aggregate_metrics.csv",
+    "outputs/phase6b_mri_incremental_value_dev_20261029/metrics_by_horizon.csv":
+        "phase6b_mri_incremental_value_horizon_metrics.csv",
+    "outputs/phase6b_mri_incremental_value_dev_20261029/paired_subject_bootstrap.csv":
+        "phase6b_mri_incremental_value_bootstrap.csv",
+    "outputs/phase6b_mri_incremental_value_dev_20261029/development_decision.json":
+        "phase6b_mri_incremental_value_decision.json",
+    "outputs/phase6b_mri_incremental_value_dev_20261029/verification.json":
+        "phase6b_mri_incremental_value_verification.json",
+    "outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/report.md":
+        "phase6c_longitudinal_mri_identifiability_report.md",
+    "outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/aggregate_metrics.csv":
+        "phase6c_longitudinal_mri_identifiability_aggregate_metrics.csv",
+    "outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/metrics_by_horizon.csv":
+        "phase6c_longitudinal_mri_identifiability_horizon_metrics.csv",
+    "outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/paired_subject_bootstrap.csv":
+        "phase6c_longitudinal_mri_identifiability_bootstrap.csv",
+    "outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/development_decision.json":
+        "phase6c_longitudinal_mri_identifiability_decision.json",
+    "outputs/phase6c_longitudinal_mri_identifiability_dev_20261030/verification.json":
+        "phase6c_longitudinal_mri_identifiability_verification.json",
+    "outputs/phase6d0_native_embedding_extract_20261030/report.md":
+        "phase6d0_native_embedding_extract_report.md",
+    "outputs/phase6d0_native_embedding_extract_20261030/encoder_fold_manifest.csv":
+        "phase6d0_native_embedding_extract_fold_manifest.csv",
+    "outputs/phase6d0_native_embedding_extract_20261030/leakage_and_embedding_audit.csv":
+        "phase6d0_native_embedding_extract_audit.csv",
+    "outputs/phase6d0_native_embedding_extract_20261030/development_decision.json":
+        "phase6d0_native_embedding_extract_decision.json",
+    "outputs/phase6d0_native_embedding_extract_20261030/verification.json":
+        "phase6d0_native_embedding_extract_verification.json",
+    "outputs/phase6d1_static_embedding_incremental_dev_20261030/report.md":
+        "phase6d1_static_embedding_incremental_report.md",
+    "outputs/phase6d1_static_embedding_incremental_dev_20261030/aggregate_metrics.csv":
+        "phase6d1_static_embedding_incremental_aggregate_metrics.csv",
+    "outputs/phase6d1_static_embedding_incremental_dev_20261030/metrics_by_horizon.csv":
+        "phase6d1_static_embedding_incremental_horizon_metrics.csv",
+    "outputs/phase6d1_static_embedding_incremental_dev_20261030/paired_subject_bootstrap.csv":
+        "phase6d1_static_embedding_incremental_bootstrap.csv",
+    "outputs/phase6d1_static_embedding_incremental_dev_20261030/development_decision.json":
+        "phase6d1_static_embedding_incremental_decision.json",
+    "outputs/phase6d1_static_embedding_incremental_dev_20261030/verification.json":
+        "phase6d1_static_embedding_incremental_verification.json",
 }
 
 

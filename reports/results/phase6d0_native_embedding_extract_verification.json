@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "folds": 5,
+  "scans": 4616,
+  "embedding_dimension": 128,
+  "leaked_subjects": 0,
+  "validation_or_test_loaded": false
+}

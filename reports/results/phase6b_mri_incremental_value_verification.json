@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "arms": 6,
+  "folds": 5,
+  "predictions": 93012,
+  "checkpoints": 30,
+  "primary_endpoint": "future_observed_memory_composite_mae",
+  "mri_content_signal_supported": false,
+  "validation_or_test_loaded": false,
+  "measurement_gate_reopened": false
+}
